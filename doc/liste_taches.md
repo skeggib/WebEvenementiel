@@ -25,6 +25,12 @@
 - Définition du format des réponses
 - Formatage des données
 
+## PHP autres
+
+- Envoi d'un email
+- Page de validation
+- Identifiant unique pour validation (hashage)
+
 # Front-end
 
 ## HTML / CSS
