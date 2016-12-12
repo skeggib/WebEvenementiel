@@ -7,24 +7,24 @@
 - Inscription
 - Connexion
 - Création d'un évènement
-- Ajouter des invités
+- Ajout d'invités
     - Envoyer un e-mail
-    - Lien de validation (id unique)
+    - Lien de validation (id unique) dans l'e-mail
 - Affichage de la liste des évènements
 - Affichage d'un évènement
-    - Nom de l'évènement
+    - Nom
     - Date
     - Liste des invités
-    - Nombre d'invités
+    - Nombre d'invités ayant accepté
 - Détail d'un invité
 
 # Fonctionnalités supplémentaires
 
-- Modifier le profile
-- Supprimer un invité d'un évènement.
-- Générer QR-code
+- Modifier son profile
+- Supprimer un invité d'un évènement
+- Générer un QR-code
 - Statut d'une évènement (en cours / passé / ...)
 
 # Bonus
 
-- Application scanner
+- Application scanner de codes QR (android / osx)
