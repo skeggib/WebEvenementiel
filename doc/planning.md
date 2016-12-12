@@ -36,10 +36,10 @@
 
 # Avril 2016
 
-- AJAX et JavaScript
+- Finalisation projet en cas de retards
+- Fonctionnalités optionnelles
 
 # Mai 2016
 
 - Finalisation du rapport
 - Préparation de la soutenance
-- Ajout de fonctionnalités optionnelles
