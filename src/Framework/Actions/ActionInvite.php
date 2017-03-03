@@ -4,6 +4,10 @@
  * Anthony Vuillemin
  */
 
+namespace WebEvents\Framework\Actions;
+
+require_once("Action.php");
+
 /**
  * Action which invite some people to an Event
  */

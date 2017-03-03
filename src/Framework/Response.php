@@ -7,7 +7,6 @@
 /**
  * A Response contain the result of an action and is ready to send
  */
-
 class Response
 {
     private $value;

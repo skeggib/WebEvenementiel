@@ -22,13 +22,13 @@ Contents of the $_POST variables :
 
 # Existing queries
 
-## Login
+## Sign-in
 
 Checks if the user exists in the database and that the password matches. A PHP session is used to keep the connection open.
 
 **Request**:
 
-`'cmd': 'login`
+`'cmd': 'signin`
 
 `'login': '<login>'`
 
@@ -64,7 +64,7 @@ Lists all events that belongs to the connected user.
 
 **Request**:
 
-`'cmd': 'listEvents'`
+`'cmd': 'listevents'`
 
 **Response**:
 
@@ -76,7 +76,7 @@ Reads the event general informations and the list of guests. Checks if the event
 
 **Request**:
 
-`'cmd': 'getEvent'`
+`'cmd': 'getevent'`
 
 `'id': '<event_id>'`
 
@@ -90,7 +90,7 @@ Creates a new event.
 
 **Request**:
 
-`'cmd': 'createEvent'`
+`'cmd': 'createevent'`
 
 `'name': '<events_name>'`
 

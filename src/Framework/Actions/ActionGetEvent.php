@@ -4,6 +4,10 @@
  * Anthony Vuillemin
  */
 
+namespace WebEvents\Framework\Actions;
+
+require_once("Action.php");
+
 /**
  * Action who Get a Event
  */
