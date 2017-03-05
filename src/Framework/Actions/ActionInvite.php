@@ -1,9 +1,5 @@
 <?php
 
-/* ActionInvite.php
- * Anthony Vuillemin
- */
-
 namespace WebEvents\Framework\Actions;
 
 require_once("Action.php");

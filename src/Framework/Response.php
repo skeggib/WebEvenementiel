@@ -1,8 +1,6 @@
 <?php
 
-/* Response.php
- * Anthony Vuillemin
- */
+namespace WebEvent\Framework;
 
 /**
  * A Response contain the result of an action and is ready to send

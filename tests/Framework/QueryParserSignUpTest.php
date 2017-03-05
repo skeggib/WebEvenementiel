@@ -1,9 +1,5 @@
 <?php
 
-/* QueryParserTest.php
- * Sebastien Klasa
- */
-
 namespace WebEvents\Framework;
 
 use PHPUnit\Framework\TestCase;

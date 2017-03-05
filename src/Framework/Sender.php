@@ -1,8 +1,6 @@
 <?php
 
-/* Sender.php
- * Anthony Vuillemin
- */
+namespace WebEvent\Framework;
 
 /**
  * Sender send a result to the front-end

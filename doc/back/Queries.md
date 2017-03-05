@@ -10,7 +10,7 @@ For example, the following request attempt an user login :
 Contents of the $_POST variables :
 
 [
-    'cmd': 'login',
+    'cmd': 'signin',
     'username': 'thelegend27',
     'password': 'supersecurepassword'
 ]

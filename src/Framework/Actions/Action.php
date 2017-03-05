@@ -1,9 +1,5 @@
 <?php
 
-/* Action.php
- * Anthony Vuillemin
- */
-
 namespace WebEvents\Framework\Actions;
 
 /**

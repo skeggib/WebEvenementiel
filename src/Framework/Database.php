@@ -1,9 +1,5 @@
 <?php
 
-/* Database.php
- * Anthony Vuillemin
- */
-
 namespace WebEvent\Framework;
 
 /**

@@ -1,9 +1,5 @@
 <?php
 
-/* QueryParser.php
- * Anthony Vuillemin
- */
-
 namespace WebEvents\Framework;
 
 include_once('Actions/ActionSignIn.php');
