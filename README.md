@@ -21,4 +21,4 @@ Executer `phpunit tests`
 
 ### Windows
 
-Executer `phpunit.phar tests`
+Executer `php phpunit.phar tests`
