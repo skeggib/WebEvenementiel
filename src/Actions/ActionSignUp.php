@@ -10,10 +10,10 @@ require_once("Action.php");
 class ActionSignUp extends Action
 {
     public function __construct(string $login,
-                                 string $password,
-                                 string $firstname,
-                                 string $lastname,
-                                 string $email) {
+								string $password,
+								string $firstname,
+								string $lastname,
+								string $email) {
 
      }
 

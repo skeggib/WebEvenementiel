@@ -1,17 +1,15 @@
 <?php
 
-namespace WebEvent;
+namespace WebEvent\Database;
 
 /**
- * Connexion avec une base de donnees, permet d'executer des requetes SQL
+ * Connexion with a PostgreSQL database
  */
-class Database // TODO: Renommer en PgDatabase ou permettre l'utilisation d'autres SGBD (MySQL, ...)
+class PgDatabase
 {
     private $_link;
 
     /**
-     * Constructeur par defaut
-     *
      * @param      string  $host      Adresse
      * @param      string  $username  Login
      * @param      string  $password  Mot de passe
@@ -31,7 +29,7 @@ class Database // TODO: Renommer en PgDatabase ou permettre l'utilisation d'autr
     }
 
     /**
-     * Executer une requete SQL
+     * Execute an SQL query
      *
      * @param      string  $query  Requete
      *
