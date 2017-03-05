@@ -1,6 +1,6 @@
 <?php
 
-namespace WebEvents\Framework;
+namespace WebEvents;
 
 include_once('Actions/ActionSignIn.php');
 use WebEvents\Framework\Actions\ActionSignIn;

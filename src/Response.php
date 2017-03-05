@@ -1,6 +1,6 @@
 <?php
 
-namespace WebEvent\Framework;
+namespace WebEvent;
 
 /**
  * A Response contain the result of an action and is ready to send

@@ -1,17 +1,17 @@
 <?php
 
-namespace WebEvents\Framework\Actions;
+namespace WebEvents\Actions;
 
 require_once("Action.php");
 
 /**
- * Action which invite some people to an Event
+ * Action which get an User
  */
 
-class ActionInvite extends Action
+class ActionGetUser extends Action
 {
     /**
-     * ActionInvite constructor
+     * ActionGetUser constructor
      *
      * @param
      */

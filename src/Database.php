@@ -1,6 +1,6 @@
 <?php
 
-namespace WebEvent\Framework;
+namespace WebEvent;
 
 /**
  * Connexion avec une base de donnees, permet d'executer des requetes SQL

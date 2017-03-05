@@ -1,6 +1,6 @@
 <?php
 
-namespace WebEvents\Framework\Actions;
+namespace WebEvents\Actions;
 
 require_once("Action.php");
 

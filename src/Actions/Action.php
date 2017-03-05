@@ -1,6 +1,6 @@
 <?php
 
-namespace WebEvents\Framework\Actions;
+namespace WebEvents\Actions;
 
 /**
  * Base class for an action

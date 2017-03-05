@@ -1,6 +1,6 @@
 <?php
 
-namespace WebEvent\Framework;
+namespace WebEvent;
 
 /**
  * Sender send a result to the front-end
