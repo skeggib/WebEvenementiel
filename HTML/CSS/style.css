@@ -1,0 +1,123 @@
+body{
+	background: #FFF8DC;
+}
+
+div.connexion{
+	background:#BC8F8F;
+	float:right;
+	margin-right:0.5em;
+	border-style:solid;
+	margin-top:1%;
+	height:80px;
+	width:180px;
+	
+}
+
+div.entete{
+	background:#FFF8DC;
+}
+
+
+div.entete #Web{
+	padding-left:2em;
+	font-size:80px;
+	line-height:6%;
+	top:2%;
+	font-style:italic;
+	color:red;
+
+}
+div.entete img{
+	margin-left:0%;
+	top:2%;
+	width:154px;
+	height:145px;
+}
+
+
+
+div.menu{
+	position:fixed;
+	width:12%;
+	top:30%;
+	min-height:98%;
+	padding-bottom:60%;
+	background:#4682B4;
+	border-style:solid;
+	
+}
+
+div.menu ul{
+	list-style-image:url(puce.png);
+}
+
+div.corps{
+	position:absolute;
+	padding-top:3em;
+	margin-left:11%;
+	padding-left:1em;
+	text-indent:1em;
+	text-align:justify;
+}
+
+div.corps #eve{
+	padding-left:1em;
+	width:1068px;
+}
+div.corps #dvp{
+	padding-left:1em;
+	padding-bottom:1em;
+	width:400px;
+	height:200px;
+}
+
+/* Pas de marge pour les items de liste */
+/* sinon, prend la marge de .main ul et .main ol */
+
+
+
+h2{
+	text-align:center;
+	color:#A52A2A;
+	font-style:italic;
+
+}
+div.menu a{
+	text-decoration:none;
+	color:white;
+}
+
+div.cont a{
+	position:absolute;
+	padding-top:7em;
+	margin-left:11%;
+	padding-left:2em;
+	text-indent:1em;
+	text-align:justify;
+}
+
+div.cont p{
+	text-align:center;
+}
+
+div.cont img{
+	padding-left:1em;
+	width:800px;
+	height:400px;
+	padding-top:8em;
+	margin-left:11%;
+	padding-left:2em;
+}
+
+div.cont h2{
+	padding-top:2em;
+}
+
+
+	
+	
+
+
+ 
+
+
