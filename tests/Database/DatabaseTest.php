@@ -1,10 +1,10 @@
 <?php
 
-namespace WebEvents\Framework;
+namespace WebEvents\Database;
 
 use PHPUnit\Framework\TestCase;
 
-include_once('src/Framework/Database.php');
+include_once('src/Database/PgDatabase.php');
 
 final class DatabaseTest extends TestCase
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace WebEvents\Framework;
+namespace WebEvents;
 
 use PHPUnit\Framework\TestCase;
 
-include_once('src/Framework/QueryParser.php');
+include_once('src/QueryParser.php');
 
-include_once('src/Framework/Actions/ActionSignIn.php');
-use WebEvents\Framework\Actions\ActionSignIn;
+include_once('src/Actions/ActionSignIn.php');
+use WebEvents\Actions\ActionSignIn;
 
 final class QueryParserSignInTest extends TestCase
 {

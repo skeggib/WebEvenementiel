@@ -3,9 +3,9 @@
 namespace WebEvents;
 
 include_once('Actions/ActionSignIn.php');
-use WebEvents\Framework\Actions\ActionSignIn;
+use WebEvents\Actions\ActionSignIn;
 require_once("Actions/ActionSignUp.php");
-use WebEvents\Framework\Actions\ActionSignUp;
+use WebEvents\Actions\ActionSignUp;
 
 /**
  * Create an action from an array containing the request
