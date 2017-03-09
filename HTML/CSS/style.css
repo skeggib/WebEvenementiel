@@ -8,7 +8,7 @@ div.connexion{
 	margin-right:0.5em;
 	border-style:solid;
 	margin-top:1%;
-	height:80px;
+	height:100px;
 	width:180px;
 	
 }
@@ -112,6 +112,58 @@ div.cont img{
 div.cont h2{
 	padding-top:2em;
 }
+
+div.profil{
+	position:absolute;
+	padding-top:3em;
+	margin-left:11%;
+	padding-left:20em;
+	text-indent:1em;
+}
+
+
+div.profil label{
+
+	float:left;
+	width: 150px;
+	
+}
+
+div.profil input,select{
+	display:block;
+	width:10em;
+	margin-left:13em;
+	border-radius:5px;
+}
+
+div.evenement{
+	position:absolute;
+	padding-top:3em;
+	margin-left:11%;
+	padding-left:1em;
+	text-indent:1em;
+}
+
+div.evenement h2{
+	padding-left:19em;
+}
+
+
+div.evenement label{
+
+	float:left;
+	width: 200px;
+	
+}
+
+div.evenement input,select,textarea{
+	display:block;
+	width:10em;
+	margin-left:22em;
+	border-radius:5px;
+}
+
+
 
 
 	

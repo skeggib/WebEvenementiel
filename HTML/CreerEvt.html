@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "
+http://www.w3.org/TR/html4/loose.dtd" >
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" >
+<link rel="stylesheet" type="text/css" href="CSS/style.css" />
+	<head>
+		<title>WebEvenementiel</title>
+	</head>
+	<body>
+	<div class="entete">
+
+		<img src="logo.jpg" alt="Logo Entreprise" title="Logo Entreprise" />
+		<a id="Web">Le WebEvenementiel</a>	
+		<div class="connexion">
+			<u>Connecté :</u><br/>
+			Dimi le plus beau de la terre entiére</p>
+			<a href="CreerProfil.html">Inscription</a>
+		</div>		
+	</div>
+	<div class="menu">
+		<h2 id="Menu">Menu</h2>
+			<ul>
+				<li><a href="Accueil.html">Accueil</a></li>
+				<li><a href="CreerEvt.html">Créer un Evenement</a></li>
+				<li><a href="#Evt">Mes Evenements</a></li>
+				<li><a href="#Compte">Mon Compte</a></li>
+				<li><a href="Contact.html">Nous Contacter</a></li>
+			</ul>
+	</div>
+	
+	<div class="evenement">
+		<h2 id="CreerEvt">Créer un évenement</h2>
+		<form method="" enctype="multipart/form-data" action="">
+			<label for="nomeve">Nom de l'événement :  </label>
+			<input type="text" name="nomeve" id="nomeve" ><br />
+			<label for="creeve">Créateur de l'événement :  </label>
+			<input type="text" name="creeve" id="creeve" ><br />
+			<label for="typeve">Prenom :  </label>
+			<input type="text" name="typeve" id="prenom" ><br />
+			<label for="dateve" >Date de l'évenement :  </label>
+			<input type="text" name="dateve" id="dateve" value="format:dd/mm/yyyy" ><br />
+			<label for="lieu">Lieu :  </label>
+			<input type="text" name="lieu" id="lieu" ><br> 
+			<label for="typeve" id="typeve">Type de l'événement :</label>
+				<select name="typeve" id="typeve">
+					<option value="bapteme">Baptême</option>
+					<option value="barmitsva">Barmitsva</option>
+					<option value="anniversaire">Anniversaire</option>
+					<option value="soiree">Soirée</option>
+					<option value="communion">Communion</option>
+					<option value="mariage">Mariage</option>
+					<option value="fiancailles">Fiancailles</option>
+					<option value="naissance">Naissance</option>
+					<option value="autre">Autre</option>
+				</select><br />
+				<label for="description" id="description">Résumé :  </label>
+				<textarea name="description" id="description" cols="70" rows="5">Entrez une description</textarea><br>
+				<label for="nbinv" id="nbinv">Nombre personnes invités :</label>
+				<select name="nbinv" id="nbinv">
+					<option value="5"><5</option>
+					<option value="15"><15</option>
+					<option value="30"><30</option>
+					<option value="50"><50</option>
+					<option value="75"><75</option>
+					<option value="100"><100</option>
+					<option value="150"><150</option>
+					<option value="200"><200</option>
+					<option value="250">plus de 200</option>
+				</select><br />
+				<input type="reset" value="Réinitialiser" /> <br />
+				<input type="submit" value="Créer" /> <br />
+				
+
+	</div>
+	</body>
+</html>		
