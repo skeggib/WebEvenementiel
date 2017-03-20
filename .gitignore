@@ -3,3 +3,4 @@
 *.swp
 *~
 .session.vim
+*.vpp.bak*
