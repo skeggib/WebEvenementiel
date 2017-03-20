@@ -10,16 +10,11 @@ require_once("Action.php");
 
 class ActionInvite extends Action
 {
-    /**
-     * ActionInvite constructor
-     *
-     * @param
-     */
-     public function __construct()
-     {
+     public function __construct() {
+
      }
 
-     public function __destruct()
-     {
+     public function execute() {
+          throw new \Exception("Not implemented");
      }
 }

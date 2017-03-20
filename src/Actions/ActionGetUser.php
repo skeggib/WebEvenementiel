@@ -10,16 +10,11 @@ require_once("Action.php");
 
 class ActionGetUser extends Action
 {
-    /**
-     * ActionGetUser constructor
-     *
-     * @param
-     */
-     public function __construct()
-     {
+     public function __construct() {
+
      }
 
-     public function __destruct()
-     {
+     public function execute() {
+          throw new \Exception("Not implemented");
      }
 }

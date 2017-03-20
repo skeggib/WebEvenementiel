@@ -6,6 +6,8 @@ include_once('Actions/ActionSignIn.php');
 use WebEvents\Actions\ActionSignIn;
 require_once("Actions/ActionSignUp.php");
 use WebEvents\Actions\ActionSignUp;
+require_once("Actions/ActionGetUser.php");
+use WebEvents\Actions\ActionGetUser;
 
 /**
  * Create an action from an array containing the request
@@ -52,12 +54,16 @@ class QueryParser
                                                  $post['email']);
                 break;
 
+            case 'getuser':
+                $this->action = new ActionGetUser();
+                break;
+
             case 'listevents':
                 $this->action = new ActionListEvents();
                 break;
             
             default:
-                throw new Exception("Undefined command");
+                throw new \Exception("Undefined command");
                 break;
         }
     }

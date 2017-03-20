@@ -18,7 +18,7 @@ Contents of the $_POST variables :
 
 # Format of a response
 
-...
+The response is formated in JSON and sent via the HTTP protocol. A response always contains a value named "sucess" which can be true or false, when this value is false the response contains also a value named "error" which contains the error message from the back-end.
 
 # Existing queries
 
@@ -57,6 +57,23 @@ Registers a new user. Checks if the user exists and that the given informations 
 **Response**:
 
 ...
+
+## Get informations of connected user
+
+**Request**:
+
+`'cmd': 'getuser'`
+
+**Response**:
+
+```json
+{
+    "username": "<user name>",
+    "firstname": "<first name>",
+    "lastname": "<last name>",
+    ...
+}
+```
 
 ## Get the list of events of an user
 
