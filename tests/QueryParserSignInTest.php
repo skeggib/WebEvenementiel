@@ -9,8 +9,8 @@ include_once('src/QueryParser.php');
 include_once('src/Actions/ActionSignIn.php');
 use WebEvents\Actions\ActionSignIn;
 
-final class QueryParserSignInTest extends TestCase
-{
+final class QueryParserSignInTest extends TestCase {
+    
 	/**
 	 * @expectedException InvalidArgumentException
 	 */

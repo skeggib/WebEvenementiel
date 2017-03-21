@@ -12,9 +12,9 @@ class ActionGetEvent extends Action
 {
     public function __construct() {
 
-     }
+	}
 
-     public function execute() {
-          throw new \Exception("Not implemented");
-     }
+	public function execute() {
+		throw new \Exception("Not implemented");
+	}
 }

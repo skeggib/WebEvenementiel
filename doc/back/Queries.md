@@ -18,7 +18,7 @@ Contents of the $_POST variables :
 
 # Format of a response
 
-The response is formated in JSON and sent via the HTTP protocol. A response always contains a value named "sucess" which can be true or false, when this value is false the response contains also a value named "error" which contains the error message from the back-end.
+The response is formatted in JSON and sent via the HTTP protocol. A response always contains a value named "success" which can be true or false, when this value is false the response contains also a value named "error" which contains the error message from the back-end.
 
 # Existing queries
 

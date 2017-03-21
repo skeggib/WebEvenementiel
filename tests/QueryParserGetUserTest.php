@@ -9,8 +9,8 @@ include_once('src/QueryParser.php');
 include_once('src/Actions/ActionGetUser.php');
 use WebEvents\Actions\ActionGetUser;
 
-final class QueryParserGetUserTest extends TestCase
-{
+final class QueryParserGetUserTest extends TestCase {
+    
 	/**
 	 * @expectedException InvalidArgumentException
 	 */
