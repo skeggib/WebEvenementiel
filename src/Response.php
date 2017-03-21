@@ -9,18 +9,9 @@ class Response
 {
     private $value;
 
-    /**
-     * Response constructor
-     *
-     * @param       string  $value  Value
-     */
     public function __construct($value)
     {
         $this->value = $value;
-    }
-
-    public function __destruct()
-    {
     }
 
     /**
