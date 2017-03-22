@@ -9,11 +9,13 @@ require_once("Action.php");
  */
 class ActionSignIn extends Action
 {
-	public function __construct(string $login, string $password) {
+	public function __construct(string $login, string $password)
+    {
 
 	}
 
-	public function execute() {
+	public function execute()
+    {
 		throw new \Exception("Not implemented");
 	}
 }
