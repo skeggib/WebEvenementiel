@@ -3,3 +3,5 @@
 *.swp
 *~
 .session.vim
+
+webevents.ini

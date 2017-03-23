@@ -2,6 +2,15 @@
 
 Gestion d'évenements en ligne
 
+## Installation (utilisation)
+
+### Configuration
+
+- Se placer dans le dossier racine du projet
+- Lancer `php script/configuration.php`
+
+Un fichier de configuration "webevents.ini" sera généré à la racine.
+
 ## Installation (développement)
 
 ### Linux
