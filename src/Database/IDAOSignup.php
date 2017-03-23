@@ -2,7 +2,7 @@
 
 namespace WebEvent\Database;
 
-interface IDAOSignup {
+interface IDAOSignUp {
 
 	/**
 	 * Add a new user in the database

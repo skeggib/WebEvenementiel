@@ -4,9 +4,11 @@ namespace WebEvents;
 
 use PHPUnit\Framework\TestCase;
 
-include_once('src/QueryParser.php');
+require_once('src/QueryParser.php');
 
-include_once('src/Actions/ActionSignUp.php');
+require_once('src/Database/DAOFactory.php');
+use WebEvents\Database\DAOFactory;
+require_once('src/Actions/ActionSignUp.php');
 use WebEvents\Actions\ActionSignUp;
 
 final class QueryParserSignUpTest extends TestCase {
@@ -21,7 +23,7 @@ final class QueryParserSignUpTest extends TestCase {
         $post['firstname'] = 'Jack';
         $post['lastname'] = 'Daniels';
         $post['email'] = 'thelegend27@gmail.com';
-    	$qp = new QueryParser($post);
+    	$qp = new QueryParser($post, new DAOFactory());
     }
 
 	/**
@@ -34,7 +36,7 @@ final class QueryParserSignUpTest extends TestCase {
         $post['firstname'] = 'Jack';
         $post['lastname'] = 'Daniels';
         $post['email'] = 'thelegend27@gmail.com';
-    	$qp = new QueryParser($post);
+    	$qp = new QueryParser($post, new DAOFactory());
     }
 
 	/**
@@ -47,7 +49,7 @@ final class QueryParserSignUpTest extends TestCase {
         $post['firstname'] = 'Jack';
         $post['lastname'] = 'Daniels';
         $post['email'] = 'thelegend27@gmail.com';
-    	$qp = new QueryParser($post);
+    	$qp = new QueryParser($post, new DAOFactory());
     }
 
     /**
@@ -60,7 +62,7 @@ final class QueryParserSignUpTest extends TestCase {
         $post['password'] = 'supersecurepassword';
         $post['lastname'] = 'Daniels';
         $post['email'] = 'thelegend27@gmail.com';
-        $qp = new QueryParser($post);
+        $qp = new QueryParser($post, new DAOFactory());
     }
 
     /**
@@ -73,7 +75,7 @@ final class QueryParserSignUpTest extends TestCase {
         $post['password'] = 'supersecurepassword';
         $post['firstname'] = 'Jack';
         $post['email'] = 'thelegend27@gmail.com';
-        $qp = new QueryParser($post);
+        $qp = new QueryParser($post, new DAOFactory());
     }
 
     /**
@@ -86,7 +88,7 @@ final class QueryParserSignUpTest extends TestCase {
         $post['password'] = 'supersecurepassword';
         $post['firstname'] = 'Jack';
         $post['lastname'] = 'Daniels';
-        $qp = new QueryParser($post);
+        $qp = new QueryParser($post, new DAOFactory());
     }
 
     public function testConstructor() {
@@ -98,7 +100,7 @@ final class QueryParserSignUpTest extends TestCase {
         $post['firstname'] = 'Jack';
         $post['lastname'] = 'Daniels';
         $post['email'] = 'thelegend27@gmail.com';
-    	$qp = new QueryParser($post);
+    	$qp = new QueryParser($post, new DAOFactory());
 
     	$this->assertTrue(is_a($qp->getAction(), ActionSignUp::class));
     }

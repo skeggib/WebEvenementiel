@@ -111,7 +111,9 @@ Creates a new event.
 
 `'name': '<events_name>'`
 
-`'date': '<events_date>'`
+`'starttime': '<events_start_time>'`
+
+`'endtime': '<events_end_time>'`
 
 ...
 

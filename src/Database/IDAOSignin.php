@@ -2,7 +2,7 @@
 
 namespace WebEvent\Database;
 
-interface IDAOSignin {
+interface IDAOSignIn {
 
 	/**
 	 * Verify that the name exists in the database and that the password is correct
