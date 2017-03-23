@@ -13,11 +13,13 @@ class ActionSignUp extends Action
 								string $password,
 								string $firstname,
 								string $lastname,
-								string $email) {
+								string $email)
+    {
+        
+    }
 
-     }
-
-     public function execute() {
-          throw new \Exception("Not implemented");
-     }
+    public function execute()
+    {
+        throw new \Exception("Not implemented");
+    }
 }

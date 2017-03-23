@@ -8,19 +8,10 @@ namespace WebEvent;
 
 class Sender
 {
-    /**
-     * Sender constructor
-     *
-     * @param
-     */
     public function __construct()
     {
     }
 
-    public function __destruct()
-    {
-    }
-    
     /**
      * send a response to the front-end
      *
