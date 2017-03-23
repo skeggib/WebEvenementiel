@@ -12,12 +12,22 @@ final class ActionGetUserTest extends TestCase {
 
     public function testAll() {
         $getuser = new ActionGetUser();
-        $getuser->execute();
+        $response = $getuser->execute();
+        $array = $response->getArray();
+        $this->assertEquals(false, $array['success']);
 
         $signup = new ActionSignUp("thelegend27", "password", "Jonh", "Smith", "thelegend27@gmail.com");
         $signup->execute();
 
         $signin = new ActionSignIn("thelegend27", "password");
         $signin->execute();
+        
+        $getuser = new ActionGetUser();
+        $response = $getuser->execute();
+        $array = $response->getArray();
+        $this->assertEquals(true, $array['success']);
+        $this->assertEquals("thelegend27", $array['login']);
+        $this->assertEquals("Jonh", $array['firstname']);
+        $this->assertEquals("Smith", $array['lastname']);
     }
 }

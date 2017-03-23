@@ -21,17 +21,20 @@ class Response
         $this->array = $array;
     }
 
+    public function getArray() {
+        $resp = $this->array;
+        $resp['success'] = !$this->error;
+        if ($this->error)
+            $resp['errorMessage'] = $errorMessage;
+        return $resp;
+    }
+
     /**
      * @brief Generates a JSON string containing the response
      * @return The JSON string
      */
     public function getJSON()
     {
-        $resp = $this->array;
-        $resp['success'] = !$this->error;
-        if ($this->error)
-            $resp['errorMessage'] = $errorMessage;
-
-        return json_encode($resp, JSON_FORCE_OBJECT);
+        return json_encode($this->getArray(), JSON_FORCE_OBJECT);
     }
 }
