@@ -3,15 +3,10 @@
 namespace WebEvents\Validation;
 
 /**
- *
+ * Validates an email
  */
-
 class ValidatorEmail
 {
-    /**
-     * Validate an email
-     */
-    
     public function __construct()
     {
     }

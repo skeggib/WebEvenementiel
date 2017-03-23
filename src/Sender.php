@@ -1,11 +1,12 @@
 <?php
 
-namespace WebEvent;
+namespace WebEvents;
+
+require_once("Response.php");
 
 /**
- * Sender send a result to the front-end
+ * Allow to send a response to the front-end
  */
-
 class Sender
 {
     public function __construct()
@@ -13,22 +14,12 @@ class Sender
     }
 
     /**
-     * send a response to the front-end
+     * Sends a response to the front-end
      *
      * @param       Response $response   The response to send
      */
-    public function send($response)
+    public function send(Response $response)
     {
-        echo $response->getString();
-    }
-
-    /**
-     * Error
-     *
-     * @param   string $message     The error message
-     */
-    public function error($message)
-    {
-    
+        echo $response->getJSON();
     }
 }
