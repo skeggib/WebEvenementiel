@@ -2,22 +2,22 @@
 
 namespace WebEvents;
 
-require_once("Database/DAOFactory.php");
+require_once(__DIR__ . "/Database/DAOFactory.php");
 use WebEvents\Database\DAOFactory;
 
-require_once("Actions/ActionSignIn.php");
+require_once(__DIR__ . "/Actions/ActionSignIn.php");
 use WebEvents\Actions\ActionSignIn;
-require_once("Actions/ActionSignUp.php");
+require_once(__DIR__ . "/Actions/ActionSignUp.php");
 use WebEvents\Actions\ActionSignUp;
-require_once("Actions/ActionGetUser.php");
+require_once(__DIR__ . "/Actions/ActionGetUser.php");
 use WebEvents\Actions\ActionGetUser;
-require_once("Actions/ActionListEvents.php");
+require_once(__DIR__ . "/Actions/ActionListEvents.php");
 use WebEvents\Actions\ActionListEvents;
-require_once("Actions/ActionGetEvent.php");
+require_once(__DIR__ . "/Actions/ActionGetEvent.php");
 use WebEvents\Actions\ActionGetEvent;
-require_once("Actions/ActionCreateEvent.php");
+require_once(__DIR__ . "/Actions/ActionCreateEvent.php");
 use WebEvents\Actions\ActionCreateEvent;
-require_once("Actions/ActionInvite.php");
+require_once(__DIR__ . "/Actions/ActionInvite.php");
 use WebEvents\Actions\ActionInvite;
 
 /**

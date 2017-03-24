@@ -1,6 +1,6 @@
 <?php
 
-namespace WebEvent\Database;
+namespace WebEvents\Database;
 
 interface IDAOSignIn {
 
@@ -12,5 +12,5 @@ interface IDAOSignIn {
 	 * 
 	 * @return     bool True if the username exists and if the password is correct
 	 */
-	public function check(string $login, string $password);
+	public function check($login, $password);
 }

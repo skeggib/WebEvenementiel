@@ -2,16 +2,18 @@
 
 namespace WebEvents\Database;
 
-require_once("IDAOSignIn.php");
-require_once("IDAOSignUp.php");
+require_once(__DIR__ . "/IDAOSignIn.php");
+require_once(__DIR__ . "/TempDAOSignIn.php");
+
+require_once(__DIR__ . "/IDAOSignUp.php");
 
 /**
  * Creates DAOs used in other classes, the DAOs are instantiated once
  */
 class DAOFactory {
 
-	private $daoSignin = null;
-	private $daoSignup = null;
+	private $daoSignIn = null;
+	private $daoSignUp = null;
 
 	public function __construct() {
 
@@ -23,12 +25,12 @@ class DAOFactory {
 	 * @return     IDAOSignIn  The sign-in DAO
 	 */
 	public function getSignInDAO() {
-		if ($this->daoSignin === null)
+		if (is_null($this->daoSignIn))
 		{
-			// TODO create a new DAOSignin
+			$this->daoSignIn = new TempDAOSignIn(); // TODO:skeggib Remove
 		}
 
-		return $this->daoSignin;
+		return $this->daoSignIn;
 	}
 
 	/**
@@ -37,12 +39,12 @@ class DAOFactory {
 	 * @return     IDAOSignUp  The sign-up DAO
 	 */
 	public function getSignUpDAO() {
-		if ($this->daoSignup === null)
+		if (is_null($this->daoSignUp))
 		{
 			// TODO create a new DAOSignup
 		}
 
-		return $this->daoSignup;
+		return $this->daoSignUp;
 	}
 
 }

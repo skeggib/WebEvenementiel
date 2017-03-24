@@ -7,25 +7,27 @@ namespace WebEvents;
  */
 class Response
 {
-    private $error;
-    private $errorMessage;
     private $array;
+    private $error;
+    private $errorCode;
 
     /**
-     * @param       string  $array  Associative array containing the response, the keys 'success' and 'errorMessage' are reserved
+     * @param       string  $array  Associative array containing the response, the keys 'success' and 'errorCode' are reserved
      * @param       bool    $error  Set to true if there was an error during the process
      * @param       int  $errorCode Error code, will be sent only if $error is true
      */
     public function __construct($array, $error, $errorCode = -1)
     {
         $this->array = $array;
+        $this->error = $error;
+        $this->errorCode = $errorCode;
     }
 
     public function getArray() {
         $resp = $this->array;
         $resp['success'] = !$this->error;
         if ($this->error)
-            $resp['errorMessage'] = $errorMessage;
+            $resp['errorCode'] = $this->errorCode;
         return $resp;
     }
 

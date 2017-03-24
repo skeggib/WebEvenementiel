@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exemple de requête AJAX</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+
+        function connect(login, passwd, successCallback) {
+            $.ajax({
+                url: 'main.php',
+                type: 'POST',
+                data: {
+                    cmd : 'signin',
+                    login: login,
+                    password: passwd
+                },
+                dataType: "html",
+                error: function (jqXHR, exception) {
+
+                    if (jqXHR.status == 404) {
+                        // Page not found [404]
+                        alert("404"); // A retirer
+                    }
+
+                    else if (jqXHR.status == 500) {
+                        // Internal Server Error [500]
+                        alert("500"); // A retirer
+                    }
+
+                    else if (jqXHR.status == 501) {
+                        // Not implemented [501]
+                        alert("501"); // A retirer
+                    }
+
+                    else {
+                        // Uncaught error
+                        alert("Uncaught error"); // A retirer
+                    }
+
+                },
+                success: function(data) {
+                    $("#data2").html(data);
+
+                    json = JSON.parse(data);
+                    
+                    if (json.success) {
+                        $("#status").text("Success");
+                        successCallback();
+                    }
+
+                    else {
+                        $("#status").text("Fail");
+                    }
+                }
+            });
+        }
+
+        function getUser() {
+            $.ajax({
+                url: 'main.php',
+                type: 'POST',
+                data: {
+                    cmd : 'getuser'
+                },
+                dataType: "html",
+                error: function (jqXHR, exception) {
+
+                    if (jqXHR.status == 404) {
+                        // Page not found [404]
+                        alert("404"); // A retirer
+                    }
+
+                    else if (jqXHR.status == 500) {
+                        // Internal Server Error [500]
+                        alert("500"); // A retirer
+                    }
+
+                    else if (jqXHR.status == 501) {
+                        // Not implemented [501]
+                        alert("501"); // A retirer
+                    }
+
+                    else {
+                        // Uncaught error
+                        alert("Uncaught error"); // A retirer
+                    }
+
+                },
+                success: function(data) {
+                    $("#data1").html(data);
+
+                    json = JSON.parse(data);
+                    
+                    if (json.success) {
+                        $("#username").text(json.username);
+                        $("#firstname").text(json.firstname);
+                        $("#lastname").text(json.lastname);
+                    }
+
+                    else {
+                        $("#username").text("none");
+                        $("#firstname").text("none");
+                        $("#lastname").text("none");
+                    }
+                }
+            });
+        }
+
+        $(document).ready(function() {
+
+            $("#signin").click(function() {
+                connect($("#login").val(), $("#passwd").val(), getUser);
+            });
+
+        });
+    </script>
+</head>
+<body>
+
+    <form onsubmit="return false;"> <!-- Pour eviter le rechargement de la page -->
+        <label for="login">Name:</label>
+        <input type="text" id="login" name="login">
+        <label for="passwd">Password:</label>
+        <input type="password" id="passwd" name="passwd">
+        <button id="signin">Sign-in</button>
+    </form>
+
+    <p id="status"></p>
+    <p id="username"></p>
+    <p id="firstname"></p>
+    <p id="lastname"></p>
+
+    <p id="data1"></p>
+    <p id="data2"></p>
+
+</body>
+</html>

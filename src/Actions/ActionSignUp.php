@@ -2,9 +2,10 @@
 
 namespace WebEvents\Actions;
 
-require_once("Action.php");
+require_once(__DIR__ . "/Action.php");
+require_once(__DIR__ . "/../Exceptions/NotImplementedException.php");
 
-require_once("src/Database/IDAOSignUp.php");
+require_once(__DIR__ . "/../Database/IDAOSignUp.php");
 use WebEvents\Database\IDAOSignUp;
 
 /**
@@ -26,6 +27,6 @@ class ActionSignUp extends Action
 
     public function execute()
     {
-        throw new \Exception("Not implemented");
+        throw new \NotImplementedException();
     }
 }
