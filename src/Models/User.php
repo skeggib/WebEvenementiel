@@ -33,110 +33,110 @@ public class User
                                 $cp,
                                 $town)
     {
-    this->$id = $id;
-    this->$username = $username;
-    this->$email = $email;
-    this->$lastName = $lastName;
-    this->$firstName = $firstName;
-    this->$active = $active;
-    this->$password = $password;
-    this->$civility = $civility;
-    this->$birthday = $birthday;
-    this->$cellphone = $cellphone;
+        $this->id = $id;
+        $this->username = $username;
+        $this->email = $email;
+        $this->lastName = $lastName;
+        $this->firstName = $firstName;
+        $this->active = $active;
+        $this->password = $password;
+        $this->civility = $civility;
+        $this->birthday = $birthday;
+        $this->cellphone = $cellphone;
 
-    this->$cp = $cp;
-    this->$town = $town;
+    $this->cp = $cp;
+    $this->town = $town;
     }
     public function getId()
     {
-        return this->$id;
+        return $this->id;
     }
     public function getUsername()
     {
-        return this->$username;
+        return $this->username;
     }
     public function setUsername($username)
     {
-        this->$username = $username;
+        $this->username = $username;
     }
     public function getEmail()
     {
-        return this->$email;
+        return $this->email;
     }
     public function setEmail($email)
     {
-        this->$email = $email;
+        $this->email = $email;
     }
     public function getLastName()
     {
-        return this->$lastName;
+        return $this->lastName;
     }
     public function setLastName($lastName)
     {
-        this->$lastName = $lastName;
+        $this->lastName = $lastName;
     }
     public function getFirstName()
     {
-        return this->$firstName;
+        return $this->firstName;
     }
     public function setFirstName()
     {
-        this->$firstName = $firstName;
+        $this->firstName = $firstName;
     }
     public function getActive()
     {
-        return this->$active;
+        return $this->active;
     }
     public function setActive($active)
     {
-        this->$active = $active;
+        $this->active = $active;
     }
     public function getPassword()
     {
-        return this->$password;
+        return $this->password;
     }
     public function setPassword($password)
     {
-        this->$password = $password;
+        $this->password = $password;
     }
     public function getCivility()
     {
-        return this->$civility;
+        return $this->civility;
     }
     public function setCivility()
     {
-        this->$civility = $civility;
+        $this->civility = $civility;
     }
     public function getBirthday()
     {
-        return this->$birthday;
+        return $this->birthday;
     }
     public function setBirthday($birthday)
     {
-        this->$birthday = $birthday;
+        $this->birthday = $birthday;
     }
     public function getCellphone()
     {
-        return this->$cellphone;
+        return $this->cellphone;
     }
     public function setCellphone($cellphone)
     {
-        this->$cellphone = $cellphone;
+        $this->cellphone = $cellphone;
     }
     public function getCp()
     {
-        return this->$cp;
+        return $this->cp;
     }
     public function setCp($cp)
     {
-        this->$cp = $cp;
+        $this->cp = $cp;
     }    
     public function getTown()
     {
-        return this->$town;
+        return $this->town;
     }
     public function setTown($town)
     {
-        this->$town = $town;
+        $this->town = $town;
     }
 }
