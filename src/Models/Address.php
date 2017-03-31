@@ -16,55 +16,55 @@ public class Address
                                 $ville,
                                 $cp)
     {
-        this->$id = $id;
-        this->$num = $num;
-        this->$rue = $rue;
-        this->$ville = $ville,;
-        this->$cp = $cp; 
+        $this->id = $id;
+        $this->num = $num;
+        $this->rue = $rue;
+        $this->ville = $ville,;
+        $this->cp = $cp; 
     }
 
     public function getId()
     {
-        return this->$id;
+        return $this->id;
     }
 
     public function getNum()
     {
-        return this->$num;
+        return $this->num;
     }
 
     public function setNum($num)
     {
-        this->$num = $num;
+        $this->num = $num;
     }
 
     public function getRue()
     {
-        return this->$rue;
+        return $this->rue;
     }
 
     public function setRue($rue)
     {
-        this->$rue = $rue;
+        $this->$rue = rue;
     }
 
     public function getVille()
     {
-        return this->$ville;
+        return $this->ville;
     }
 
     public function setVille($ville)
     {
-        this->$ville = $ville;
+        $this->$ville = ville;
     }
 
     public function getCp()
     {
-        return this->$cp;
+        return $this->cp;
     }
 
     public function setCp($cp)
     {
-        this->$cp = $cp;
+        $this->cp = $cp;
     }
 }
