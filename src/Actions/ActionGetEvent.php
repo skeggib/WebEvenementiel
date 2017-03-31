@@ -10,8 +10,8 @@ use WebEvents\Database\IDAOEvent;
 
 require_once(__DIR__ . "/../Response.php");
 use WebEvents\Response;
-require_once(__DIR__ . "/../EventReponse.php");
-use WebEvents\EventReponse;
+require_once(__DIR__ . "/../Responses/EventResponse.php");
+use WebEvents\Responses\EventResponse;
 
 class ActionGetEvent extends Action
 {
@@ -27,6 +27,6 @@ class ActionGetEvent extends Action
 		$data = $this->dao->getEvent($this->id);
 		if ($data == false)
 			return new Response(array(), true); // TODO:skeggib Error code
-		return new EventReponse($event);
+		return new EventResponse($event);
 	}
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace WebEvent\Models
+namespace WebEvents\Models;
 
-public class Address
+class Address
 {
     private     $id;
     private     $num;
@@ -19,7 +19,7 @@ public class Address
         $this->id = $id;
         $this->num = $num;
         $this->rue = $rue;
-        $this->ville = $ville,;
+        $this->ville = $ville;
         $this->cp = $cp; 
     }
 

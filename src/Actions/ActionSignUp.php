@@ -60,7 +60,7 @@ class ActionSignUp extends Action
                                     $this->lastname,
                                     $this->civility,
                                     $this->birthday,
-                                    $this->cellphone
+                                    $this->cellphone,
                                     $this->cp,
                                     $this->town);
 

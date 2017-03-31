@@ -10,8 +10,8 @@ use WebEvents\Database\IDAOEvent;
 
 require_once(__DIR__ . "/../Response.php");
 use WebEvents\Response;
-require_once(__DIR__ . "/../EventsListReponse.php");
-use WebEvents\EventsListReponse;
+require_once(__DIR__ . "/../Responses/EventsListResponse.php");
+use WebEvents\Responses\EventsListReponse;
 
 /**
  * Action which invite some people to an Event

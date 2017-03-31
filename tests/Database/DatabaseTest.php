@@ -4,7 +4,7 @@ namespace WebEvents\Database;
 
 use PHPUnit\Framework\TestCase;
 
-include_once('src/Database/PgDatabase.php');
+include_once(__DIR__ . '/../../src/Database/MyDatabase.php');
 
 final class DatabaseTest extends TestCase {
 	

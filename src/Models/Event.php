@@ -5,18 +5,18 @@ namespace WebEvent\Models;
 require_once(__DIR__ . "/Address.php");
 require_once(__DIR__ . "/User.php");
 
-public class Event
+class Event
 {
     private     $id;            //int
     private     $name;          //String
     private     $beginDate;     //DateTime
     private     $endDate;       //DateTime
-    private     $actif          //Bool
-    private     $comment        //String
+    private     $actif;         //Bool
+    private     $comment;       //String
 
-    private     $address        //Address
+    private     $address;       //Address
 
-    private     $organizer      //User
+    private     $organizer;     //User
 
     public function __construct($id,
                                 $name,

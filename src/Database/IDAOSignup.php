@@ -22,7 +22,7 @@ interface IDAOSignUp {
 						   $lastname,
 						   $civility,
 						   $birthday,
-						   $cellphone
+						   $cellphone,
 						   $cp,
 						   $town);
 }
