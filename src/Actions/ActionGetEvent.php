@@ -5,13 +5,28 @@ namespace WebEvents\Actions;
 require_once(__DIR__ . "/Action.php");
 require_once(__DIR__ . "/../Exceptions/NotImplementedException.php");
 
+require_once(__DIR__ . "/../Database/IDAOEvent.php");
+use WebEvents\Database\IDAOEvent;
+
+require_once(__DIR__ . "/../Response.php");
+use WebEvents\Response;
+require_once(__DIR__ . "/../EventReponse.php");
+use WebEvents\EventReponse;
+
 class ActionGetEvent extends Action
 {
-    public function __construct() {
+	private $dao;
+	private $id;
 
+    public function __construct(IDAOEvent $dao, $id) {
+    	$this->dao = $dao;
+    	$this->id = $id;
 	}
 
 	public function execute() {
-		throw new \NotImplementedException("Not implemented");
+		$data = $this->dao->getEvent($this->id);
+		if ($data == false)
+			return new Response(array(), true); // TODO:skeggib Error code
+		return new EventReponse($event);
 	}
 }

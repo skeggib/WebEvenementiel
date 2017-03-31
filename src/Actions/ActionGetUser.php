@@ -9,9 +9,8 @@ require_once(__DIR__ . "/../Response.php");
 use WebEvents\Response;
 
 /**
- * Action which get an User
+ * Action which gets an User
  */
-
 class ActionGetUser extends Action
 {
 	public function __construct()

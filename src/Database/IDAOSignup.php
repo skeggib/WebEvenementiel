@@ -15,9 +15,14 @@ interface IDAOSignUp {
 	 * 
 	 * @return     bool True if the user was added
 	 */
-	public function signup(	string $login,
-							string $password,
-							string $firstname,
-							string $lastname,
-							string $email);
+	public function signup($username,
+						   $email,
+						   $password,
+						   $firstname,
+						   $lastname,
+						   $civility,
+						   $birthday,
+						   $cellphone
+						   $cp,
+						   $town);
 }
