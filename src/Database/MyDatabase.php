@@ -17,9 +17,9 @@ class MyDatabase implements IDatabase
      * @param      string  $password  Password
      * @param      string  $db        Database name
      */
-    public function __construct($host, $username, $password, $db)
+    public function __construct($host, $db, $username, $password)
     {
-        $this->pdo = new \PDO('mysql:' . $host . '=localhost;dbname=' . $db, $username, $password);
+        $this->pdo = new \PDO('mysql:host=' . $host . ';dbname=' . $db, $username, $password);
         $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
     }
 
