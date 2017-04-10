@@ -20,6 +20,8 @@ use WebEvents\Actions\ActionCreateEvent;
 require_once(__DIR__ . "/Actions/ActionInvite.php");
 use WebEvents\Actions\ActionInvite;
 
+require_once __DIR__ . "/Exceptions/MissingParameterException.php";
+
 /**
  * Create an action from an array containing the request
  */
@@ -35,9 +37,9 @@ class QueryParser
 
             case 'signin':
                 if (!isset($post['login']))
-                    throw new \InvalidArgumentException("The login is not set");
+                    throw new \MissingParameterException("login", "The login is not set");
                 if (!isset($post['password']))
-                    throw new \InvalidArgumentException("The password is not set");
+                    throw new \MissingParameterException("password", "The password is not set");
                 
                 $this->action = new ActionSignIn($daoFactory->getSignInDAO(),
                                                  $post['login'],
@@ -46,25 +48,25 @@ class QueryParser
 
             case 'signup':
                 if (!isset($post['login']))
-                    throw new \InvalidArgumentException("The login is not set");
+                    throw new \MissingParameterException("login", "The login is not set");
                 if (!isset($post['email']))
-                    throw new \InvalidArgumentException("The email is not set");
+                    throw new \MissingParameterException("email", "The email is not set");
                 if (!isset($post['password']))
-                    throw new \InvalidArgumentException("The password is not set");
+                    throw new \MissingParameterException("password", "The password is not set");
                 if (!isset($post['firstname']))
-                    throw new \InvalidArgumentException("The first name is not set");
+                    throw new \MissingParameterException("firstname", "The first name is not set");
                 if (!isset($post['lastname']))
-                    throw new \InvalidArgumentException("The last name is not set");
+                    throw new \MissingParameterException("lastname", "The last name is not set");
                 if (!isset($post['civility']))
-                    throw new \InvalidArgumentException("The civility is not set");
+                    throw new \MissingParameterException("civility", "The civility is not set");
                 if (!isset($post['birthday']))
-                    throw new \InvalidArgumentException("The birthday is not set");
+                    throw new \MissingParameterException("birthday", "The birthday is not set");
                 if (!isset($post['cellphone']))
-                    throw new \InvalidArgumentException("The cellphone is not set");
-                if (!isset($post['cp']))
-                    throw new \InvalidArgumentException("The cp is not set");
-                if (!isset($post['town']))
-                    throw new \InvalidArgumentException("The town is not set");
+                    throw new \MissingParameterException("cellphone", "The cellphone is not set");
+                if (!isset($post['citycode']))
+                    throw new \MissingParameterException("citycode", "The city code is not set");
+                if (!isset($post['cityname']))
+                    throw new \MissingParameterException("cityname", "The city name is not set");
                 
                 $this->action = new ActionSignUp($daoFactory->getSignUpDAO(),
                     $post['login'],
@@ -75,8 +77,8 @@ class QueryParser
                     $post['civility'],
                     $post['birthday'],
                     $post['cellphone'],
-                    $post['cp'],
-                    $post['town']);
+                    $post['citycode'],
+                    $post['cityname']);
                 break;
 
             case 'getuser':
@@ -89,16 +91,16 @@ class QueryParser
 
             case 'getevent':
                 if (!isset($post['id']))
-                    throw new \InvalidArgumentException("The event ID is not set");
+                    throw new \MissingParameterException("The event ID is not set");
                 
                 $this->action = new ActionGetEvent();
                 break;
 
             case 'createevent':
                 if (!isset($post['name']))
-                    throw new \InvalidArgumentException("The event name is not set");
+                    throw new \MissingParameterException("The event name is not set");
                 if (!isset($post['starttime']) || !isset($post['endtime']))
-                    throw new \InvalidArgumentException("The event date is not set");
+                    throw new \MissingParameterException("The event date is not set");
 
                 $this->action = new ActionCreateEvent($post['name'],
                                                       $post['starttime'],
@@ -106,7 +108,7 @@ class QueryParser
                 break;
             
             default:
-                throw new \InvalidArgumentException("Undefined command");
+                throw new \MissingParameterException("Undefined command");
                 break;
         }
     }

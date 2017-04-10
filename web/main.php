@@ -18,35 +18,29 @@ require_once(__DIR__ . "/../src/Database/DAOFactory.php");
 use WebEvents\Database\DAOFactory;
 
 require_once(__DIR__ . "/../src/Exceptions/NotImplementedException.php");
-
-/*function errorHandler($errno, $errstr) {
-    $sender = new Sender();
-    $sender->sendError(500);
-}
-set_error_handler("errorHandler", E_ALL);
-
-function shut(){
-    $error = error_get_last();
-    errorHandler($error['type'], $error['message']);
-}
-register_shutdown_function('shut');*/
+require_once(__DIR__ . "/../src/Exceptions/MissingParameterException.php");
 
 $sender = new Sender();
 
+// Error codes :
+define("MISSING_PARAM", 1);
+define("INVALID_PARAM", 2);
+
 try
 {
-    $configuration = new Configuration("../webevents.ini");
-    $database = new MyDatabase(
-        $configuration->getDatabaseHost(),
-        $configuration->getDatabaseName(),
-        $configuration->getDatabaseLogin(),
-        $configuration->getDatabasePasswd()
-    );
+    $database = MyDatabase::fromConfiguration(new Configuration("../webevents.ini"));
     $daoFactory = new DAOFactory($database);
-    $parser = new QueryParser($_POST, $daoFactory);
+    $parser = new QueryParser($_POST, $daoFactory);    
     $action = $parser->getAction();
     $response = $action->execute();
     $sender->send($response);
+}
+
+catch (MissingParameterException $e)
+{
+    $sender->send(new Response(
+        array('parameterName' => $e->getParameterName()),
+        true, MISSING_PARAM));
 }
 
 catch (NotImplementedException $e) {
