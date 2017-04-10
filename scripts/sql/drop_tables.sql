@@ -1,0 +1,4 @@
+DROP TABLE IF EXISTS participe;
+DROP TABLE IF EXISTS utilisateur;
+DROP TABLE IF EXISTS evenement;
+DROP TABLE IF EXISTS lieu;

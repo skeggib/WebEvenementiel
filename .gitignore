@@ -1,8 +1,7 @@
-# Editors temporary files
-
 *.swp
 *~
 .session.vim
 *.vpp.bak*
+*.vpp.lck
 
 webevents.ini
