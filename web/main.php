@@ -2,6 +2,10 @@
 
 session_start();
 
+require_once  __DIR__ . "/../src/Database/MyDatabase.php";
+use WebEvents\Database\MyDatabase;
+require_once __DIR__ . "/../src/Configuration.php";
+use WebEvents\Configuration;
 require_once(__DIR__ . "/../src/QueryParser.php");
 use WebEvents\QueryParser;
 require_once(__DIR__ . "/../src/Actions/Action.php");
@@ -31,7 +35,14 @@ $sender = new Sender();
 
 try
 {
-    $daoFactory = new DAOFactory();
+    $configuration = new Configuration("../webevents.ini");
+    $database = new MyDatabase(
+        $configuration->getDatabaseHost(),
+        $configuration->getDatabaseName(),
+        $configuration->getDatabaseLogin(),
+        $configuration->getDatabasePasswd()
+    );
+    $daoFactory = new DAOFactory($database);
     $parser = new QueryParser($_POST, $daoFactory);
     $action = $parser->getAction();
     $response = $action->execute();

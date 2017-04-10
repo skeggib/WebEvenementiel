@@ -47,25 +47,40 @@ class QueryParser
             case 'signup':
                 if (!isset($post['login']))
                     throw new \InvalidArgumentException("The login is not set");
+                if (!isset($post['email']))
+                    throw new \InvalidArgumentException("The email is not set");
                 if (!isset($post['password']))
                     throw new \InvalidArgumentException("The password is not set");
                 if (!isset($post['firstname']))
                     throw new \InvalidArgumentException("The first name is not set");
                 if (!isset($post['lastname']))
                     throw new \InvalidArgumentException("The last name is not set");
-                if (!isset($post['email']))
-                    throw new \InvalidArgumentException("The email is not set");
+                if (!isset($post['civility']))
+                    throw new \InvalidArgumentException("The civility is not set");
+                if (!isset($post['birthday']))
+                    throw new \InvalidArgumentException("The birthday is not set");
+                if (!isset($post['cellphone']))
+                    throw new \InvalidArgumentException("The cellphone is not set");
+                if (!isset($post['cp']))
+                    throw new \InvalidArgumentException("The cp is not set");
+                if (!isset($post['town']))
+                    throw new \InvalidArgumentException("The town is not set");
                 
                 $this->action = new ActionSignUp($daoFactory->getSignUpDAO(),
-                                                 $post['login'],
-                                                 $post['password'],
-                                                 $post['firstname'],
-                                                 $post['lastname'],
-                                                 $post['email']);
+                    $post['login'],
+                    $post['email'],
+                    $post['password'],
+                    $post['firstname'],
+                    $post['lastname'],
+                    $post['civility'],
+                    $post['birthday'],
+                    $post['cellphone'],
+                    $post['cp'],
+                    $post['town']);
                 break;
 
             case 'getuser':
-                $this->action = new ActionGetUser();
+                $this->action = new ActionGetUser($daoFactory->getSignInDAO());
                 break;
 
             case 'listevents':

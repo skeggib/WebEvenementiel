@@ -8,7 +8,7 @@ CREATE TABLE lieu (
 
 CREATE TABLE utilisateur (
 	id_utilisateur INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	pseudo_utilisateur VARCHAR(256) NOT NULL,
+	pseudo_utilisateur VARCHAR(256) NOT NULL UNIQUE,
 	civilite_utilisateur INTEGER NOT NULL,
 	nom_utilisateur VARCHAR(256) NOT NULL,
 	prenom_utilisateur VARCHAR(256) NOT NULL,

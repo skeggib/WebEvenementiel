@@ -10,7 +10,7 @@ class Configuration {
 	private $values;
 	private $path;
 
-	public function __construct(string $path)
+	public function __construct($path)
 	{
 		$this->path = $path;
 
@@ -37,7 +37,7 @@ class Configuration {
 		return $this->values['database_host'];
 	}
 
-	public function setDatabaseHost(string $host) {
+	public function setDatabaseHost($host) {
 		$this->values['database_host'] = $host;
 	}
 
@@ -46,7 +46,7 @@ class Configuration {
 		return $this->values['database_name'];
 	}
 
-	public function setDatabaseName(string $name) {
+	public function setDatabaseName($name) {
 		$this->values['database_name'] = $name;
 	}
 
@@ -55,7 +55,7 @@ class Configuration {
 		return $this->values['database_login'];
 	}
 
-	public function setDatabaseLogin(string $login) {
+	public function setDatabaseLogin($login) {
 		$this->values['database_login'] = $login;
 	}
 
@@ -64,7 +64,7 @@ class Configuration {
 		return $this->values['database_password'];
 	}
 
-	public function setDatabasePasswd(string $passwd) {
+	public function setDatabasePasswd($passwd) {
 		$this->values['database_password'] = $passwd;
 	}
 

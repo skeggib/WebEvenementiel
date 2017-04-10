@@ -4,6 +4,9 @@ namespace WebEvents\Database;
 
 require_once(__DIR__ . "/IDatabase.php");
 
+require_once __DIR__ . "/../Configuration.php";
+use WebEvents\Configuration;
+
 /**
  * Connexion with a PostgreSQL database
  */
@@ -23,6 +26,15 @@ class MyDatabase implements IDatabase
         $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
     }
 
+    public static function fromConfiguration(Configuration $config)
+    {
+        return new MyDatabase(
+            $config->getDatabaseHost(),
+            $config->getDatabaseName(),
+            $config->getDatabaseLogin(),
+            $config->getDatabasePasswd());
+    }
+
     public function __destruct()
     {
         $this->pdo = null;
@@ -30,6 +42,19 @@ class MyDatabase implements IDatabase
 
     public function query($query)
     {
-        return $this->pdo->query($query);
+        try
+        {
+            return $this->pdo->query($query); // TODO:skeggib escape
+        }
+
+        catch (\Exception $e)
+        {
+            throw new \Exception("Query failed: " . $query . " -> " . $e->getMessage(), 0, $e);
+        }
+    }
+
+    public function hash($password)
+    {
+        return md5($password);
     }
 }

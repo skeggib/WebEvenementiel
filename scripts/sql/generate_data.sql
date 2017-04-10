@@ -7,10 +7,10 @@ INSERT INTO lieu(id_lieu, num_rue_lieu, nom_rue_lieu, nom_ville_lieu, cp_lieu)
 
 
 INSERT INTO utilisateur(id_utilisateur, pseudo_utilisateur, civilite_utilisateur, nom_utilisateur, prenom_utilisateur, mdp_utilisateur, id_lieu, telephone_utilisateur, mobile_utilisateur, email_utilisateur, actif_utilisateur)
-	VALUES(1, "thelegend27", 1, "Dutrou", "Jean", "securepass", 2, "0612345678", "0125684865", "thelegend27@gmail.com", 1);
+	VALUES(1, "thelegend27", 1, "Dutrou", "Jean", "1a1dc91c907325c69271ddf0c944bc72", 2, "0612345678", "0125684865", "thelegend27@gmail.com", 1);
 
 INSERT INTO utilisateur(id_utilisateur, pseudo_utilisateur, civilite_utilisateur, nom_utilisateur, prenom_utilisateur, mdp_utilisateur, id_lieu, email_utilisateur, actif_utilisateur)
-	VALUES(2, "bouboule", 1, "Pouet", "Marco", "1234", 1, "marcolebogosse@gmail.com", 0);
+	VALUES(2, "bouboule", 1, "Pouet", "Marco", "1a1dc91c907325c69271ddf0c944bc72", 1, "marcolebogosse@gmail.com", 0);
 
 
 

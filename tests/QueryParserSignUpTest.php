@@ -10,6 +10,8 @@ require_once('src/Database/DAOFactory.php');
 use WebEvents\Database\DAOFactory;
 require_once('src/Actions/ActionSignUp.php');
 use WebEvents\Actions\ActionSignUp;
+require_once __DIR__ . "/../src/Database/MyDatabase.php";
+use WebEvents\Database\MyDatabase;
 
 final class QueryParserSignUpTest extends TestCase {
     
@@ -23,7 +25,8 @@ final class QueryParserSignUpTest extends TestCase {
         $post['firstname'] = 'Jack';
         $post['lastname'] = 'Daniels';
         $post['email'] = 'thelegend27@gmail.com';
-    	$qp = new QueryParser($post, new DAOFactory());
+        $database = MyDatabase::fromConfiguration(new Configuration("webevents.ini"));
+    	$qp = new QueryParser($post, new DAOFactory($database));
     }
 
 	/**
@@ -36,7 +39,8 @@ final class QueryParserSignUpTest extends TestCase {
         $post['firstname'] = 'Jack';
         $post['lastname'] = 'Daniels';
         $post['email'] = 'thelegend27@gmail.com';
-    	$qp = new QueryParser($post, new DAOFactory());
+        $database = MyDatabase::fromConfiguration(new Configuration("webevents.ini"));
+    	$qp = new QueryParser($post, new DAOFactory($database));
     }
 
 	/**
@@ -49,7 +53,8 @@ final class QueryParserSignUpTest extends TestCase {
         $post['firstname'] = 'Jack';
         $post['lastname'] = 'Daniels';
         $post['email'] = 'thelegend27@gmail.com';
-    	$qp = new QueryParser($post, new DAOFactory());
+        $database = MyDatabase::fromConfiguration(new Configuration("webevents.ini"));
+    	$qp = new QueryParser($post, new DAOFactory($database));
     }
 
     /**
@@ -62,7 +67,8 @@ final class QueryParserSignUpTest extends TestCase {
         $post['password'] = 'supersecurepassword';
         $post['lastname'] = 'Daniels';
         $post['email'] = 'thelegend27@gmail.com';
-        $qp = new QueryParser($post, new DAOFactory());
+        $database = MyDatabase::fromConfiguration(new Configuration("webevents.ini"));
+        $qp = new QueryParser($post, new DAOFactory($database));
     }
 
     /**
@@ -75,7 +81,8 @@ final class QueryParserSignUpTest extends TestCase {
         $post['password'] = 'supersecurepassword';
         $post['firstname'] = 'Jack';
         $post['email'] = 'thelegend27@gmail.com';
-        $qp = new QueryParser($post, new DAOFactory());
+        $database = MyDatabase::fromConfiguration(new Configuration("webevents.ini"));
+        $qp = new QueryParser($post, new DAOFactory($database));
     }
 
     /**
@@ -88,7 +95,8 @@ final class QueryParserSignUpTest extends TestCase {
         $post['password'] = 'supersecurepassword';
         $post['firstname'] = 'Jack';
         $post['lastname'] = 'Daniels';
-        $qp = new QueryParser($post, new DAOFactory());
+        $database = MyDatabase::fromConfiguration(new Configuration("webevents.ini"));
+        $qp = new QueryParser($post, new DAOFactory($database));
     }
 
     public function testConstructor() {
@@ -96,11 +104,17 @@ final class QueryParserSignUpTest extends TestCase {
     	$post = [];
     	$post['cmd'] = 'signup';
     	$post['login'] = 'thelegend27';
+        $post['email'] = 'thelegend27@gmail.com';
     	$post['password'] = 'supersecurepassword';
         $post['firstname'] = 'Jack';
         $post['lastname'] = 'Daniels';
-        $post['email'] = 'thelegend27@gmail.com';
-    	$qp = new QueryParser($post, new DAOFactory());
+        $post['civility'] = 'M.';
+        $post['birthday'] = '';
+        $post['cellphone'] = '0123457896';
+        $post['cp'] = '96458';
+        $post['town'] = 'Ville';
+        $database = MyDatabase::fromConfiguration(new Configuration("webevents.ini"));
+    	$qp = new QueryParser($post, new DAOFactory($database));
 
     	$this->assertTrue(is_a($qp->getAction(), ActionSignUp::class));
     }

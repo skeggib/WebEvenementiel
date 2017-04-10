@@ -78,7 +78,7 @@ function readValue($text, $oldValue) {
 
 print_r("--- WebEvenmentiel configuration ---\n");
 
-$config = new Configuration("webevents.ini");
+$config = new Configuration("webevents_test.ini");
 
 $config->setDatabaseHost(readValue("Database host", $config->getDatabaseHost()));
 $config->setDatabaseName(readValue("Database name", $config->getDatabaseName()));
@@ -86,18 +86,3 @@ $config->setDatabaseLogin(readValue("Database login", $config->getDatabaseLogin(
 $config->setDatabasePasswd(readValue("Database password", $config->getDatabasePasswd()));
 
 $config->save();
-
-// ---
-
-if (askYN("Reset database ?", false))
-{
-	$database = new MyDatabase($config->getDatabaseHost(), $config->getDatabaseName(), $config->getDatabaseLogin(), $config->getDatabasePasswd());
-	
-	$database->query(file_get_contents(__DIR__ . "/sql/drop_tables.sql"));
-	$database->query(file_get_contents(__DIR__ . "/sql/create_tables.sql"));
-
-	if (askYN("Generate developement data ?", false))
-	{
-		$database->query(file_get_contents(__DIR__ . "/sql/generate_data.sql"));
-	}
-}

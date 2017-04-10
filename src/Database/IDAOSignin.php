@@ -13,4 +13,9 @@ interface IDAOSignIn {
 	 * @return     bool True if the username exists and if the password is correct
 	 */
 	public function check($login, $password);
+
+    /**
+     * @return User The connected user if there is one, false if there is no connected user
+     */
+	public function getUser();
 }

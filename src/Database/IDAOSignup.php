@@ -1,6 +1,6 @@
 <?php
 
-namespace WebEvent\Database;
+namespace WebEvents\Database;
 
 interface IDAOSignUp {
 
@@ -23,6 +23,6 @@ interface IDAOSignUp {
 						   $civility,
 						   $birthday,
 						   $cellphone,
-						   $cp,
-						   $town);
+                           $adressId,
+                           $actif);
 }

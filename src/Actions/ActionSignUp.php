@@ -25,7 +25,8 @@ class ActionSignUp extends Action
     private $civility;
     private $birthday;
     private $cellphone;
-    private $cp;
+    private $adressId;
+    private $active;
 
     public function __construct(IDAOSignUp $dao,
                                 $username,
@@ -36,7 +37,8 @@ class ActionSignUp extends Action
                                 $civility,
                                 $birthday,
                                 $cellphone,
-                                $cp)
+                                $adressId,
+                                $active)
     {
         $this->dao = $dao;
 
@@ -48,7 +50,8 @@ class ActionSignUp extends Action
         $this->civility = $civility;
         $this->birthday = $birthday;
         $this->cellphone = $cellphone;
-        $this->cp = $cp;
+        $this->adressId = $adressId;
+        $this->active = $active;
     }
 
     public function execute()
@@ -61,8 +64,8 @@ class ActionSignUp extends Action
                                     $this->civility,
                                     $this->birthday,
                                     $this->cellphone,
-                                    $this->cp,
-                                    $this->town);
+                                    $this->adressId,
+                                    $this->active);
 
         if (!$added)
             return new Response(array(), true); // TODO:skeggib Error code

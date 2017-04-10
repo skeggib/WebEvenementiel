@@ -1,6 +1,6 @@
 <?php
 
-namespace WebEvent\Models;
+namespace WebEvents\Models;
 
 require_once(__DIR__ . "/Address.php");
 
@@ -23,8 +23,8 @@ class User
     public function __construct($id,
                                 $username,
                                 $email,
-                                $lastName,
                                 $firstName,
+                                $lastName,
                                 $active,
                                 $password,
                                 $civility,
@@ -79,7 +79,7 @@ class User
     {
         return $this->firstName;
     }
-    public function setFirstName()
+    public function setFirstName($firstName)
     {
         $this->firstName = $firstName;
     }
@@ -103,7 +103,7 @@ class User
     {
         return $this->civility;
     }
-    public function setCivility()
+    public function setCivility($civility)
     {
         $this->civility = $civility;
     }

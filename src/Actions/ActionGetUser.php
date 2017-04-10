@@ -8,30 +8,37 @@ require_once(__DIR__ . "/../Exceptions/NotImplementedException.php");
 require_once(__DIR__ . "/../Response.php");
 use WebEvents\Response;
 
+require_once __DIR__ . "/../Database/IDAOSignIn.php";
+use WebEvents\Database\IDAOSignIn;
+
 /**
  * Action which gets an User
  */
 class ActionGetUser extends Action
 {
-	public function __construct()
-	{
+    private $dao;
 
+	public function __construct(IDAOSignIn $dao)
+	{
+        $this->dao = $dao;
 	}
 
 	public function execute() {
-		if (isset($_SESSION['login']))
-		{
-			$array = array( // TODO:skeggib dao
-				"username" => $_SESSION['login'],
-				"firstname" => "Noah",
-				"lastname" => "Smith"
-			);
-			return new Response($array, false);
-		}
+		$user = $this->dao->getUser();
 
-		else
-		{
-			return new Response(array(), true);
-		}
+		if (!$user)
+            return new Response(array(), true);
+
+		$array = array(
+		    'id' => $user->getId(),
+		    'username' => $user->getUsername(),
+            'email' => $user->getEmail(),
+            'firstname' => $user->getFirstName(),
+            'lastname' => $user->getLastName(),
+            'active' => $user->getActive(),
+            'civility' => $user->getCivility()
+        );
+
+		return new Response($array, false);
 	}
 }
