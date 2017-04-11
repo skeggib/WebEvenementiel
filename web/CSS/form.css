@@ -1,3 +1,6 @@
+/**
+ * Mettre cette classe a un <input> lorsque la saisie de l'utilisateur est incorrecte
+ */
 .inputError {
 	border: solid 1px red;
 	background-color: #FFAAAA;

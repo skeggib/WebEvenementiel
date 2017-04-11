@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed9bae73-e9b4-4897-a608-345534dec0cf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/QueryParser.php" afterPath="$PROJECT_DIR$/src/QueryParser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CSS/style.css" afterPath="$PROJECT_DIR$/web/CSS/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/change_passwd.html" afterPath="$PROJECT_DIR$/web/change_passwd.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/contact.html" afterPath="$PROJECT_DIR$/web/contact.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/create_event.html" afterPath="$PROJECT_DIR$/web/create_event.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/create_profile.html" afterPath="$PROJECT_DIR$/web/create_profile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/main.php" afterPath="$PROJECT_DIR$/web/main.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/create_profile_no_passwd.html" afterPath="$PROJECT_DIR$/web/create_profile_no_passwd.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.html" afterPath="$PROJECT_DIR$/web/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/my_events.html" afterPath="$PROJECT_DIR$/web/my_events.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/my_profile.html" afterPath="$PROJECT_DIR$/web/my_profile.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -386,7 +392,7 @@
       <updated>1491576867110</updated>
       <workItem from="1491576868461" duration="4038000" />
       <workItem from="1491804786699" duration="8784000" />
-      <workItem from="1491856067050" duration="60000" />
+      <workItem from="1491856067050" duration="647000" />
     </task>
     <servers />
   </component>
@@ -423,7 +429,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12882000" />
+    <option name="totallyTimeSpent" value="13469000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />

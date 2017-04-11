@@ -1,206 +1,115 @@
 body{
 	background: #FFF8DC;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	left: 0;
 }
 
-div.connexion{
-	background:#BC8F8F;
-	float:right;
-	margin-right:0.5em;
-	border-style:solid;
-	margin-top:1%;
-	height:100px;
-	width:180px;
-	
+nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 200px;
+	margin: 0;
+
+	background-color: #F5F5F5;
+	border-right: 1px solid #BBB;
 }
 
-div.entete{
-	background:#FFF8DC;
+nav h2 {
+	text-align: center;
 }
 
-
-div.entete #Web{
-	padding-left:2em;
-	font-size:80px;
-	line-height:6%;
-	top:2%;
-	font-style:italic;
-	color:red;
-
-}
-div.entete img{
-	margin-left:0%;
-	top:2%;
-	width:154px;
-	height:145px;
+nav ul {
+	list-style: none;
+	padding: 20px;
 }
 
-
-
-div.menu{
-	position:fixed;
-	width:12%;
-	top:30%;
-	min-height:98%;
-	padding-bottom:60%;
-	background:#4682B4;
-	border-style:solid;
-	
+nav li a {
+	display: block;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-left: 5px;
+	border-bottom: 1px solid #BBB;
 }
 
-div.menu ul{
-	list-style-image:url(puce.png);
+nav li:hover {
+	background-color: #CCC;
 }
 
-div.corps{
-	position:absolute;
-	padding-top:3em;
-	margin-left:11%;
-	padding-left:1em;
-	text-indent:1em;
-	text-align:justify;
+nav a {
+	cursor: pointer;
 }
 
-div.corps #eve{
-	padding-left:1em;
-	width:1068px;
-}
-div.corps #dvp{
-	padding-left:1em;
-	padding-bottom:1em;
-	width:400px;
-	height:200px;
-}
-
-/* Pas de marge pour les items de liste */
-/* sinon, prend la marge de .main ul et .main ol */
-
-
-
-h2{
-	text-align:center;
-	color:#A52A2A;
-	font-style:italic;
-
-}
-div.menu a{
+nav a {
 	text-decoration:none;
-	color:white;
+	color: #333;
+	font-size: 16px;
 }
 
-div.cont a{
-	position:absolute;
-	padding-top:7em;
-	margin-left:11%;
-	padding-left:2em;
-	text-indent:1em;
-	text-align:justify;
+header {
+	position: absolute;
+	top: 0;
+	left: 200px;
+	right: 0;
+	height: 150px;
 }
 
-div.cont p{
-	text-align:center;
+header .title {
+	position: absolute;
+	left: 0px;
+	right: 250px;
+	height: 100%;
 }
 
-div.cont img{
-	padding-left:1em;
-	width:800px;
-	height:400px;
-	padding-top:8em;
-	margin-left:11%;
-	padding-left:2em;
+header .title_helper {
+	display: table;
+	width: 100%;
+	height: 100%;
 }
 
-div.cont h2{
-	padding-top:2em;
+header .title a {
+	text-decoration: none;
+	position: relative;
+	color: #333;
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	text-align: center;
 }
 
-div.profil{
-	position:absolute;
-	padding-top:3em;
-	margin-left:11%;
-	padding-left:20em;
-	text-indent:1em;
+header .title a h1 {
+	margin: 0;
+	padding: 0;
+	font-size: 36px;
 }
 
-
-div.profil label{
-
-	float:left;
-	width: 170px;
-	
+header .connexion {
+	position: relative;
+	float: right;
+	width: 250px;
+	height: 100%;
+	padding: 20px 20px 20px 0px;
+	box-sizing: border-box;
 }
 
-div.profil input{
-	display:block;
-	width:10em;
-	margin-left:13em;
-	border-radius:5px;
+header .connexion_helper {
+	border-left: 1px solid #BBB;
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px;
 }
 
-div.profil select{
-	display:block;
-	width:10em;
-	margin-left:13em;
-	border-radius:5px;
+section.contents {
+	position: absolute;
+	top: 200px;
+	left: 200px;
+	right: 0;
+	overflow-x: hidden;
+	padding: 10px;
 }
-
-div.evenement{
-	position:absolute;
-	padding-top:3em;
-	margin-left:11%;
-	padding-left:1em;
-	text-indent:1em;
-}
-
-div.evenement h2{
-	padding-left:19em;
-}
-
-
-div.evenement label{
-
-	float:left;
-	width: 200px;
-	
-}
-
-div.evenement input,select,textarea{
-	display:block;
-	width:10em;
-	margin-left:22em;
-	border-radius:5px;
-}
-
-
-div.MDP label{
-	float:left;
-	width: 200px;
-}
-	
-div.MDP input{
-	display:block;
-	margin-left:15em;
-	border-radius:5px;
-}
-
-div.MDP fieldset{
-	padding-top:2em;
-}
-
-div.MDP{
-	position:absolute;
-	margin-top: 3em;
-	padding-top:2em;
-	margin-left:11%;
-	padding-left:20em;
-	margin-bottom: 5%;
-}
-
-div.affichevenement {
-	position:absolute;
-	margin-top: 3em;
-	padding-top:2em;
-	margin-left:11%;
-	padding-left:20em;
-	margin-bottom: 5%;
-}
-

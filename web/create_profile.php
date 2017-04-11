@@ -2,37 +2,16 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
 <head>
-	<link rel="stylesheet" type="text/css" href="CSS/style.css"/>
-	<meta charset="utf-8">
-	<title>WebEvenementiel</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="js/ajax.js"></script>
-	<script src="js/create_profile_page.js"></script>
+	
+	<?php include __DIR__ . "/parts/head.html"; ?>
+
 </head>
 <body>
-	<div class="entete">
 
-		<img src="logo.jpg" alt="Logo Entreprise" title="Logo Entreprise"/>
-		<a id="Web">Le WebEvenementiel</a>	
-		<div class="connexion">
-			<u>Connecté :</u><br/>
-			<p>Dimi le plus beau de la terre entiére</p>
-			<a href="create_profile.html">Inscription</a>
-		</div>		
-	</div>
-	<div class="menu">
-		<h2 id="Menu">Menu</h2>
-			<ul>
-				<li><a href="index.html">Accueil</a></li>
-				<li><a href="create_event.html">Créer un Evenement</a></li>
-				<li><a href="my_events.html">Mes Evenements</a></li>
-				<li><a href="my_profile.html">Mon Compte</a></li>
-				<li><a href="contact.html">Nous Contacter</a></li>
-			</ul>
-	</div>
+	<?php include __DIR__ . "/parts/header.html"; ?>
+	<?php include __DIR__ . "/parts/nav.html"; ?>
 	
-	<div class="profil">
-		
+	<section class="contents">		
 		<h2 id="CreerCompte">Créez votre compte</h2>
 		
 		<form enctype="multipart/form-data" onsubmit="return false;">
@@ -88,6 +67,6 @@
 			<br>
 			<input id="createProfileButton" type="submit" value="Créer"/>
 		</form>
-	</div>
+	</section>
 </body>
 </html>		

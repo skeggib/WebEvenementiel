@@ -1,35 +1,17 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "
-http://www.w3.org/TR/html4/loose.dtd" >
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" >
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
 <head>
-	<link rel="stylesheet" type="text/css" href="CSS/style.css" />
-	<meta charset="utf-8">
-	<title>WebEvenementiel</title>
+	
+	<?php include __DIR__ . "/parts/head.html"; ?>
+
 </head>
 <body>
-	<div class="entete">
 
-		<img src="logo.jpg" alt="Logo Entreprise" title="Logo Entreprise" />
-		<a id="Web">Le WebEvenementiel</a>	
-		<div class="connexion">
-			<u>Connecté :</u><br/>
-			Dimi le plus beau de la terre entiére</p>
-			<a href="create_profile.html">Inscription</a>
-		</div>		
-	</div>
-	<div class="menu">
-		<h2 id="Menu">Menu</h2>
-			<ul>
-				<li><a href="index.html">Accueil</a></li>
-				<li><a href="create_event.html">Créer un Evenement</a></li>
-				<li><a href="my_events.html">Mes Evenements</a></li>
-				<li><a href="my_profile.html">Mon Compte</a></li>
-				<li><a href="contact.html">Nous Contacter</a></li>
-			</ul>
-	</div>
+	<?php include __DIR__ . "/parts/header.html"; ?>
+	<?php include __DIR__ . "/parts/nav.html"; ?>
 	
-	<div class="corps">
+	<section class="contents">
 		<p><strong>Vous avez un évenement qui arrive prochainement et vous ne savez pas comment le mettre en place? Alors vous êtes au bon endroit !</strong></p>
 		<img id="eve" src="evenementiel.png" alt="Evenementiel Entreprise" title="Evenementiel Entreprise" />
 		<p>Notre société est organisatrice d'évenements sur Internet.
@@ -42,7 +24,7 @@ http://www.w3.org/TR/html4/loose.dtd" >
 		</p>
 		<p><u>Une petite photo de notre équipe de développeurs:</u></p>
 		<img id="dvp" src="developpeur.jpg" alt="Developpeur Entreprise" title="Developpeur Entreprise" />
-		
-	</div>
+	</section>
+
 </body>
 </html>		
