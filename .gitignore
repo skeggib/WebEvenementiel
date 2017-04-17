@@ -5,3 +5,4 @@
 *.vpp.lck
 
 webevents.ini
+.idea/workspace.xml
