@@ -1,3 +1,5 @@
+$.ajaxSetup({cache: false});
+
 /**
  * Creates a profile by sending an AJAX request
  *

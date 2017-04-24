@@ -5,3 +5,26 @@
 	border: solid 1px red;
 	background-color: #FFAAAA;
 }
+
+#contents > form {
+	display: table;
+	margin: auto;
+	margin-top: 20px;
+}
+
+.form_row {
+	display: table-row;
+}
+
+#contents > form label,
+#contents > form input,
+#contents > form select,
+#contents > form textarea {
+	display: table-cell;
+	vertical-align: middle;
+	margin: 5px;
+}
+
+#contents > form label {
+	text-align: right;
+}
