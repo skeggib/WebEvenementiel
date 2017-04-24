@@ -14,11 +14,12 @@
     <script src="js/ajax.js"></script>
     <script src="js/nav.js"></script>
 
+    <script src="js/signup.js"></script>
+
     <title>Web Evenementiel</title>
 
     <script type="text/javascript">
         $(document).ready(function() {
-            navInitButtons();
             changePageFromURL();
         });
     </script>
@@ -30,18 +31,18 @@
     <h1>Le web evenementiel</h1>
     <nav>
         <ul>
-            <li id="nav_home">Accueil</li>
-            <li id="nav_createevent">Créer un événement</li>
-            <li id="nav_myevents">Mes événements</li>
-            <li id="nav_myprofile">Mon compte</li>
-            <li id="nav_contact">Nous contacter</li>
+            <li id="nav_home" onclick="navOpenHome()">Accueil</li>
+            <li id="nav_createevent" onclick="navOpenCreateEvent()">Créer un événement</li>
+            <li id="nav_myevents" onclick="navOpenMyEvents()">Mes événements</li>
+            <li id="nav_myprofile" onclick="navOpenMyProfile()">Mon compte</li>
+            <li id="nav_contact" onclick="navOpenContact()">Nous contacter</li>
         </ul>
     </nav>
     <div id="login">
         <div class="login_helper">
-            <a id="nav_signin"><span>Connexion</span></a>
+            <a id="nav_signin" onclick="navOpenSignIn()"><span>Connexion</span></a>
             <br>
-            <a id="nav_signup"><span>Inscription</span></a>
+            <a id="nav_signup" onclick="navOpenSignUp()"><span>Inscription</span></a>
         </div>
     </div>
 </header>

@@ -1,68 +1,38 @@
-function navInitButtons() {
-    $('#nav_home').click(function() {
-        navOpenHome(this);
-    });
-
-    $('#nav_createevent').click(function() {
-        navOpenCreateEvent(this);
-    });
-
-    $('#nav_myevents').click(function() {
-        navOpenMyEvents(this);
-    });
-
-    $('#nav_myprofile').click(function() {
-        navOpenMyProfile(this);
-    });
-
-    $('#nav_contact').click(function() {
-        navOpenContact(this);
-    });
-
-    $('#nav_signup').click(function() {
-        navOpenSignUp();
-    });
-
-    $('#nav_signin').click(function() {
-        navOpenSignIn();
-    });
-}
-
 function navRemoveActiveClass() {
     $('header nav ul li').removeClass('active');
 }
 
-function navOpenHome(button) {
+function navOpenHome() {
     navRemoveActiveClass();
-    $(button).addClass('active');
+    $('#nav_home').addClass('active');
     $('#contents').load('pages/home.html');
     navPushState("Accueil", "home");
 }
 
-function navOpenCreateEvent(button) {
+function navOpenCreateEvent() {
     navRemoveActiveClass();
-    $(button).addClass('active');
+    $('#nav_createevent').addClass('active');
     $('#contents').load('pages/createevent.html');
     navPushState("Créer un évenement", "createevent");
 }
 
-function navOpenMyEvents(button) {
+function navOpenMyEvents() {
     navRemoveActiveClass();
-    $(button).addClass('active');
+    $("#nav_myevents").addClass('active');
     $('#contents').load('pages/myevents.html');
     navPushState("Mes évenements", "myevents");
 }
 
-function navOpenMyProfile(button) {
+function navOpenMyProfile() {
     navRemoveActiveClass();
-    $(button).addClass('active');
+    $('#nav_myprofile').addClass('active');
     $('#contents').load('pages/myprofile.html');
     navPushState("Mon compte", "myprofile");
 }
 
-function navOpenContact(button) {
+function navOpenContact() {
     navRemoveActiveClass();
-    $(button).addClass('active');
+    $('#nav_contact').addClass('active');
     $('#contents').load('pages/contact.html');
     navPushState("Contact", "contact");
 }
@@ -77,6 +47,12 @@ function navOpenSignIn() {
     navRemoveActiveClass();
     $('#contents').load('pages/signin.html');
     navPushState("Connexion", "signin");
+}
+
+function navOpenSignUpSuccess() {
+    navRemoveActiveClass();
+    $('#contents').load('pages/signup_success.html');
+    navPushState("Inscription succes", "signup_success");
 }
 
 function navPushState(title, name) {
