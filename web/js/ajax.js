@@ -55,3 +55,78 @@ function ajax_signup(
         }
 	});
 }
+
+/**
+ * Connects a user by sending an AJAX request
+ *
+ * @param login
+ * @param password
+ * @param successCallback
+ * @param errorCallback
+ */
+function ajax_signin(login, password, successCallback, errorCallback) {
+
+    $.ajax({
+        url: 'main.php',
+        type: 'POST',
+        data: {
+            cmd: 'signin',
+            login: login,
+            password: password
+        },
+
+        datatype: 'html',
+        error: function(jqXHR, exception) {
+            errorCallback(jqXHR, exception);
+        },
+        success: function(data) {
+            successCallback(data);
+        }
+    });
+}
+
+/**
+ * Gets the connected user informations by an AJAX request
+ *
+ * @param successCallback
+ * @param errorCallback
+ */
+function ajax_getuser(successCallback, errorCallback) {
+	$.ajax({
+		url: 'main.php',
+		type: 'POST',
+		data: {
+			cmd: 'getuser'
+		},
+		datatype: 'html',
+        error: function(jqXHR, exception) {
+            errorCallback(jqXHR, exception);
+        },
+        success: function(data) {
+            successCallback(data);
+        }
+	});
+}
+
+/**
+ * Disconnect the user by an AJAX request
+ *
+ * @param successCallback
+ * @param errorCallback
+ */
+function ajax_logout(successCallback, errorCallback) {
+    $.ajax({
+        url: 'main.php',
+        type: 'POST',
+        data: {
+            cmd: 'logout'
+        },
+        datatype: 'html',
+        error: function(jqXHR, exception) {
+            errorCallback(jqXHR, exception);
+        },
+        success: function(data) {
+            successCallback(data);
+        }
+    });
+}

@@ -11,6 +11,8 @@ require_once(__DIR__ . "/Actions/ActionSignUp.php");
 use WebEvents\Actions\ActionSignUp;
 require_once(__DIR__ . "/Actions/ActionGetUser.php");
 use WebEvents\Actions\ActionGetUser;
+require_once(__DIR__ . "/Actions/ActionLogOut.php");
+use WebEvents\Actions\ActionLogOut;
 require_once(__DIR__ . "/Actions/ActionListEvents.php");
 use WebEvents\Actions\ActionListEvents;
 require_once(__DIR__ . "/Actions/ActionGetEvent.php");
@@ -31,7 +33,7 @@ class QueryParser
 
     public function __construct(array $post, DAOFactory $daoFactory) {
         if (!isset($post['cmd']))
-            throw new \InvalidArgumentException("The command is not set");
+            throw new \Exception("The command is not set");
 
         switch ($post['cmd']) {
 
@@ -85,6 +87,10 @@ class QueryParser
                 $this->action = new ActionGetUser($daoFactory->getSignInDAO());
                 break;
 
+            case 'logout':
+                $this->action = new ActionLogOut();
+                break;
+
             case 'listevents':
                 $this->action = new ActionListEvents();
                 break;
@@ -108,7 +114,7 @@ class QueryParser
                 break;
             
             default:
-                throw new \InvalidParameterException("Undefined command");
+                throw new \Exception("Undefined command");
                 break;
         }
     }

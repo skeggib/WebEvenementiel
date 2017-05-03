@@ -128,7 +128,11 @@ header nav ul li:hover {
     transform: translate(0, -50%);
 }
 
-#login #nav_signin {
+#login a {
+    cursor: pointer;
+}
+
+#login .login_helper a:first-child {
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: #666;
