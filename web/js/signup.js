@@ -55,6 +55,7 @@ function signup() {
             }
 
             else {
+            	ajax_signin($('#signup_login').val(), $('#signup_password').val());
             	navOpenSignUpSuccess();
 			}
         },

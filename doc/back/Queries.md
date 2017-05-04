@@ -1,14 +1,24 @@
 % WebEvenementiel documentation - Queries
 
-# Format of a request
+# Fonctionnement des requêtes
 
-A request is contained in the `$_POST` global variable. `$_POST['cmd']` is a string that describe the request, if additional informations are needed, they can be specified in other cells of the variable `$_POST`.
+Le front-end et le back-end communiquent via des requêtes HTTP : 
+pour effectuer une action ou demander des informations, le 
+front-end envoi une requête de type `POST`, elle est traitée par 
+le back-end et une réponse formatée au format `JSON` est renvoyée.
 
-For example, the following request attempt an user login :
+Les requêtes sont composées d'un champs `cmd` qui indique 
+l'action à exécuter et de paramètres variant selon les 
+différentes actions. La réponse est toujours composée d'un 
+champs `success` qui indique si l'action a réussi et d'un 
+champs `errorCode` qui est égal a un code d'erreur positif 
+dans le cas ou l'action a échoué, la réponse contient aussi les
+informations demandée (s'il y en a).
+
+Par exemple, le contenu de la variable `$_POST` pour une requête 
+de connexion :
 
 ```
-Contents of the $_POST variables :
-
 [
     'cmd': 'signin',
     'username': 'thelegend27',
@@ -16,47 +26,49 @@ Contents of the $_POST variables :
 ]
 ```
 
-# Format of a response
+# Liste des actions
 
-The response is formatted in JSON and sent via the HTTP protocol. A response always contains a value named "success" which can be true or false, when this value is false the response contains also a value named "error" which contains the error message from the back-end.
+## `signin` : Connexion
 
-# Existing queries
+Vérifie que l'utilisateur existe dans la base de données et que 
+le mot de passe correspond. La connexion est maintenue dans une 
+session et les informations de l'utilisateur connecté peuvent 
+être lues via la commande `getuser`.
 
-## Sign-in
+**Requête** :
 
-Checks if the user exists in the database and that the password matches. A PHP session is used to keep the connection open.
+- `'cmd': 'signin`
+- `'login'` : Pseudo
+- `'password'` : Mot de passe
 
-**Request**:
+**Réponse** :
 
-`'cmd': 'signin`
+- `'success'` : True si la connexion réussi, false si non
 
-`'login': '<login>'`
+## `signup` : Inscription
 
-`'password': '<password>'`
+Inscrit un nouvel utilisateur dans la base de données.
 
-**Response**:
+**Requête** :
 
-...
+- `'cmd': 'signup'`
+- `'login'` : Pseudo
+- `'email'` : Adresse e-mail
+- `'password'` : Mot de passe
+- `'firstName'` : Prénom
+- `'lastName'` : Nom
+- `'civility'` : Civilité (1 pour homme et 2 pour femme)
+- `'birthday'` : Date de naissance (dd/mm/yyy)
+- `'cellphone'` : Numéro de téléphone
+- `'citycode'` : Code postal
+- `'cityname'` : Nom de la ville
 
-## Sign-up
+**Réponse** :
 
-Registers a new user. Checks if the user exists and that the given informations are valid.
-
-**Request**:
-
-`'cmd': 'signup'`
-
-`'login': '<login>'`
-
-`'password': '<password>'`
-
-`'firstName': '<first_name>'`
-
-`'lastName': '<last_name>'`
-
-**Response**:
-
-...
+- `'success'` : True si l'utilisateur a été inscrit dans la base 
+de données
+- `'parameterName'` : Le nom du parametre incorrect (s'il y en a 
+un incorrect, dans ce cas `'errorCode'` est égal à 1 ou 2)
 
 ## Get informations of connected user
 
