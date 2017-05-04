@@ -2,8 +2,6 @@
 
 namespace WebEvent\Database;
 
-require_once(__DIR__ . "/../Models/Event.php");
-
 interface IDAOEvent
 {
     /**

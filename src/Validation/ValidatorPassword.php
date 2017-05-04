@@ -2,10 +2,8 @@
 
 namespace WebEvents\Validation;
 
-require_once(__DIR__ . "/Validator.php");
-
 /**
- * Validates an email
+ * Validates a password
  */
 class ValidatorPassword extends Validator
 {
@@ -13,7 +11,7 @@ class ValidatorPassword extends Validator
     {
     }
 
-    public function validate($password)
+    public function validate($password) // TODO
     {
         if(strlen($password) > 0)
             return true;

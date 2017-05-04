@@ -39,9 +39,8 @@ function signup() {
         $('#signup_firstname').val(),	$('#signup_lastname').val(),	$('#signup_civility').val(),
         $('#signup_birthdate').val(),	$('#signup_cellphone').val(),	$('#signup_citycode').val(),
         $('#signup_cityname').val(),
-        function(data) {
+        function(json) {
             $('input').removeClass('inputError');
-            var json = JSON.parse(data);
 
             if (!json.success) {
                 switch (json.errorCode) {

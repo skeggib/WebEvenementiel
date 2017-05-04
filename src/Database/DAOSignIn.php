@@ -2,10 +2,6 @@
 
 namespace WebEvents\Database;
 
-require_once __DIR__ . "/IDAOSignIn.php";
-require_once __DIR__ . "/IDatabase.php";
-
-require_once __DIR__ . "/../Models/User.php";
 use WebEvents\Models\User;
 
 class DAOSignIn implements IDAOSignIn

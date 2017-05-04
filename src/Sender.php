@@ -2,10 +2,8 @@
 
 namespace WebEvents;
 
-require_once(__DIR__ . "/Response.php");
-
 /**
- * Allow to send a response to the front-end
+ * Sends a Response to the front-end using HTTP protocol.
  */
 class Sender
 {
@@ -14,9 +12,8 @@ class Sender
     }
 
     /**
-     * Sends a response to the front-end
-     *
-     * @param       Response $response   The response to send
+     * Sends a response to the front-end.
+     * @param Response $response
      */
     public function send(Response $response)
     {

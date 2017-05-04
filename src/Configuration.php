@@ -3,13 +3,17 @@
 namespace WebEvents;
 
 /**
- * @brief Configuration read from an ini file
+ * Configuration read from an ini file.
  */
 class Configuration {
 
 	private $values;
 	private $path;
 
+    /**
+     * Reads and parse the configuration file.
+     * @param $path Path to the configuration file.
+     */
 	public function __construct($path)
 	{
 		$this->path = $path;
@@ -28,6 +32,9 @@ class Configuration {
 			$this->values['database_password'] = '';
 	}
 
+    /**
+     * Saves the new configuration to the file.
+     */
 	public function save() {
 		$this->write_php_ini($this->values, $this->path);
 	}

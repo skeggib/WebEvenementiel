@@ -2,8 +2,6 @@
 
 namespace WebEvents\Models;
 
-require_once(__DIR__ . "/Address.php");
-
 class User
 {
     private $id;

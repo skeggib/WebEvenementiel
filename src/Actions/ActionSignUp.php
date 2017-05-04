@@ -1,20 +1,12 @@
 <?php
 
 namespace WebEvents\Actions;
+require_once __DIR__ . "/../autoloader.php";
 
-require_once(__DIR__ . "/Action.php");
-require_once(__DIR__ . "/../Exceptions/NotImplementedException.php");
-
-require_once(__DIR__ . "/../Database/IDAOSignUp.php");
 use WebEvents\Database\IDAOSignUp;
-require_once(__DIR__ . "/../Response.php");
 use WebEvents\Response;
-
-require_once __DIR__ . "/../Validation/ValidatorName.php";
 use WebEvents\Validation\ValidatorName;
-require_once __DIR__ . "/../Validation/ValidatorEmail.php";
 use WebEvents\Validation\ValidatorEmail;
-require_once __DIR__ . "/../Validation/ValidatorPassword.php";
 use WebEvents\Validation\ValidatorPassword;
 
 /**

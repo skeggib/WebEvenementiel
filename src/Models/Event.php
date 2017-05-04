@@ -2,9 +2,6 @@
 
 namespace WebEvent\Models;
 
-require_once(__DIR__ . "/Address.php");
-require_once(__DIR__ . "/User.php");
-
 class Event
 {
     private     $id;            //int

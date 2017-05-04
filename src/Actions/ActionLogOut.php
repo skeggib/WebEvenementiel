@@ -1,9 +1,8 @@
 <?php
 
 namespace WebEvents\Actions;
+require_once __DIR__ . "/../autoloader.php";
 
-require_once __DIR__ . "/Action.php";
-require_once __DIR__ . "/../Response.php";
 use WebEvents\Response;
 
 class ActionLogOut extends Action

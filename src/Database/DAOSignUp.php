@@ -2,8 +2,6 @@
 
 namespace WebEvents\Database;
 
-require_once __DIR__ . "/IDAOSignUp.php";
-
 class DAOSignUp implements IDAOSignUp
 {
     private $database;

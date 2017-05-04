@@ -1,14 +1,9 @@
 <?php
 
 namespace WebEvents\Actions;
+require_once __DIR__ . "/../autoloader.php";
 
-require_once(__DIR__ . "/Action.php");
-require_once(__DIR__ . "/../Exceptions/NotImplementedException.php");
-
-require_once(__DIR__ . "/../Response.php");
 use WebEvents\Response;
-
-require_once __DIR__ . "/../Database/IDAOSignIn.php";
 use WebEvents\Database\IDAOSignIn;
 
 /**

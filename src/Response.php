@@ -3,7 +3,7 @@
 namespace WebEvents;
 
 /**
- * A Response contains the result of an action and is ready to be sent
+ * Contains the result of an action (in an associative array) and formats it to JSON.
  */
 class Response
 {
@@ -12,9 +12,10 @@ class Response
     private $errorCode;
 
     /**
-     * @param       string  $array  Associative array containing the response, the keys 'success' and 'errorCode' are reserved
-     * @param       bool    $error  Set to true if there was an error during the process
-     * @param       int  $errorCode Error code, will be sent only if $error is true
+     * Response constructor.
+     * @param $array List of variables to be sent.
+     * @param $error Set to true if there was an error.
+     * @param int $errorCode Error code if there was an error.
      */
     public function __construct($array, $error, $errorCode = -1)
     {
@@ -32,8 +33,8 @@ class Response
     }
 
     /**
-     * @brief Generates a JSON string containing the response
-     * @return The JSON string
+     * Formats the response to JSON.
+     * @return string The response formatted to JSON.
      */
     public function getJSON()
     {

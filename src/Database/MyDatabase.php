@@ -2,9 +2,6 @@
 
 namespace WebEvents\Database;
 
-require_once(__DIR__ . "/IDatabase.php");
-
-require_once __DIR__ . "/../Configuration.php";
 use WebEvents\Configuration;
 
 /**

@@ -2,16 +2,6 @@
 
 namespace WebEvents\Database;
 
-require_once __DIR__ . "/IDatabase.php";
-
-require_once __DIR__ . "/IDAOSignIn.php";
-require_once __DIR__ . "/DAOSignIn.php";
-
-require_once __DIR__ . "/IDAOSignUp.php";
-require_once __DIR__ . "/DAOSignUp.php";
-
-require_once __DIR__ . "/IDAOEvent.php";
-
 /**
  * Creates DAOs used in other classes, the DAOs are instantiated once
  */

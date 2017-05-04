@@ -2,8 +2,6 @@
 
 namespace WebEvents\Validation;
 
-require_once(__DIR__ . "/Validator.php");
-
 /**
  * Validates an email
  */

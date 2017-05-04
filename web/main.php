@@ -2,23 +2,31 @@
 
 session_start();
 
-require_once  __DIR__ . "/../src/Database/MyDatabase.php";
-use WebEvents\Database\MyDatabase;
-require_once __DIR__ . "/../src/Configuration.php";
-use WebEvents\Configuration;
-require_once(__DIR__ . "/../src/QueryParser.php");
-use WebEvents\QueryParser;
-require_once(__DIR__ . "/../src/Actions/Action.php");
-use WebEvents\Actions\Action;
-require_once(__DIR__ . "/../src/Response.php");
-use WebEvents\Response;
-require_once(__DIR__ . "/../src/Sender.php");
-use WebEvents\Sender;
-require_once(__DIR__ . "/../src/Database/DAOFactory.php");
-use WebEvents\Database\DAOFactory;
+class Autoloader {
+    static public function loader($className) {
 
-require_once(__DIR__ . "/../src/Exceptions/NotImplementedException.php");
-require_once(__DIR__ . "/../src/Exceptions/InvalidParameterException.php");
+        // Cut Root-Namespace
+        $className = str_replace( 'WebEvents'.'\\', '', $className );
+        // Correct DIRECTORY_SEPARATOR
+        $className = str_replace( array( '\\', '/' ), DIRECTORY_SEPARATOR, __DIR__ . DIRECTORY_SEPARATOR . '../src/' . $className . '.php' );
+        // Get file real path
+        if( false === ( $className = realpath( $className ) ) ) {
+            // File not found
+            return false;
+        } else {
+            require_once( $className );
+            return true;
+        }
+    }
+}
+spl_autoload_register('Autoloader::loader');
+
+use WebEvents\Database\MyDatabase;
+use WebEvents\Configuration;
+use WebEvents\QueryParser;
+use WebEvents\Response;
+use WebEvents\Sender;
+use WebEvents\Database\DAOFactory;
 
 $sender = new Sender();
 

@@ -3,8 +3,7 @@
  */
 function signinFromPage() {
     ajax_signin($('#signin_login').val(), $('#signin_password').val(),
-        function(data) {
-            var json = JSON.parse(data);
+        function(json) {
             if (json.success) {
                 updateConnectedUser();
                 navOpenMyProfile();
@@ -21,43 +20,46 @@ function signinFromPage() {
 }
 
 /**
- * Updates the page parts based on the connexion state
+ * Updates the page based on the connexion state
  */
 function updateConnectedUser() {
     ajax_getuser(
-        function(data) {
-            var json = JSON.parse(data);
-            if (json.success) {
-                $('#login .login_helper').html(
-                    '<a onclick="navOpenMyProfile()"><span>' + json.username + '</span></a>' +
-                    '<br>' +
-                    '<a onclick="logout()"><span>Se déconnecter</span></a>');
-
-                $('header nav ul li').show();
-            }
-
-            else {
-                $('#login .login_helper').html(
-                    '<a id="nav_signin" onclick="navOpenSignIn()"><span>Connexion</span></a>\
-                    <br>\
-                    <a id="nav_signup" onclick="navOpenSignUp()"><span>Inscription</span></a>'
-                );
-
-                $('header nav ul #nav_createevent').hide();
-                $('header nav ul #nav_myevents').hide();
-                $('header nav ul #nav_myprofile').hide();
-            }
+        function(json) {
+            if (json.success)
+                updateHeaderConnectedUser(true, json.username);
+            else
+                updateHeaderConnectedUser(false);
         },
         function(jqXHR, exception) {
-            $('#login .login_helper').html(
-                '<a id="nav_signin" onclick="navOpenSignIn()"><span>Connexion</span></a>\
-                <br>\
-                <a id="nav_signup" onclick="navOpenSignUp()"><span>Inscription</span></a>'
-            );
-
-            $('header nav ul #nav_createevent').hide();
-            $('header nav ul #nav_myevents').hide();
-            $('header nav ul #nav_myprofile').hide();
+            updateHeaderConnectedUser(false);
+            alert("Erreur de communication avec le serveur : " + exception);
         }
     );
+}
+
+/**
+ * Updates the header based on the connexion state
+ * @param connected
+ */
+function updateHeaderConnectedUser(connected, username) {
+    if (connected) {
+        $('#login .login_helper').html(
+            '<a onclick="navOpenMyProfile()"><span>' + username + '</span></a>' +
+            '<br>' +
+            '<a onclick="logout()"><span>Se déconnecter</span></a>');
+
+        $('header nav ul li').show();
+    }
+
+    else {
+        $('#login .login_helper').html(
+            '<a id="nav_signin" onclick="navOpenSignIn()"><span>Connexion</span></a>\
+            <br>\
+            <a id="nav_signup" onclick="navOpenSignUp()"><span>Inscription</span></a>'
+        );
+
+        $('header nav ul #nav_createevent').hide();
+        $('header nav ul #nav_myevents').hide();
+        $('header nav ul #nav_myprofile').hide();
+    }
 }

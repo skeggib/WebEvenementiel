@@ -2,35 +2,30 @@
 
 namespace WebEvents;
 
-require_once(__DIR__ . "/Database/DAOFactory.php");
 use WebEvents\Database\DAOFactory;
-
-require_once(__DIR__ . "/Actions/ActionSignIn.php");
 use WebEvents\Actions\ActionSignIn;
-require_once(__DIR__ . "/Actions/ActionSignUp.php");
 use WebEvents\Actions\ActionSignUp;
-require_once(__DIR__ . "/Actions/ActionGetUser.php");
 use WebEvents\Actions\ActionGetUser;
-require_once(__DIR__ . "/Actions/ActionLogOut.php");
 use WebEvents\Actions\ActionLogOut;
-require_once(__DIR__ . "/Actions/ActionListEvents.php");
 use WebEvents\Actions\ActionListEvents;
-require_once(__DIR__ . "/Actions/ActionGetEvent.php");
 use WebEvents\Actions\ActionGetEvent;
-require_once(__DIR__ . "/Actions/ActionCreateEvent.php");
 use WebEvents\Actions\ActionCreateEvent;
-require_once(__DIR__ . "/Actions/ActionInvite.php");
 use WebEvents\Actions\ActionInvite;
 
-require_once __DIR__ . "/Exceptions/InvalidParameterException.php";
-
 /**
- * Create an action from an array containing the request
+ * Creates an Action from an array containing the request
  */
 class QueryParser
 {
     private $action = null;
 
+    /**
+     * QueryParser constructor.
+     * @param array $post
+     * @param DAOFactory $daoFactory
+     * @throws \Exception If the command is not set or is unknown.
+     * @throws \InvalidParameterException If a parameter is not set or is incorrect.
+     */
     public function __construct(array $post, DAOFactory $daoFactory) {
         if (!isset($post['cmd']))
             throw new \Exception("The command is not set");
@@ -120,7 +115,7 @@ class QueryParser
     }
 
     /**
-     * Get the action that corresponds to the request
+     * Gets the action that corresponds to the request.
      */
     public function getAction() {
         return $this->action;

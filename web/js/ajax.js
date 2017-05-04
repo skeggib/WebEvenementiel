@@ -1,5 +1,31 @@
 $.ajaxSetup({cache: false});
 
+function ajax_request(cmd, data, successCallback, errorCallback) {
+	fulldata = Object.create(data);
+    fulldata.cmd = cmd;
+
+    $.ajax({
+        url: 'main.php',
+        type: 'POST',
+        data: fulldata,
+        dataType: 'html',
+        error: function (jqXHR, exception) {
+            if (errorCallback != 'undefined')
+                errorCallback(jqXHR, exception);
+        },
+        success: function(data) {
+            try {
+            	var json = JSON.parse(data);
+                if (successCallback != 'undefined')
+                    successCallback(json);
+			}
+			catch (e) {
+            	$('body').html(e.message + '<br><br>' + e.stack + '<br><br>' + data);
+			}
+        }
+    });
+}
+
 /**
  * Creates a profile by sending an AJAX request
  *
@@ -8,7 +34,7 @@ $.ajaxSetup({cache: false});
  * @param      {string}    password         The password
  * @param      {string}    firstname        The firstname
  * @param      {string}    lastname         The lastname
- * @param      {int}   	   civility         The civility (1 for man and 2 fir woman)
+ * @param      {int}   	   civility         The civility (1 for man and 2 for woman)
  * @param      {string}    birthday         The birthday
  * @param      {string}    cellphone        The cellphone
  * @param      {string}    cityCode         The city code
@@ -30,30 +56,23 @@ function ajax_signup(
 	successCallback,
 	errorCallback) {
 
-	$.ajax({
-		url: 'main.php',
-		type: 'POST',
-		data: {
-			cmd: 'signup',
-			login: login,
-			email: email,
-			password: password,
-			firstname: firstname,
-			lastname: lastname,
-			civility: civility,
-			birthday: birthday,
-			cellphone: cellphone,
-			citycode: cityCode,
-			cityname: cityName
+	ajax_request(
+		'signup',
+		{
+            login: login,
+            email: email,
+            password: password,
+            firstname: firstname,
+            lastname: lastname,
+            civility: civility,
+            birthday: birthday,
+            cellphone: cellphone,
+            citycode: cityCode,
+            cityname: cityName
 		},
-		dataType: 'html',
-		error: function (jqXHR, exception) {
-			errorCallback(jqXHR, exception);
-        },
-        success: function(data) {
-			successCallback(data);
-        }
-	});
+		successCallback,
+		errorCallback
+	);
 }
 
 /**
@@ -66,23 +85,15 @@ function ajax_signup(
  */
 function ajax_signin(login, password, successCallback, errorCallback) {
 
-    $.ajax({
-        url: 'main.php',
-        type: 'POST',
-        data: {
-            cmd: 'signin',
+    ajax_request(
+        'signin',
+        {
             login: login,
             password: password
         },
-
-        datatype: 'html',
-        error: function(jqXHR, exception) {
-            errorCallback(jqXHR, exception);
-        },
-        success: function(data) {
-            successCallback(data);
-        }
-    });
+        successCallback,
+        errorCallback
+    );
 }
 
 /**
@@ -92,20 +103,13 @@ function ajax_signin(login, password, successCallback, errorCallback) {
  * @param errorCallback
  */
 function ajax_getuser(successCallback, errorCallback) {
-	$.ajax({
-		url: 'main.php',
-		type: 'POST',
-		data: {
-			cmd: 'getuser'
-		},
-		datatype: 'html',
-        error: function(jqXHR, exception) {
-            errorCallback(jqXHR, exception);
-        },
-        success: function(data) {
-            successCallback(data);
-        }
-	});
+
+    ajax_request(
+        'getuser',
+        { },
+        successCallback,
+        errorCallback
+    );
 }
 
 /**
@@ -115,18 +119,11 @@ function ajax_getuser(successCallback, errorCallback) {
  * @param errorCallback
  */
 function ajax_logout(successCallback, errorCallback) {
-    $.ajax({
-        url: 'main.php',
-        type: 'POST',
-        data: {
-            cmd: 'logout'
-        },
-        datatype: 'html',
-        error: function(jqXHR, exception) {
-            errorCallback(jqXHR, exception);
-        },
-        success: function(data) {
-            successCallback(data);
-        }
-    });
+
+    ajax_request(
+        'logout',
+        { },
+        successCallback,
+        errorCallback
+    );
 }

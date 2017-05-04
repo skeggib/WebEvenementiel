@@ -1,6 +1,6 @@
 function logout() {
     ajax_logout(
-        function(data) {
+        function(json) {
             updateConnectedUser();
             navOpenHome();
         },
