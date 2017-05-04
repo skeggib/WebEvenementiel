@@ -24,36 +24,38 @@ class DAOSignUp implements IDAOSignUp
                            $adressId,
                            $actif)
     {
-        try
-        {
-            $this->database->query(
-                "INSERT INTO utilisateur(" .
-                "pseudo_utilisateur, " .
-                "email_utilisateur, " .
-                "mdp_utilisateur, " .
-                "prenom_utilisateur, " .
-                "nom_utilisateur, " .
-                "civilite_utilisateur, " .
-                "mobile_utilisateur, " .
-                "id_lieu, " .
-                "actif_utilisateur) " .
-                "VALUES(" .
-                "'" . $username . "', " .
-                "'" . $email . "', " .
-                "'" . $this->database->hash($password) . "', " .
-                "'" . $firstname . "', " .
-                "'" . $lastname . "', " .
-                $civility . ", " .
-                "'" . $cellphone . "', " .
-                $adressId . ", " .
-                "true);");
+        $this->database->query(
+            "INSERT INTO utilisateur(" .
+            "pseudo_utilisateur, " .
+            "email_utilisateur, " .
+            "mdp_utilisateur, " .
+            "prenom_utilisateur, " .
+            "nom_utilisateur, " .
+            "civilite_utilisateur, " .
+            "mobile_utilisateur, " .
+            "id_lieu, " .
+            "actif_utilisateur) " .
+            "VALUES(" .
+            "'" . $username . "', " .
+            "'" . $email . "', " .
+            "'" . $this->database->hash($password) . "', " .
+            "'" . $firstname . "', " .
+            "'" . $lastname . "', " .
+            $civility . ", " .
+            "'" . $cellphone . "', " .
+            "1" . ", " .
+            "TRUE);");
 
-            return true;
-        }
+        return true;
+    }
 
-        catch (\Exception $e)
-        {
-            return false;
-        }
+    /**
+     * Checks if an user exists in the database
+     * @param $login
+     * @returns boolean True if the user exists
+     */
+    public function exists($login) {
+        $result = $this->database->query("SELECT pseudo_utilisateur FROM utilisateur WHERE pseudo_utilisateur = '" . $login . "'");
+        return $result->rowCount() > 0;
     }
 }

@@ -1,0 +1,33 @@
+#contents > form {
+	display: table;
+	margin: auto;
+	margin-top: 20px;
+}
+
+.form_row {
+	display: table-row;
+}
+
+#contents > form label,
+#contents > form input,
+#contents > form select,
+#contents > form textarea {
+	display: table-cell;
+	vertical-align: middle;
+	margin: 5px;
+}
+
+#contents > form label {
+	text-align: right;
+}
+
+#contents > form input {
+	border: solid 1px #666666;
+	padding: 4px 10px;
+}
+
+#contents > form input.inputError {
+	border: solid 2px red;
+	padding: 3px 9px;
+	background-color: #FFAAAA;
+}

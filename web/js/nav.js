@@ -1,0 +1,99 @@
+function navRemoveActiveClass() {
+    $('header nav ul li').removeClass('active');
+}
+
+function navOpenHome() {
+    navRemoveActiveClass();
+    $('#nav_home').addClass('active');
+    $('#contents').load('pages/home.html');
+    navPushState("Accueil", "home");
+}
+
+function navOpenCreateEvent() {
+    navRemoveActiveClass();
+    $('#nav_createevent').addClass('active');
+    $('#contents').load('pages/createevent.html');
+    navPushState("Créer un évenement", "createevent");
+}
+
+function navOpenMyEvents() {
+    navRemoveActiveClass();
+    $("#nav_myevents").addClass('active');
+    $('#contents').load('pages/myevents.html');
+    navPushState("Mes évenements", "myevents");
+}
+
+function navOpenMyProfile() {
+    navRemoveActiveClass();
+    $('#nav_myprofile').addClass('active');
+    $('#contents').load('pages/myprofile.html');
+    navPushState("Mon compte", "myprofile");
+}
+
+function navOpenContact() {
+    navRemoveActiveClass();
+    $('#nav_contact').addClass('active');
+    $('#contents').load('pages/contact.html');
+    navPushState("Contact", "contact");
+}
+
+function navOpenSignUp() {
+    navRemoveActiveClass();
+    $('#contents').load('pages/signup.html');
+    navPushState("Inscription", "signup");
+}
+
+function navOpenSignIn() {
+    navRemoveActiveClass();
+    $('#contents').load('pages/signin.html');
+    navPushState("Connexion", "signin");
+}
+
+function navOpenSignUpSuccess() {
+    navRemoveActiveClass();
+    $('#contents').load('pages/signup_success.html');
+    navPushState("Inscription succes", "signup_success");
+}
+
+function navPushState(title, name) {
+    history.pushState(name, "Web evenementiel - " + title, "?page=" + name);
+}
+
+$.urlParam = function(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results==null){
+        return null;
+    }
+    else{
+        return results[1] || 0;
+    }
+}
+
+function changePageFromURL() {
+    switch ($.urlParam('page')) {
+        case 'home':
+            navOpenHome($('#nav_home'));
+            break;
+        case 'createevent':
+            navOpenCreateEvent($('#nav_createevent'));
+            break;
+        case 'myevents':
+            navOpenMyEvents($('#nav_myevents'));
+            break;
+        case 'myprofile':
+            navOpenMyProfile($('#nav_myprofile'));
+            break;
+        case 'contact':
+            navOpenContact($('#nav_contact'));
+            break;
+        case 'signup':
+            navOpenSignUp($('#nav_signup'));
+            break;
+        case 'signin':
+            navOpenSignIn($('#nav_signin'));
+            break;
+        default:
+            navOpenHome($('#nav_home'));
+            break;
+    }
+}

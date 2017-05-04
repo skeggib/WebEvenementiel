@@ -1,0 +1,135 @@
+/* --- Colors --- */
+
+/* Header background */
+
+header {
+    background-color: #222;
+}
+
+header h1,
+header nav ul li {
+    color: #FFF;
+}
+
+/* Header border */
+
+header {
+    border-bottom-color: #ff6643;
+}
+
+header nav ul li.active {
+    border-color: #ff6643;
+}
+
+header nav ul li:hover {
+    color: #FFF;
+    background-color: #ff6643;
+}
+
+/* Contents background */
+
+header nav ul li.active {
+    color: #000;
+    background-color: #FFF;
+}
+
+header nav ul li.active {
+    border-bottom-color: #FFF;
+}
+
+header nav ul li.active:hover {
+    color: #000;
+    background-color: #FFF;
+}
+
+/* --- Other --- */
+
+header {
+    position: relative;
+    left: 0px;
+    right: 0px;
+    padding: 20px 0px 0px 20px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+}
+
+header h1 {
+    position: relative;
+    text-decoration: none;
+    margin: 0px 0px 20px 0px;
+    font-family: Georgia;
+}
+
+header nav ul {
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li {
+    display: inline-block;
+    list-style: none;
+    padding: 7px 10px;
+    margin: 0;
+    bottom: 0;
+    transform: translate(0px, 2px);
+    border-radius: 3px 3px 0px 0px;
+    font-family: Calibri;
+}
+
+header nav ul li.active {
+    padding: 5px 8px;
+    border-width: 2px;
+    border-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+}
+
+header nav ul li.active:hover {
+    cursor: default;
+}
+
+header nav ul li:hover {
+    cursor: pointer;
+}
+
+#login {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    box-sizing: border-box;
+    padding: 10px 0px;
+    height: 100%;
+}
+
+.login_helper {
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0px 10px;
+    border-left: 1px solid #666;
+}
+
+#login a {
+    color: #FFF;
+    display: inline-block;
+    text-align: center;
+    height: 50%;
+    width: 100%;
+}
+
+#login a:hover {
+    background-color: #333;
+}
+
+#login a span {
+    position: relative;
+    display: inline-block;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+#login #nav_signin {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #666;
+}

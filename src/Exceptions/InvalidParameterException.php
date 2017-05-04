@@ -1,6 +1,6 @@
 <?php
 
-class MissingParameterException extends Exception {
+class InvalidParameterException extends Exception {
 
 	private $parameterName;
 

@@ -1,3 +1,5 @@
+$.ajaxSetup({cache: false});
+
 /**
  * Creates a profile by sending an AJAX request
  *
@@ -14,7 +16,7 @@
  * @param      {Function}  successCallback  The success callback
  * @param      {Function}  errorCallback    The error callback
  */
-function createProfile(
+function ajax_signup(
 	login,
 	email,
 	password,

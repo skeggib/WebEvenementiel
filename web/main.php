@@ -18,7 +18,7 @@ require_once(__DIR__ . "/../src/Database/DAOFactory.php");
 use WebEvents\Database\DAOFactory;
 
 require_once(__DIR__ . "/../src/Exceptions/NotImplementedException.php");
-require_once(__DIR__ . "/../src/Exceptions/MissingParameterException.php");
+require_once(__DIR__ . "/../src/Exceptions/InvalidParameterException.php");
 
 $sender = new Sender();
 
@@ -36,7 +36,7 @@ try
     $sender->send($response);
 }
 
-catch (MissingParameterException $e)
+catch (InvalidParameterException $e)
 {
     $sender->send(new Response(
         array('parameterName' => $e->getParameterName()),

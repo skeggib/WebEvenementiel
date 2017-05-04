@@ -10,6 +10,13 @@ use WebEvents\Database\IDAOSignUp;
 require_once(__DIR__ . "/../Response.php");
 use WebEvents\Response;
 
+require_once __DIR__ . "/../Validation/ValidatorName.php";
+use WebEvents\Validation\ValidatorName;
+require_once __DIR__ . "/../Validation/ValidatorEmail.php";
+use WebEvents\Validation\ValidatorEmail;
+require_once __DIR__ . "/../Validation/ValidatorPassword.php";
+use WebEvents\Validation\ValidatorPassword;
+
 /**
  * Sign-up a new user
  */
@@ -17,7 +24,7 @@ class ActionSignUp extends Action
 {
     private $dao;
 
-    private $username;
+    private $login;
     private $email;
     private $password;
     private $firstname;
@@ -42,7 +49,7 @@ class ActionSignUp extends Action
     {
         $this->dao = $dao;
 
-        $this->username = $username;
+        $this->login = $username;
         $this->email = $email;
         $this->password = $password;
         $this->firstname = $firstname;
@@ -56,7 +63,33 @@ class ActionSignUp extends Action
 
     public function execute()
     {
-        $added = $this->dao->signup($this->username,
+        $nameValidator = new ValidatorName();
+        $emailValidator = new ValidatorEmail();
+        $passwordValidator = new ValidatorPassword();
+
+        if (!$nameValidator->validate($this->login))
+            throw new \InvalidParameterException("login","Invalid login");
+        if ($this->dao->exists($this->login))
+            throw new \InvalidParameterException("login", "User exists");
+
+        if (!$passwordValidator->validate($this->password))
+            throw new \InvalidParameterException("password","Invalid password");
+
+        if (!$nameValidator->validate($this->firstname))
+            throw new \InvalidParameterException("firstname","Invalid first name");
+
+        if (!$nameValidator->validate($this->lastname))
+            throw new \InvalidParameterException("lastname","Invalid last name");
+
+        if (!$emailValidator->validate($this->email))
+            throw new \InvalidParameterException("email","Invalid email");
+
+        // TODO Civility validation
+        // TODO Birthday validation
+        // TODO Cellphone validation
+        // TODO Adress validation
+
+        $added = $this->dao->signup($this->login,
                                     $this->email,
                                     $this->password,
                                     $this->firstname,
