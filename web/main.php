@@ -27,6 +27,7 @@ use WebEvents\QueryParser;
 use WebEvents\Response;
 use WebEvents\Sender;
 use WebEvents\Database\DAOFactory;
+use WebEvents\Exceptions\InvalidParameterException;
 
 $sender = new Sender();
 

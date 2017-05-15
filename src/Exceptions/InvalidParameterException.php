@@ -1,6 +1,8 @@
 <?php
 
-class InvalidParameterException extends Exception {
+namespace WebEvents\Exceptions;
+
+class InvalidParameterException extends \Exception {
 
 	private $parameterName;
 

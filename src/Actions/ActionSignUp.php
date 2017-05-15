@@ -8,6 +8,7 @@ use WebEvents\Response;
 use WebEvents\Validation\ValidatorName;
 use WebEvents\Validation\ValidatorEmail;
 use WebEvents\Validation\ValidatorPassword;
+use WebEvents\Exceptions\InvalidParameterException;
 
 /**
  * Sign-up a new user
@@ -60,21 +61,21 @@ class ActionSignUp extends Action
         $passwordValidator = new ValidatorPassword();
 
         if (!$nameValidator->validate($this->login))
-            throw new \InvalidParameterException("login","Invalid login");
+            throw new InvalidParameterException("login","Invalid login");
         if ($this->dao->exists($this->login))
-            throw new \InvalidParameterException("login", "User exists");
+            throw new InvalidParameterException("login", "User exists");
 
         if (!$passwordValidator->validate($this->password))
-            throw new \InvalidParameterException("password","Invalid password");
+            throw new InvalidParameterException("password","Invalid password");
 
         if (!$nameValidator->validate($this->firstname))
-            throw new \InvalidParameterException("firstname","Invalid first name");
+            throw new InvalidParameterException("firstname","Invalid first name");
 
         if (!$nameValidator->validate($this->lastname))
-            throw new \InvalidParameterException("lastname","Invalid last name");
+            throw new InvalidParameterException("lastname","Invalid last name");
 
         if (!$emailValidator->validate($this->email))
-            throw new \InvalidParameterException("email","Invalid email");
+            throw new InvalidParameterException("email","Invalid email");
 
         // TODO Civility validation
         // TODO Birthday validation
