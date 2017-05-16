@@ -18,6 +18,12 @@ class Configuration {
 	{
 		$this->path = $path;
 
+		if (!file_exists($this->path))
+		{
+		    $file = fopen($this->path, 'a');
+		    fclose($file);
+        }
+
 		$this->values = parse_ini_file($path);
 		if ($this->values === false)
 			$this->values = array();
