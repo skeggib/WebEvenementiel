@@ -39,7 +39,7 @@ class QueryParser
                 if (!isset($post['password']))
                     throw new InvalidParameterException("password", "The password is not set");
                 
-                $this->action = new ActionSignIn($daoFactory->getSignInDAO(),
+                $this->action = new ActionSignIn($daoFactory->getUserDAO(),
                                                  $post['login'],
                                                  $post['password']);
                 break;
@@ -66,7 +66,7 @@ class QueryParser
                 if (!isset($post['cityname']))
                     throw new InvalidParameterException("cityname", "The city name is not set");
                 
-                $this->action = new ActionSignUp($daoFactory->getSignUpDAO(),
+                $this->action = new ActionSignUp($daoFactory->getUserDAO(),
                     $post['login'],
                     $post['email'],
                     $post['password'],
@@ -80,7 +80,7 @@ class QueryParser
                 break;
 
             case 'getuser':
-                $this->action = new ActionGetUser($daoFactory->getSignInDAO());
+                $this->action = new ActionGetUser($daoFactory->getUserDAO());
                 break;
 
             case 'logout':
