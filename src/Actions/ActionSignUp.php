@@ -2,13 +2,13 @@
 
 namespace WebEvents\Actions;
 
-use WebEvents\Actions\Action;
-use WebEvents\Database\IDAOSignUp;
+use WebEvents\Database\IDAOUser;
 use WebEvents\Response;
 use WebEvents\Validation\ValidatorName;
 use WebEvents\Validation\ValidatorEmail;
 use WebEvents\Validation\ValidatorPassword;
 use WebEvents\Exceptions\InvalidParameterException;
+use WebEvents\Models\User;
 
 /**
  * Sign-up a new user
@@ -28,7 +28,7 @@ class ActionSignUp extends Action
     private $adressId;
     private $active;
 
-    public function __construct(IDAOSignUp $dao,
+    public function __construct(IDAOUser $dao,
                                 $username,
                                 $email,
                                 $password,
@@ -82,16 +82,22 @@ class ActionSignUp extends Action
         // TODO Cellphone validation
         // TODO Adress validation
 
-        $added = $this->dao->signup($this->login,
-                                    $this->email,
-                                    $this->password,
-                                    $this->firstname,
-                                    $this->lastname,
-                                    $this->civility,
-                                    $this->birthday,
-                                    $this->cellphone,
-                                    $this->adressId,
-                                    $this->active);
+        $user = new User(
+            0,
+            $this->login,
+            $this->email,
+            $this->firstname,
+            $this->lastname,
+            true,
+            $this->password,
+            $this->civility,
+            $this->birthday,
+            $this->cellphone,
+            "", // TODO address
+            ""
+        );
+
+        $added = $this->dao->add($user);
 
         if (!$added)
             return new Response(array(), true); // TODO:skeggib Error code

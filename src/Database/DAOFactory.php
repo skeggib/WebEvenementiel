@@ -19,30 +19,15 @@ class DAOFactory {
     }
 
 	/**
-	 * Gets the sign-in DAO
+	 * Gets the user DAO
 	 *
-	 * @return     IDAOSignIn  The sign-in DAO
+	 * @return     IDAOUser  The sign-up DAO
 	 */
-	public function getSignInDAO()
-    {
-		if (is_null($this->daoSignIn))
-		{
-			$this->daoSignIn = new DAOSignIn($this->database);
-		}
-
-		return $this->daoSignIn;
-	}
-
-	/**
-	 * Gets the sign-up DAO
-	 *
-	 * @return     IDAOSignUp  The sign-up DAO
-	 */
-	public function getSignUpDAO()
+	public function getUserDAO()
     {
 		if (is_null($this->daoSignUp))
 		{
-			$this->daoSignUp = new DAOSignUp($this->database);
+			$this->daoSignUp = new DAOUser($this->database);
 		}
 
 		return $this->daoSignUp;
