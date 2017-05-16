@@ -1,8 +1,8 @@
 <?php
 
 namespace WebEvents\Actions;
-require_once __DIR__ . "/../autoloader.php";
 
+use WebEvents\Actions\Action;
 use WebEvents\Database\IDAOSignUp;
 use WebEvents\Response;
 use WebEvents\Validation\ValidatorName;
@@ -63,7 +63,7 @@ class ActionSignUp extends Action
         if (!$nameValidator->validate($this->login))
             throw new InvalidParameterException("login","Invalid login");
         if ($this->dao->exists($this->login))
-            throw new InvalidParameterException("login", "User exists");
+            throw new InvalidParameterException("login", "User already exists");
 
         if (!$passwordValidator->validate($this->password))
             throw new InvalidParameterException("password","Invalid password");

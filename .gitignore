@@ -5,6 +5,7 @@
 *.vpp.lck
 
 webevents.ini
+webevents_test.ini
 
 
 # Created by https://www.gitignore.io/api/phpstorm

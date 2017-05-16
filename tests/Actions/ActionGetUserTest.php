@@ -1,19 +1,13 @@
 <?php
 
 namespace WebEvents\Actions;
+require_once __DIR__ . "/../autoloader.php";
 
 use PHPUnit\Framework\TestCase;
 
-include_once __DIR__ . "/../../src/Actions/ActionSignUp.php";
-include_once __DIR__ . "/../../src/Actions/ActionSignIn.php";
-include_once __DIR__ . "/../../src/Actions/ActionGetUser.php";
-include_once __DIR__ . "/../../src/Database/DAOSignIn.php";
 use WebEvents\Database\DAOSignIn;
-include_once __DIR__ . "/../../src/Database/DAOSignUp.php";
 use WebEvents\Database\DAOSignUp;
-include_once __DIR__ . "/../../src/Configuration.php";
 use WebEvents\Configuration;
-include_once __DIR__ . "/../../src/Database/MyDatabase.php";
 use WebEvents\Database\MyDatabase;
 use Webmozart\Assert\Assert;
 

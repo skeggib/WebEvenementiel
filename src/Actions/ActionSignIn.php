@@ -1,7 +1,6 @@
 <?php
 
 namespace WebEvents\Actions;
-require_once __DIR__ . "/../autoloader.php";
 
 use WebEvents\Database\IDAOSignIn;
 use WebEvents\Response;

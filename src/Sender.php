@@ -9,6 +9,7 @@ class Sender
 {
     public function __construct()
     {
+
     }
 
     /**

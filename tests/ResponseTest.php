@@ -1,10 +1,11 @@
 <?php
 
 namespace WebEvents;
+require_once __DIR__ . "/autoloader.php";
 
 use PHPUnit\Framework\TestCase;
 
-include_once('src/Response.php');
+use WebEvents\Response;
 
 final class ResponseTest extends TestCase {
 
