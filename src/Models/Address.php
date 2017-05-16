@@ -28,6 +28,11 @@ class Address
         return $this->id;
     }
 
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
     public function getNum()
     {
         return $this->num;

@@ -50,6 +50,11 @@ class MyDatabase implements IDatabase
         }
     }
 
+    public function insertId()
+    {
+        return $this->pdo->lastInsertId();
+    }
+
     public function hash($password)
     {
         return md5($password);

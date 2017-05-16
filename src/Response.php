@@ -17,7 +17,7 @@ class Response
      * @param $error Set to true if there was an error.
      * @param int $errorCode Error code if there was an error.
      */
-    public function __construct($array, $error, $errorCode = -1)
+    public function __construct($array = array(), $error = false, $errorCode = -1)
     {
         $this->array = $array;
         $this->error = $error;

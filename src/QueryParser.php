@@ -100,13 +100,41 @@ class QueryParser
 
             case 'createevent':
                 if (!isset($post['name']))
-                    throw new InvalidParameterException("The event name is not set");
-                if (!isset($post['starttime']) || !isset($post['endtime']))
-                    throw new InvalidParameterException("The event date is not set");
+                    throw new InvalidParameterException("name", "The name is not set");
+                if (!isset($post['beginDate']))
+                    throw new InvalidParameterException("beginDate", "The start date is not set");
+                if (!isset($post['endDate']))
+                    throw new InvalidParameterException("endDate", "The end date is not set");
+                if (!isset($post['beginTime']))
+                    throw new InvalidParameterException("beginTime", "The start time is not set");
+                if (!isset($post['endTime']))
+                    throw new InvalidParameterException("endTime", "The end time is not set");
+                if (!isset($post['streetNumber']))
+                    throw new InvalidParameterException("streetNumber", "The street number is not set");
+                if (!isset($post['streetName']))
+                    throw new InvalidParameterException("streetName", "The street name is not set");
+                if (!isset($post['cityCode']))
+                    throw new InvalidParameterException("cityCode", "The city code is not set");
+                if (!isset($post['cityName']))
+                    throw new InvalidParameterException("cityName", "The city name is not set");
+                if (!isset($post['description']))
+                    throw new InvalidParameterException("description", "The description is not set");
 
-                $this->action = new ActionCreateEvent($post['name'],
-                                                      $post['starttime'],
-                                                      $post['endtime']);
+                $this->action = new ActionCreateEvent(
+                    $daoFactory->getEventDAO(),
+                    $daoFactory->getUserDAO(),
+                    $daoFactory->getAddressDAO(),
+                    $post['name'],
+                    $post['startdate'],
+                    $post['enddate'],
+                    $post['starttime'],
+                    $post['endtime'],
+                    $post['streetnumber'],
+                    $post['streetname'],
+                    $post['citycode'],
+                    $post['cityname'],
+                    $post['description']
+                );
                 break;
             
             default:

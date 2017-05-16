@@ -13,6 +13,11 @@ interface IDatabase {
 	public function query($query);
 
     /**
+     * @return int ID of the last inserted row
+     */
+	public function insertId();
+
+    /**
      * @param string $password
      * @return string
      */

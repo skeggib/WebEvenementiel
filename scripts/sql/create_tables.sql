@@ -1,7 +1,7 @@
 CREATE TABLE lieu (
 	id_lieu INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	num_rue_lieu VARCHAR(256),
-	nom_rue_lieu VARCHAR(256) NOT NULL,
+	nom_rue_lieu VARCHAR(256),
 	nom_ville_lieu VARCHAR(256) NOT NULL,
 	cp_lieu INTEGER NOT NULL
 );

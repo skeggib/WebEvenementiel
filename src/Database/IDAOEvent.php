@@ -1,6 +1,8 @@
 <?php
 
-namespace WebEvent\Database;
+namespace WebEvents\Database;
+
+use WebEvents\Models\Event;
 
 interface IDAOEvent
 {
@@ -25,11 +27,10 @@ interface IDAOEvent
     public function getListEvents($id);
 
     /**
-     * Create an event
+     * Adds an event to the database
      *
-     * @param       Event   $event  The event to create
-     *
-     * @return      bool    True if the event was created successfully
+     * @param       Event   $event  The event to add
+     * @return      Event   The event with the ID updated
      */
-    public function createEvent(Event $event);
+    public function add(Event $event);
 }

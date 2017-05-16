@@ -90,35 +90,7 @@ un incorrect, dans ce cas `'errorCode'` est égal à 1 ou 2)
 }
 ```
 
-## Get the list of events of an user
-
-Lists all events that belongs to the connected user.
-
-**Request**:
-
-`'cmd': 'listevents'`
-
-**Response**:
-
-...
-
-## Get an event
-
-Reads the event general informations and the list of guests. Checks if the event belongs to the connected user.
-
-**Request**:
-
-`'cmd': 'getevent'`
-
-`'id': '<event_id>'`
-
-**Response**:
-
-...
-
 ## Create an event
-
-Creates a new event.
 
 **Request**:
 
@@ -126,15 +98,40 @@ Creates a new event.
 
 `'name': '<events_name>'`
 
-`'starttime': '<events_start_time>'`
+`'beginDate': '<events_start_date>' // YYYY-MM-DD`
 
-`'endtime': '<events_end_time>'`
+`'endDate': '<events_end_date>' // YYYY-MM-DD`
 
-...
+`'beginTime': '<events_start_time>' // hh-mm`
+
+`'endTime': '<events_end_time>' // hh-mm`
+
+`'streetNumber': '<street_number>'`
+
+`'streetName': '<street_name>'`
+
+`'cityCode': '<city_code>'`
+
+`'cityName': '<city_name>'`
+
+`'description': '<description>'`
 
 **Response**:
 
-...
+```json
+{
+    "id": "<event_id>",
+    "name": "<event_name>",
+    "beginDate": "<event_begin_date>", // YYYY-MM-DD
+    "endDate": "<event_end_date>", // YYYY-MM-DD
+    "beginTime": "<event_begin_time>", // hh-mm
+    "endTime": "<event_end_time>", // hh-mm
+    "active": "<is_event_active>",
+    "description": "<description>",
+    "addressId": "<address_id>",
+    "organizerId": "<organizer_id>",
+}
+```
 
 ## Invite someone to an event
 
