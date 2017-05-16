@@ -32,6 +32,7 @@ function navOpenMyProfile() {
     $('#contents').load('pages/myprofile.html');
     navPushState("Mon compte", "myprofile");
     updateConnectedUser();
+	updateinformation();
 }
 
 function navOpenContact() {
