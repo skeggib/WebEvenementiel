@@ -1,10 +1,9 @@
 <?php
 
 namespace WebEvents\Actions;
-require_once __DIR__ . "/../autoloader.php";
 
 use WebEvents\Response;
-use WebEvents\Database\IDAOSignIn;
+use WebEvents\Database\IDAOUser;
 
 /**
  * Action which gets an User
@@ -13,13 +12,13 @@ class ActionGetUser extends Action
 {
     private $dao;
 
-	public function __construct(IDAOSignIn $dao)
+	public function __construct(IDAOUser $dao)
 	{
         $this->dao = $dao;
 	}
 
 	public function execute() {
-		$user = $this->dao->getUser();
+		$user = $this->dao->getConnected();
 
 		if (!$user)
             return new Response(array(), true);
@@ -31,7 +30,8 @@ class ActionGetUser extends Action
             'firstname' => $user->getFirstName(),
             'lastname' => $user->getLastName(),
             'active' => $user->getActive(),
-            'civility' => $user->getCivility()
+            'civility' => $user->getCivility(),
+            'cellphone' => $user->getCellphone()
         );
 
 		return new Response($array, false);

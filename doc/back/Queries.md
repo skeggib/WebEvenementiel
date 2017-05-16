@@ -80,10 +80,13 @@ un incorrect, dans ce cas `'errorCode'` est égal à 1 ou 2)
 
 ```json
 {
+    "id" : "<user_id>",
     "username": "<user name>",
+    "email": "<user_email>",
     "firstname": "<first name>",
     "lastname": "<last name>",
-    ...
+    "active": "<is_user_active>", // Un utilisateur est actif s'il s'est inscrit
+    "civility": "<user_civility>" // 1 pour homme et 2 pour femme
 }
 ```
 

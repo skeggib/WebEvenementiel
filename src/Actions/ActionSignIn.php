@@ -1,9 +1,8 @@
 <?php
 
 namespace WebEvents\Actions;
-require_once __DIR__ . "/../autoloader.php";
 
-use WebEvents\Database\IDAOSignIn;
+use WebEvents\Database\IDAOUser;
 use WebEvents\Response;
 
 /**
@@ -15,7 +14,7 @@ class ActionSignIn extends Action
 	private $login;
 	private $password;
 
-	public function __construct(IDAOSignIn $dao, $login, $password)
+	public function __construct(IDAOUser $dao, $login, $password)
     {
     	$this->dao = $dao;
     	$this->login = $login;

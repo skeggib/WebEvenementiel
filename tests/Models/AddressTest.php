@@ -1,10 +1,11 @@
 <?php
 
 namespace WebEvents\Models;
+require_once __DIR__ . "/../autoloader.php";
 
 use PHPUnit\Framework\TestCase;
 
-include_once(__DIR__ . '/../../src/Models/Address.php');
+use WebEvents\Models\Adress;
 
 final class AddressTest extends TestCase {
 	

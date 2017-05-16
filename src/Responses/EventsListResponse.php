@@ -4,7 +4,7 @@ namespace WebEvents\Reponses;
 
 use WebEvents\Response;
 
-class EventsListReponse extends Response
+class EventsListResponse extends Response
 {
 	public function __construct($array)
 	{

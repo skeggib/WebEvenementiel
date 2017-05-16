@@ -1,7 +1,6 @@
 <?php
 
 namespace WebEvents\Actions;
-require_once __DIR__ . "/../autoloader.php";
 
 /**
  * Action which invite someone to an Event

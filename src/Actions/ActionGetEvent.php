@@ -1,7 +1,6 @@
 <?php
 
 namespace WebEvents\Actions;
-require_once __DIR__ . "/../autoloader.php";
 
 use WebEvents\Database\IDAOEvent;
 use WebEvents\Response;
@@ -18,8 +17,8 @@ class ActionGetEvent extends Action
 	}
 
 	public function execute() {
-		$data = $this->dao->getEvent($this->id);
-		if ($data == false)
+		$event = $this->dao->getEvent($this->id);
+		if ($event == false)
 			return new Response(array(), true); // TODO:skeggib Error code
 		return new EventResponse($event);
 	}

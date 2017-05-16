@@ -1,26 +1,27 @@
 <?php
 
 namespace WebEvents;
+require_once __DIR__ . "/autoloader.php";
 
 use PHPUnit\Framework\TestCase;
 
-require_once('src/QueryParser.php');
-
-require_once('src/Database/DAOFactory.php');
 use WebEvents\Database\DAOFactory;
-require_once('src/Actions/ActionGetUser.php');
 use WebEvents\Actions\ActionGetUser;
 use WebEvents\Database\MyDatabase;
+use WebEvents\Exceptions\InvalidParameterException;
 
 final class QueryParserGetUserTest extends TestCase {
-    
-	/**
-	 * @expectedException InvalidArgumentException
-	 */
+
     public function testFailCmdNotSet() {
     	$post = [];
     	$database = MyDatabase::fromConfiguration(new Configuration("webevents.ini"));
-    	$qp = new QueryParser($post, new DAOFactory($database));
+
+        try {
+            $qp = new QueryParser($post, new DAOFactory($database));
+            $this->fail("Exception expected but not thrown");
+        } catch (\Exception $e) {
+
+        }
     }
 
     public function testConstructor() {
