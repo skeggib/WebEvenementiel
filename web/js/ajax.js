@@ -10,13 +10,13 @@ function ajax_request(cmd, data, successCallback, errorCallback) {
         data: fulldata,
         dataType: 'html',
         error: function (jqXHR, exception) {
-            if (errorCallback != 'undefined')
+            if (errorCallback != undefined)
                 errorCallback(jqXHR, exception);
         },
         success: function(data) {
             try {
             	var json = JSON.parse(data);
-                if (successCallback != 'undefined')
+                if (successCallback != undefined)
                     successCallback(json);
 			}
 			catch (e) {
