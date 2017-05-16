@@ -1,6 +1,6 @@
 <h1>Créer un évenement</h1>
 
-<form onsubmit="return false;">
+<form onsubmit="createevent(); return false;">
 
     <div class="form_row">
         <label for="createevent_name">Nom de l'événement :  </label>
@@ -48,30 +48,15 @@
     </div>
 
     <div class="form_row">
-        <label for="createevent_type">Type de l'événement :</label>
-        <select id="createevent_type">
-            <option value="bapteme">Baptême</option>
-            <option value="barmitsva">Barmitsva</option>
-            <option value="anniversaire">Anniversaire</option>
-            <option value="soiree">Soirée</option>
-            <option value="communion">Communion</option>
-            <option value="mariage">Mariage</option>
-            <option value="fiancailles">Fiancailles</option>
-            <option value="naissance">Naissance</option>
-            <option value="autre">Autre</option>
-        </select>
-    </div>
-
-    <div class="form_row">
         <label for="createevent_description">Description :</label>
         <textarea id="createevent_description" rows="4" placeholder="Entrez une description"/>
     </div>
 
     <div class="form_row">
-        <input type="reset" value="Réinitialiser"/>
+        <input class="signup_button" type="reset" value="Réinitialiser"/>
     </div>
 
     <div class="form_row">
-        <input type="submit" value="Créer"/>
+        <input class="signup_button" id="signup_button_confirm" type="submit" value="Créer"/>
     </div>
 </form>

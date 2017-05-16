@@ -96,6 +96,40 @@ function ajax_signin(login, password, successCallback, errorCallback) {
     );
 }
 
+function ajax_createevent(
+	name,
+	startdate,
+	enddate,
+	starttime,
+	endtime,
+	streetnumber,
+	streetname,
+	citycode,
+	cityname,
+	description,
+	successCallback,
+	errorCallback
+	) {
+
+	ajax_request(
+		'createevent',
+		{
+            name: name,
+            startdate: startdate,
+			enddate: enddate,
+			starttime: starttime,
+			endtime: endtime,
+			streetnumber: streetnumber,
+			streetname: streetname,
+			citycode: citycode,
+			cityname: cityname,
+			description: description
+		},
+		successCallback,
+		errorCallback
+	);
+}
+
 /**
  * Gets the connected user informations by an AJAX request
  *
