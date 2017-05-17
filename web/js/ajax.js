@@ -147,6 +147,16 @@ function ajax_getuser(successCallback, errorCallback) {
     );
 }
 
+function ajax_getevent(id,successCallback, errorCallback) {
+	
+    ajax_request(
+        'getevent',
+        {id: id},
+        successCallback,
+        errorCallback
+    );
+}
+
 /**
  * Disconnect the user by an AJAX request
  *
