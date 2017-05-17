@@ -104,8 +104,8 @@ function ajax_createevent(
 	endtime,
 	streetnumber,
 	streetname,
-	citycode,
-	cityname,
+	cityCode,
+	citName,
 	description,
 	successCallback,
 	errorCallback
@@ -121,8 +121,8 @@ function ajax_createevent(
 			endtime: endtime,
 			streetnumber: streetnumber,
 			streetname: streetname,
-			citycode: citycode,
-			cityname: cityname,
+			citycode: cityCode,
+			cityname: cityName,
 			description: description
 		},
 		successCallback,

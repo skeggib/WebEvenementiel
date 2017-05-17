@@ -54,7 +54,7 @@ function createevent() {
             }
 
             else {
-            	navOpenMyEvents();
+            	navOpenMyProfile();
 			}
         },
         function (jqXHR, exception) {
