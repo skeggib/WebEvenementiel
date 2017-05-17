@@ -5,7 +5,7 @@ require_once __DIR__ . "/autoloader.php";
 
 use PHPUnit\Framework\TestCase;
 
-use WebEvents\Response;
+use WebEvents\Responses\Response;
 
 final class ResponseTest extends TestCase {
 

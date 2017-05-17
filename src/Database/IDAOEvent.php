@@ -14,17 +14,17 @@ interface IDAOEvent
      * @return      Event           if success
      * @return      bool    false   if failed
      */ 
-    public function getEvent($eventId);
+    public function get($eventId);
 
     /**
      * Get all events of an user
      *
-     * @param       int     $id     The user's Id
+     * @param       int     $userId     The user's Id
      *      
      * @return      array           contain events
      * @return      bool    false   if any event found
      */
-    public function getListEvents($id);
+    public function getListEvents($userId);
 
     /**
      * Adds an event to the database

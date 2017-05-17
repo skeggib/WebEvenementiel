@@ -2,20 +2,18 @@
 
 namespace WebEvents\Models;
 
-class Event
+class Event implements \JsonSerializable
 {
-    private     $id;            //int
-    private     $name;          //String
-    private     $beginDate;     //DateTime
-    private     $endDate;       //DateTime
-    private     $beginTime;
-    private     $endTime;
-    private     $active;         //Bool
-    private     $description;       //String
-
-    private     $address;       //Address
-
-    private     $organizer;     //User
+    private $id;
+    private $name;
+    private $beginDate;
+    private $endDate;
+    private $beginTime;
+    private $endTime;
+    private $active;
+    private $description;
+    private $address;
+    private $organizer;
 
     public function __construct($id,
                                 $name,
@@ -138,5 +136,21 @@ class Event
     public function setOrganizer($organizer)
     {
         $this->organizer = $organizer;
+    }
+
+    function jsonSerialize()
+    {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'beginDate' => $this->beginDate,
+            'endDate' => $this->endDate,
+            'beginTime' => $this->beginTime,
+            'endTime' => $this->endTime,
+            'active' => $this->active,
+            'description' => $this->description,
+            'address' => $this->address,
+            'organizer' => $this->organizer
+        );
     }
 }

@@ -1,30 +1,30 @@
-function showMissingInput(parameterName) {
+function showInvalidInputCreateEvent(parameterName) {
 	switch (parameterName) {
 		case 'name':
 			$('#createevent_name').addClass('inputError');
 			break;
-		case 'startdate':
+		case 'beginDate':
 			$('#createevent_startdate').addClass('inputError');
 			break;
-		case 'enddate':
+		case 'endDate':
 			$('#createevent_enddate').addClass('inputError');
 			break;
-		case 'starttime':
+		case 'beginTime':
 			$('#createevent_starttime').addClass('inputError');
 			break;
-		case 'endtime':
+		case 'endTime':
 			$('#createevent_endtime').addClass('inputError');
 			break;
-		case 'streetnumber':
+		case 'streetNumber':
 			$('#createevent_roadnumber').addClass('inputError');
 			break;
-		case 'streetname':
+		case 'streetName':
 			$('#createevent_roadname').addClass('inputError');
 			break;
-		case 'citycode':
+		case 'cityCode':
 			$('#createevent_citycode').addClass('inputError');
 			break;
-		case 'cityname':
+		case 'cityName':
 			$('#createevent_cityname').addClass('inputError');
 			break;
 		case 'description':
@@ -35,7 +35,7 @@ function showMissingInput(parameterName) {
 
 function createevent() {
     ajax_createevent(
-        $('#createevent_name').val(),		$('#createevent_startdate').val(),		$('#createevent_enddate').val(),
+        $('#createevent_name').val(),		$('#createevent_startdate').val(),	$('#createevent_enddate').val(),
         $('#createevent_starttime').val(),	$('#createevent_endtime').val(),	$('#createevent_roadnumber').val(),
         $('#createevent_roadname').val(),	$('#createevent_citycode').val(),	$('#createevent_cityname').val(),
         $('#createevent_description').val(),
@@ -44,11 +44,11 @@ function createevent() {
 
             if (!json.success) {
                 switch (json.errorCode) {
-                    case 1:
-                        showMissingInput(json.parameterName);
+                    case ERROR_MISSING_PARAM:
+                        showInvalidInputCreateEvent(json.parameterName);
                         break;
-                    case 2:
-                        showMissingInput(json.parameterName);
+                    case ERROR_INVALID_PARAM:
+                        showInvalidInputCreateEvent(json.parameterName);
                         break;
                 }
             }

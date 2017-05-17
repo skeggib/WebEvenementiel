@@ -2,7 +2,7 @@
 
 namespace WebEvents\Models;
 
-class User
+class User implements \JsonSerializable
 {
     private $id;
     private $username;
@@ -14,9 +14,7 @@ class User
     private $civility;
     private $birthday;
     private $cellphone;
-
-    private $cp;
-    private $town;
+    private $address;
 
     public function __construct($id,
                                 $username,
@@ -28,8 +26,7 @@ class User
                                 $civility,
                                 $birthday,
                                 $cellphone,
-                                $cp,
-                                $town)
+                                Address $address)
     {
         $this->id = $id;
         $this->username = $username;
@@ -41,9 +38,7 @@ class User
         $this->civility = $civility;
         $this->birthday = $birthday;
         $this->cellphone = $cellphone;
-
-        $this->cp = $cp;
-        $this->town = $town;
+        $this->address = $address;
     }
 
     public function getId()
@@ -146,23 +141,30 @@ class User
         $this->cellphone = $cellphone;
     }
 
-    public function getCp()
+    public function getAddress()
     {
-        return $this->cp;
+        return $this->address;
     }
 
-    public function setCp($cp)
+    public function setAddress($address)
     {
-        $this->cp = $cp;
-    }    
-
-    public function getTown()
-    {
-        return $this->town;
+        $this->address = $address;
     }
 
-    public function setTown($town)
+    function jsonSerialize()
     {
-        $this->town = $town;
+        return array(
+            'id' => $this->id,
+            'username' => $this->username,
+            'email' => $this->email,
+            'lastName' => $this->lastName,
+            'firstName' => $this->firstName,
+            'active' => $this->active,
+            'password' => $this->password,
+            'civility' => $this->civility,
+            'birthday' => $this->birthday,
+            'cellphone' => $this->cellphone,
+            'address' => $this->address
+        );
     }
 }

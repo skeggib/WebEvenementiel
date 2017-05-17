@@ -7,7 +7,7 @@ require_once __DIR__ . "/../src/autoloader.php";
 use WebEvents\Database\MyDatabase;
 use WebEvents\Configuration;
 use WebEvents\QueryParser;
-use WebEvents\Response;
+use WebEvents\Responses\Response;
 use WebEvents\Sender;
 use WebEvents\Database\DAOFactory;
 use WebEvents\Exceptions\InvalidParameterException;
@@ -17,6 +17,7 @@ $sender = new Sender();
 // Error codes :
 define("MISSING_PARAM", 1);
 define("INVALID_PARAM", 2);
+define("NOT_CONNECTED", 3);
 
 try
 {

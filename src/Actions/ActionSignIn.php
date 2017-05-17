@@ -3,7 +3,7 @@
 namespace WebEvents\Actions;
 
 use WebEvents\Database\IDAOUser;
-use WebEvents\Response;
+use WebEvents\Responses\Response;
 
 /**
  * Sign-in an user

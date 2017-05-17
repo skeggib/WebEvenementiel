@@ -2,6 +2,8 @@
 
 namespace WebEvents;
 
+use WebEvents\Responses\Response;
+
 /**
  * Sends a Response to the front-end using HTTP protocol.
  */

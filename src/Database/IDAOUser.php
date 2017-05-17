@@ -21,6 +21,13 @@ interface IDAOUser {
      */
     public function getConnected();
 
+    /**
+     * Gets an user from the database
+     * @param $id The id if the user
+     * @return User The user or false if not found
+     */
+    public function get($id);
+
 	/**
 	 * Add a new user in the database
 	 *
