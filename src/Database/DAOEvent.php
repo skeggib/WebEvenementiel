@@ -27,12 +27,12 @@ class DAOEvent implements IDAOEvent
 
     public function get($eventId)
     {
-        if (!isset($id))
+        if (!isset($eventId))
             return false;
-        if (!is_numeric($id))
+        if (!is_numeric($eventId))
             return false;
 
-        $results = $this->database->query("SELECT * FROM evenement WHERE id_evenement = " . $id);
+        $results = $this->database->query("SELECT * FROM evenement WHERE id_evenement = " . $eventId);
 
         if ($results->rowCount() < 1)
             return false;
@@ -48,7 +48,7 @@ class DAOEvent implements IDAOEvent
         if (!$address)
             return false;
 
-        $user = $this->daoUser->get($row['id_utilisateur']);
+        $user = $this->daoUser->get($row['id_organisateur']);
         if (!$user)
             return false;
 

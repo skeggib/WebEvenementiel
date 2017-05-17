@@ -95,7 +95,7 @@ class QueryParser
 
             case 'getevent':
                 if (!isset($post['id']))
-                    throw new InvalidParameterException("The event ID is not set");
+                    throw new InvalidParameterException("id", "The event ID is not set");
                 
                 $this->action = new ActionGetEvent($daoFactory->getEventDAO(), $post['id']);
                 break;
