@@ -5,7 +5,7 @@ namespace WebEvents\Validation;
 /**
  * Validates a Date
  */
-class ValidatorCP extends Validator
+class ValidatorCityCode extends Validator
 {
     public function __construct()
     {

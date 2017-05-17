@@ -1,0 +1,2 @@
+const ERROR_MISSING_PARAM = 1;
+const ERROR_INVALID_PARAM = 2;

@@ -10,8 +10,9 @@ function ajax_request(cmd, data, successCallback, errorCallback) {
         data: fulldata,
         dataType: 'html',
         error: function (jqXHR, exception) {
-            if (errorCallback != undefined)
-                errorCallback(jqXHR, exception);
+            /*if (errorCallback != undefined)
+                errorCallback(jqXHR, exception);*/
+            $('body').html(JSON.stringify(jqXHR) + '<br><br>' + exception); // TODO safe behaviour for release
         },
         success: function(data) {
             try {
@@ -20,7 +21,7 @@ function ajax_request(cmd, data, successCallback, errorCallback) {
                     successCallback(json);
 			}
 			catch (e) {
-            	$('body').html(e.message + '<br><br>' + e.stack + '<br><br>' + data);
+            	$('body').html(e.message + '<br><br>' + e.stack + '<br><br>' + data); // TODO safe behaviour for release
 			}
         }
     });
@@ -115,14 +116,14 @@ function ajax_createevent(
 		'createevent',
 		{
             name: name,
-            startdate: startdate,
-			enddate: enddate,
-			starttime: starttime,
-			endtime: endtime,
-			streetnumber: streetnumber,
-			streetname: streetname,
-			citycode: citycode,
-			cityname: cityname,
+            beginDate: startdate,
+			endDate: enddate,
+			beginTime: starttime,
+			endTime: endtime,
+			streetNumber: streetnumber,
+			streetName: streetname,
+			cityCode: citycode,
+			cityName: cityname,
 			description: description
 		},
 		successCallback,

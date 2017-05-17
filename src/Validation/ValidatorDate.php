@@ -19,13 +19,10 @@ class ValidatorDate extends Validator
             $month = $date[5].$date[6];
             $year = $date[0].$date[1].$date[2].$date[3];
 
-            printf("YEAR $year MONTH $month DAY $day\n");
-
             if($day >= 0 && $day <= 31
                 && $month >= 0 && $month <= 12
                 && $year >= 0)
             {
-                print_r("OK");
                 return true;
             }
         }

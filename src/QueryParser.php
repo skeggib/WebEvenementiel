@@ -125,14 +125,14 @@ class QueryParser
                     $daoFactory->getUserDAO(),
                     $daoFactory->getAddressDAO(),
                     $post['name'],
-                    $post['startdate'],
-                    $post['enddate'],
-                    $post['starttime'],
-                    $post['endtime'],
-                    $post['streetnumber'],
-                    $post['streetname'],
-                    $post['citycode'],
-                    $post['cityname'],
+                    $post['beginDate'],
+                    $post['endDate'],
+                    $post['beginTime'],
+                    $post['endTime'],
+                    $post['streetNumber'],
+                    $post['streetName'],
+                    $post['cityCode'],
+                    $post['cityName'],
                     $post['description']
                 );
                 break;

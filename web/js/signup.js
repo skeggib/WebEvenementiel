@@ -1,4 +1,4 @@
-function showMissingInput(parameterName) {
+function showInvalidInputSignUp(parameterName) {
 	switch (parameterName) {
 		case 'login':
 			$('#signup_login').addClass('inputError');
@@ -44,11 +44,11 @@ function signup() {
 
             if (!json.success) {
                 switch (json.errorCode) {
-                    case 1:
-                        showMissingInput(json.parameterName);
+                    case ERROR_MISSING_PARAM:
+                        showInvalidInputSignUp(json.parameterName);
                         break;
-                    case 2:
-                        showMissingInput(json.parameterName);
+                    case ERROR_INVALID_PARAM:
+                        showInvalidInputSignUp(json.parameterName);
                         break;
                 }
             }
