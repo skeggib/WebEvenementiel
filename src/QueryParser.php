@@ -90,7 +90,7 @@ class QueryParser
                 break;
 
             case 'listevents':
-                $this->action = new ActionListEvents();
+                $this->action = new ActionListEvents($daoFactory->getEventDAO(), $daoFactory->getUserDAO());
                 break;
 
             case 'getevent':
