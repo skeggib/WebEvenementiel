@@ -20,7 +20,7 @@ class ActionGetEvent extends Action
 		$event = $this->dao->get($this->id);
 
 		if (!$event)
-			return new Response(array(), true); // TODO:skeggib Error code
+			return new Response(array(), true);
 
         return new ResponseEvent($event);
 	}

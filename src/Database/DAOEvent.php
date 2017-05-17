@@ -32,7 +32,7 @@ class DAOEvent implements IDAOEvent
         if (!is_numeric($id))
             return false;
 
-        $results = $this->database->query("SELECT * FROM evenement WHERE id_lieu = " . $id);
+        $results = $this->database->query("SELECT * FROM evenement WHERE id_evenement = " . $id);
 
         if ($results->rowCount() < 1)
             return false;
@@ -68,15 +68,55 @@ class DAOEvent implements IDAOEvent
         return $event;
     }
 
-    public function getListEvents($id)
+    public function getListEvents($userId)
     {
-        // TODO: Implement getListEvents() method.
+        if (!isset($userId))
+            return false;
+        if (!is_numeric($userId))
+            return false;
+
+        $user = $this->daoUser->get($userId);
+        if (!$user)
+            return false;
+
+        $results = $this->database->query("SELECT * FROM evenement WHERE id_organisateur = " . $userId);
+
+        if ($results->rowCount() < 1)
+            return false;
+
+        $list = array();
+        while ($row = $results->fetch())
+        {
+            $address = $this->daoAddress->get($row['id_lieu']);
+            if (!$address)
+                return false;
+
+            $begin = $row['date_debut_evenement'];
+            $beginArray = explode(" ", $begin);
+            $end = $row['date_fin_evenement'];
+            $endArray = explode(" ", $begin);
+
+            $event = new Event(
+                $row['id_evenement'],
+                $row['nom_evenement'],
+                $beginArray[0],
+                $endArray[0],
+                $beginArray[1],
+                $endArray[1],
+                $address,
+                $row['commentaire_evenement'],
+                $row['actif_evenement'],
+                $user
+            );
+
+            array_push($list, $event);
+        }
+
+        return $list;
     }
 
     public function add(Event $event)
     {
-        // TODO Validate event
-
         $queryResult = $this->database->query(
             "INSERT INTO evenement(" .
             "nom_evenement, " .
