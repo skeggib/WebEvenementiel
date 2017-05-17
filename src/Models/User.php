@@ -2,7 +2,7 @@
 
 namespace WebEvents\Models;
 
-class User
+class User implements \JsonSerializable
 {
     private $id;
     private $username;
@@ -149,5 +149,22 @@ class User
     public function setAddress($address)
     {
         $this->address = $address;
+    }
+
+    function jsonSerialize()
+    {
+        return array(
+            'id' => $this->id,
+            'username' => $this->username,
+            'email' => $this->email,
+            'lastName' => $this->lastName,
+            'firstName' => $this->firstName,
+            'active' => $this->active,
+            'password' => $this->password,
+            'civility' => $this->civility,
+            'birthday' => $this->birthday,
+            'cellphone' => $this->cellphone,
+            'address' => $this->address
+        );
     }
 }

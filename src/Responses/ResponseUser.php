@@ -15,19 +15,7 @@ class ResponseUser extends Response
     public function __construct(User $user)
     {
         $array = array(
-            'id' => $user->getId(),
-            'username' => $user->getUsername(),
-            'email' => $user->getEmail(),
-            'firstName' => $user->getFirstName(),
-            'lastName' => $user->getLastName(),
-            'active' => $user->getActive(),
-            'civility' => $user->getCivility(),
-            'cellphone' => $user->getCellphone(),
-            'address' => array(
-                'id' => $user->getAddress()->getId(),
-                'cityCode' => $user->getAddress()->getCp(),
-                'cityName' => $user->getAddress()->getVille()
-            )
+            'user' => $user
         );
 
         parent::__construct($array);

@@ -11,16 +11,7 @@ class ResponseEvent extends Response
     {
         parent::__construct(
             array(
-                'id'=>$event->getId(),
-                'name'=>$event->getName(),
-                'beginDate'=>$event->getBeginDate(),
-                'endDate'=>$event->getEndDate(),
-                'beginTime'=>$event->getBeginTime(),
-                'endTime'=>$event->getEndTime(),
-                'active'=>$event->getActive(),
-                'description'=>$event->getDescription(),
-                'addressId'=>$event->getAddress()->getId(),
-                'organizerId'=>$event->getOrganizer()->getId()
+                'event' => $event
             )
         );
     }

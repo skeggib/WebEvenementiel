@@ -30,10 +30,10 @@ class DAOAddress implements IDAOAddress
             "nom_ville_lieu, " .
             "cp_lieu) " .
             "VALUES(" .
-            "'" . $address->getNum() . "', " .
-            "'" . $address->getRue() . "', " .
-            "'" . $address->getVille() . "', " .
-            $address->getCp() . ");"
+            "'" . $address->getStreetNumber() . "', " .
+            "'" . $address->getStreetName() . "', " .
+            "'" . $address->getCityName() . "', " .
+            $address->getCityCode() . ");"
         );
 
         $address->setId($this->database->insertId());

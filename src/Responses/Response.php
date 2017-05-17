@@ -38,6 +38,6 @@ class Response
      */
     public function getJSON()
     {
-        return json_encode($this->getArray(), JSON_FORCE_OBJECT);
+        return json_encode($this->getArray());
     }
 }

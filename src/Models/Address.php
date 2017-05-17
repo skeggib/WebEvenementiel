@@ -2,25 +2,25 @@
 
 namespace WebEvents\Models;
 
-class Address
+class Address implements \JsonSerializable
 {
-    private     $id;
-    private     $num;
-    private     $rue;
-    private     $ville;
-    private     $cp;
+    private $id;
+    private $streetNumber;
+    private $streetName;
+    private $cityName;
+    private $cityCode;
 
     public function __construct($id,
-                                $num,
-                                $rue,
-                                $ville,
-                                $cp)
+                                $streetNumber,
+                                $streetName,
+                                $cityName,
+                                $cityCode)
     {
         $this->id = $id;
-        $this->num = $num;
-        $this->rue = $rue;
-        $this->ville = $ville;
-        $this->cp = $cp; 
+        $this->streetNumber = $streetNumber;
+        $this->streetName = $streetName;
+        $this->cityName = $cityName;
+        $this->cityCode = $cityCode;
     }
 
     public function getId()
@@ -33,43 +33,54 @@ class Address
         $this->id = $id;
     }
 
-    public function getNum()
+    public function getStreetNumber()
     {
-        return $this->num;
+        return $this->streetNumber;
     }
 
-    public function setNum($num)
+    public function setStreetNumber($streetNumber)
     {
-        $this->num = $num;
+        $this->streetNumber = $streetNumber;
     }
 
-    public function getRue()
+    public function getStreetName()
     {
-        return $this->rue;
+        return $this->streetName;
     }
 
-    public function setRue($rue)
+    public function setStreetName($streetName)
     {
-        $this->$rue = rue;
+        $this->$streetName = rue;
     }
 
-    public function getVille()
+    public function getCityName()
     {
-        return $this->ville;
+        return $this->cityName;
     }
 
-    public function setVille($ville)
+    public function setCityName($cityName)
     {
-        $this->$ville = ville;
+        $this->$cityName = ville;
     }
 
-    public function getCp()
+    public function getCityCode()
     {
-        return $this->cp;
+        return $this->cityCode;
     }
 
-    public function setCp($cp)
+    public function setCityCode($cityCode)
     {
-        $this->cp = $cp;
+        $this->cityCode = $cityCode;
+    }
+
+    function jsonSerialize()
+    {
+        return array(
+            'id' => $this->id,
+            'streetNumber' => $this->streetNumber,
+            'streetName' => $this->streetName,
+            'cityName' => $this->cityName,
+            'cityCode' => $this->cityCode
+        );
     }
 }
