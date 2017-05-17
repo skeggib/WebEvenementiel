@@ -157,6 +157,16 @@ function ajax_getevent(id,successCallback, errorCallback) {
     );
 }
 
+function ajax_listevents(successCallback, errorCallback) {
+	
+    ajax_request(
+        'listevents',
+        {},
+        successCallback,
+        errorCallback
+    );
+}
+
 /**
  * Disconnect the user by an AJAX request
  *

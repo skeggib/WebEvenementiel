@@ -5,7 +5,7 @@ namespace WebEvents\Actions;
 use WebEvents\Database\IDAOEvent;
 use WebEvents\Database\IDAOUser;
 use WebEvents\Responses\Response;
-use WebEvents\Reponses\ResponseEventsList;
+use WebEvents\Responses\ResponseEventsList;
 
 class ActionListEvents extends Action
 {
