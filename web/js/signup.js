@@ -1,4 +1,4 @@
-function showMissingInput(parameterName) {
+function showInvalidInputSignUp(parameterName) {
 	switch (parameterName) {
 		case 'login':
 			$('#signup_login').addClass('inputError');
@@ -9,10 +9,10 @@ function showMissingInput(parameterName) {
 		case 'password':
 			$('#signup_password').addClass('inputError');
 			break;
-		case 'firstname':
+		case 'firstName':
 			$('#signup_firstname').addClass('inputError');
 			break;
-		case 'lastname':
+		case 'lastName':
 			$('#signup_lastname').addClass('inputError');
 			break;
 		case 'civility':
@@ -24,10 +24,10 @@ function showMissingInput(parameterName) {
 		case 'cellphone':
 			$('#signup_cellphone').addClass('inputError');
 			break;
-		case 'citycode':
+		case 'cityCode':
 			$('#signup_citycode').addClass('inputError');
 			break;
-		case 'cityname':
+		case 'cityName':
 			$('#signup_cityname').addClass('inputError');
 			break;
 	}
@@ -37,18 +37,18 @@ function signup() {
     ajax_signup(
         $('#signup_login').val(),		$('#signup_email').val(),		$('#signup_password').val(),
         $('#signup_firstname').val(),	$('#signup_lastname').val(),	$('#signup_civility').val(),
-        $('#signup_birthdate').val(),	$('#signup_cellphone').val(),	$('#signup_citycode').val(),
+        $('#signup_birthday').val(),	$('#signup_cellphone').val(),	$('#signup_citycode').val(),
         $('#signup_cityname').val(),
         function(json) {
             $('input').removeClass('inputError');
 
             if (!json.success) {
                 switch (json.errorCode) {
-                    case 1:
-                        showMissingInput(json.parameterName);
+                    case ERROR_MISSING_PARAM:
+                        showInvalidInputSignUp(json.parameterName);
                         break;
-                    case 2:
-                        showMissingInput(json.parameterName);
+                    case ERROR_INVALID_PARAM:
+                        showInvalidInputSignUp(json.parameterName);
                         break;
                 }
             }

@@ -1,42 +1,51 @@
 <?php
 
-namespace WebEvent\Models;
+namespace WebEvents\Models;
 
-class Event
+class Event implements \JsonSerializable
 {
-    private     $id;            //int
-    private     $name;          //String
-    private     $beginDate;     //DateTime
-    private     $endDate;       //DateTime
-    private     $actif;         //Bool
-    private     $comment;       //String
-
-    private     $address;       //Address
-
-    private     $organizer;     //User
+    private $id;
+    private $name;
+    private $beginDate;
+    private $endDate;
+    private $beginTime;
+    private $endTime;
+    private $active;
+    private $description;
+    private $address;
+    private $organizer;
 
     public function __construct($id,
                                 $name,
                                 $beginDate,
                                 $endDate,
-                                $actif,
-                                $comment,
-                                $address,
-                                $organizer)
+                                $beginTime,
+                                $endTime,
+                                Address $address,
+                                $description,
+                                $active,
+                                User $organizer)
     {
         $this->id = $id;
         $this->name = $name;
         $this->beginDate = $beginDate;
         $this->endDate = $endDate;
-        $this->actif = $actif;
-        $this->comment = $comment;
+        $this->beginTime = $beginTime;
+        $this->endTime = $endTime;
         $this->address = $address;
+        $this->description = $description;
+        $this->active = $active;
         $this->organizer = $organizer;
     }
 
     public function getId()
     {
         return $this->id;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
     public function getName()
@@ -69,24 +78,44 @@ class Event
         $this->endDate = $endDate;
     }
 
-    public function getActif()
+    public function getBeginTime()
     {
-        return $this->actif;
+        return $this->beginTime;
     }
 
-    public function setActif($actif)
+    public function setBeginTime($beginTime)
     {
-        $this->actif = $actif;
+        $this->beginTime = $beginTime;
     }
 
-    public function getComment()
+    public function getEndTime()
     {
-        return $this->comment;
+        return $this->endTime;
     }
 
-    public function setComment($comment)
+    public function setEndTime($endTime)
     {
-        $this->comment = $comment; 
+        $this->endTime = $endTime;
+    }
+
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    public function setActive($active)
+    {
+        $this->active = $active;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
     }
 
     public function getAddress()
@@ -107,5 +136,21 @@ class Event
     public function setOrganizer($organizer)
     {
         $this->organizer = $organizer;
+    }
+
+    function jsonSerialize()
+    {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'beginDate' => $this->beginDate,
+            'endDate' => $this->endDate,
+            'beginTime' => $this->beginTime,
+            'endTime' => $this->endTime,
+            'active' => $this->active,
+            'description' => $this->description,
+            'address' => $this->address,
+            'organizer' => $this->organizer
+        );
     }
 }

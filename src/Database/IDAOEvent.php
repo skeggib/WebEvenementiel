@@ -1,6 +1,8 @@
 <?php
 
-namespace WebEvent\Database;
+namespace WebEvents\Database;
+
+use WebEvents\Models\Event;
 
 interface IDAOEvent
 {
@@ -12,24 +14,23 @@ interface IDAOEvent
      * @return      Event           if success
      * @return      bool    false   if failed
      */ 
-    public function getEvent($eventId);
+    public function get($eventId);
 
     /**
      * Get all events of an user
      *
-     * @param       int     $id     The user's Id
+     * @param       int     $userId     The user's Id
      *      
      * @return      array           contain events
      * @return      bool    false   if any event found
      */
-    public function getListEvents($id);
+    public function getListEvents($userId);
 
     /**
-     * Create an event
+     * Adds an event to the database
      *
-     * @param       Event   $event  The event to create
-     *
-     * @return      bool    True if the event was created successfully
+     * @param       Event   $event  The event to add
+     * @return      Event   The event with the ID updated
      */
-    public function createEvent(Event $event);
+    public function add(Event $event);
 }

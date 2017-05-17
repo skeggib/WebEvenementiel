@@ -26,7 +26,7 @@ function updateConnectedUser() {
     ajax_getuser(
         function(json) {
             if (json.success)
-                updateHeaderConnectedUser(true, json.username);
+                updateHeaderConnectedUser(true, json.user.username);
             else
                 updateHeaderConnectedUser(false);
         },

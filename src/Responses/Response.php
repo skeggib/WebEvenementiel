@@ -1,6 +1,6 @@
 <?php
 
-namespace WebEvents;
+namespace WebEvents\Responses;
 
 /**
  * Contains the result of an action (in an associative array) and formats it to JSON.
@@ -17,7 +17,7 @@ class Response
      * @param $error Set to true if there was an error.
      * @param int $errorCode Error code if there was an error.
      */
-    public function __construct($array, $error, $errorCode = -1)
+    public function __construct($array = array(), $error = false, $errorCode = -1)
     {
         $this->array = $array;
         $this->error = $error;
@@ -34,10 +34,10 @@ class Response
 
     /**
      * Formats the response to JSON.
-     * @return string The response formatted to JSON.
+     * @return string The formatted response.
      */
     public function getJSON()
     {
-        return json_encode($this->getArray(), JSON_FORCE_OBJECT);
+        return json_encode($this->getArray());
     }
 }

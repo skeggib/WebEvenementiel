@@ -9,9 +9,9 @@ class DAOFactory {
 
     private $database;
 
-	private $daoSignIn = null;
-	private $daoSignUp = null;
-    private $daoEvent  = null;
+	private $daoUser = null;
+    private $daoEvent = null;
+    private $daoAddress = null;
 
 	public function __construct(IDatabase $database)
     {
@@ -25,12 +25,12 @@ class DAOFactory {
 	 */
 	public function getUserDAO()
     {
-		if (is_null($this->daoSignUp))
+		if (is_null($this->daoUser))
 		{
-			$this->daoSignUp = new DAOUser($this->database);
+			$this->daoUser = new DAOUser($this->database, $this->getAddressDAO());
 		}
 
-		return $this->daoSignUp;
+		return $this->daoUser;
 	}
     /**
      * Gets the event DAO
@@ -41,7 +41,19 @@ class DAOFactory {
     {
         if(is_null($this->daoEvent))
         {
-            // TODO create a new DAOEvent
+            $this->daoEvent = new DAOEvent($this->database, $this->getUserDAO(), $this->getAddressDAO());
         }
+
+        return $this->daoEvent;
+    }
+
+    public function getAddressDAO()
+    {
+        if (is_null($this->daoAddress))
+        {
+            $this->daoAddress = new DAOAddress($this->database);
+        }
+
+        return $this->daoAddress;
     }
 }

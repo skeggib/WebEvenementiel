@@ -1,1 +1,0 @@
-- Ajouter la base meta pour que les caractères UTF-8 soit affichés (dans tout les fichiers HTML)

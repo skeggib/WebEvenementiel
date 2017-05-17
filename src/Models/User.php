@@ -2,7 +2,7 @@
 
 namespace WebEvents\Models;
 
-class User
+class User implements \JsonSerializable
 {
     private $id;
     private $username;
@@ -14,9 +14,7 @@ class User
     private $civility;
     private $birthday;
     private $cellphone;
-
-    private $cp;
-    private $town;
+    private $address;
 
     public function __construct($id,
                                 $username,
@@ -28,8 +26,7 @@ class User
                                 $civility,
                                 $birthday,
                                 $cellphone,
-                                $cp,
-                                $town)
+                                Address $address)
     {
         $this->id = $id;
         $this->username = $username;
@@ -41,100 +38,133 @@ class User
         $this->civility = $civility;
         $this->birthday = $birthday;
         $this->cellphone = $cellphone;
-
-    $this->cp = $cp;
-    $this->town = $town;
+        $this->address = $address;
     }
+
     public function getId()
     {
         return $this->id;
     }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
     public function getUsername()
     {
         return $this->username;
     }
+
     public function setUsername($username)
     {
         $this->username = $username;
     }
+
     public function getEmail()
     {
         return $this->email;
     }
+
     public function setEmail($email)
     {
         $this->email = $email;
     }
+
     public function getLastName()
     {
         return $this->lastName;
     }
+
     public function setLastName($lastName)
     {
         $this->lastName = $lastName;
     }
+
     public function getFirstName()
     {
         return $this->firstName;
     }
+
     public function setFirstName($firstName)
     {
         $this->firstName = $firstName;
     }
+
     public function getActive()
     {
         return $this->active;
     }
+
     public function setActive($active)
     {
         $this->active = $active;
     }
+
     public function getPassword()
     {
         return $this->password;
     }
+
     public function setPassword($password)
     {
         $this->password = $password;
     }
+
     public function getCivility()
     {
         return $this->civility;
     }
+
     public function setCivility($civility)
     {
         $this->civility = $civility;
     }
+
     public function getBirthday()
     {
         return $this->birthday;
     }
+
     public function setBirthday($birthday)
     {
         $this->birthday = $birthday;
     }
+
     public function getCellphone()
     {
         return $this->cellphone;
     }
+
     public function setCellphone($cellphone)
     {
         $this->cellphone = $cellphone;
     }
-    public function getCp()
+
+    public function getAddress()
     {
-        return $this->cp;
+        return $this->address;
     }
-    public function setCp($cp)
+
+    public function setAddress($address)
     {
-        $this->cp = $cp;
-    }    
-    public function getTown()
-    {
-        return $this->town;
+        $this->address = $address;
     }
-    public function setTown($town)
+
+    function jsonSerialize()
     {
-        $this->town = $town;
+        return array(
+            'id' => $this->id,
+            'username' => $this->username,
+            'email' => $this->email,
+            'lastName' => $this->lastName,
+            'firstName' => $this->firstName,
+            'active' => $this->active,
+            'password' => $this->password,
+            'civility' => $this->civility,
+            'birthday' => $this->birthday,
+            'cellphone' => $this->cellphone,
+            'address' => $this->address
+        );
     }
 }

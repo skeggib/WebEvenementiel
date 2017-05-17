@@ -10,8 +10,9 @@ function ajax_request(cmd, data, successCallback, errorCallback) {
         data: fulldata,
         dataType: 'html',
         error: function (jqXHR, exception) {
-            if (errorCallback != undefined)
-                errorCallback(jqXHR, exception);
+            /*if (errorCallback != undefined)
+                errorCallback(jqXHR, exception);*/
+            $('body').html(JSON.stringify(jqXHR) + '<br><br>' + exception); // TODO safe behaviour for release
         },
         success: function(data) {
             try {
@@ -20,7 +21,7 @@ function ajax_request(cmd, data, successCallback, errorCallback) {
                     successCallback(json);
 			}
 			catch (e) {
-            	$('body').html(e.message + '<br><br>' + e.stack + '<br><br>' + data);
+            	$('body').html(e.message + '<br><br>' + e.stack + '<br><br>' + data); // TODO safe behaviour for release
 			}
         }
     });
@@ -62,13 +63,13 @@ function ajax_signup(
             login: login,
             email: email,
             password: password,
-            firstname: firstname,
-            lastname: lastname,
+            firstName: firstname,
+            lastName: lastname,
             civility: civility,
             birthday: birthday,
             cellphone: cellphone,
-            citycode: cityCode,
-            cityname: cityName
+            cityCode: cityCode,
+            cityName: cityName
 		},
 		successCallback,
 		errorCallback
@@ -96,6 +97,51 @@ function ajax_signin(login, password, successCallback, errorCallback) {
     );
 }
 
+function ajax_createevent(
+	name,
+	startdate,
+	enddate,
+	starttime,
+	endtime,
+	streetnumber,
+	streetname,
+	cityCode,
+	citName,
+	description,
+	successCallback,
+	errorCallback
+	) {
+
+	ajax_request(
+		'createevent',
+		{
+            name: name,
+<<<<<<< HEAD
+            startdate: startdate,
+			enddate: enddate,
+			starttime: starttime,
+			endtime: endtime,
+			streetnumber: streetnumber,
+			streetname: streetname,
+			citycode: cityCode,
+			cityname: cityName,
+=======
+            beginDate: startdate,
+			endDate: enddate,
+			beginTime: starttime,
+			endTime: endtime,
+			streetNumber: streetnumber,
+			streetName: streetname,
+			cityCode: citycode,
+			cityName: cityname,
+>>>>>>> 93a661740b1493cc6bb0887176e3575d5e62ef70
+			description: description
+		},
+		successCallback,
+		errorCallback
+	);
+}
+
 /**
  * Gets the connected user informations by an AJAX request
  *
@@ -107,6 +153,16 @@ function ajax_getuser(successCallback, errorCallback) {
     ajax_request(
         'getuser',
         { },
+        successCallback,
+        errorCallback
+    );
+}
+
+function ajax_getevent(id,successCallback, errorCallback) {
+	
+    ajax_request(
+        'getevent',
+        {id: id},
         successCallback,
         errorCallback
     );
