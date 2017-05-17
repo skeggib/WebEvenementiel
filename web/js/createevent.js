@@ -54,7 +54,8 @@ function createevent() {
             }
 
             else {
-            	navOpenMyProfile();
+				navOpenMyEvents();
+				updateevenement(json.event.id);
 			}
         },
         function (jqXHR, exception) {
