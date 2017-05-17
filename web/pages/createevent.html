@@ -1,8 +1,68 @@
-<h1>Créer un évenement</h1>
+<h1>Créer Un Evenement</h1>
 
 <form onsubmit="createevent(); return false;">
 
     <div class="form_row">
+<<<<<<< HEAD
+        <label for="createevent_name" class="labelevent">Nom de l'événement :  </label>
+        <input type="text" id="createevent_name" >
+    </div></br>
+
+    <div class="form_row">
+        <label for="createevent_startdate" >Date de début :</label>
+        <input type="text" id="createevent_startdate" placeholder="Format : jj/mm/aaaa">
+    </div></br>
+
+    <div class="form_row">
+        <label for="createevent_starttime" >Heure de début :</label>
+        <input type="text" id="createevent_starttime" placeholder="Format : hh:mm">
+    </div></br>
+
+    <div class="form_row">
+        <label for="createevent_enddate" >Date de fin :</label>
+        <input type="text" id="createevent_enddate" placeholder="Format : jj/mm/aaaa">
+    </div></br>
+
+    <div class="form_row">
+        <label for="createevent_endtime" >Heure de fin :</label>
+        <input type="text" id="createevent_endtime" placeholder="Format : hh:mm">
+    </div></br>
+
+    <div class="form_row">
+        <label for="createevent_roadnumber">Numéro de rue :</label>
+        <input type="text" id="createevent_roadnumber" >
+    </div></br>
+
+    <div class="form_row">
+        <label for="createevent_roadname">Nom de rue :</label>
+        <input type="text" id="createevent_roadname" >
+    </div></br>
+
+    <div class="form_row">
+        <label for="createevent_citycode">Code postal :</label>
+        <input type="text" id="createevent_citycode" >
+    </div></br>
+
+    <div class="form_row">
+        <label for="createevent_cityname">Ville :</label>
+        <input type="text" id="createevent_cityname">
+    </div></br>
+
+    <div class="form_row">
+        <label for="createevent_type">Type de l'événement :</label>
+        <select id="createevent_type">
+            <option value="bapteme">Baptême</option>
+            <option value="barmitsva">Barmitsva</option>
+            <option value="anniversaire">Anniversaire</option>
+            <option value="soiree">Soirée</option>
+            <option value="communion">Communion</option>
+            <option value="mariage">Mariage</option>
+            <option value="fiancailles">Fiancailles</option>
+            <option value="naissance">Naissance</option>
+            <option value="autre">Autre</option>
+        </select>
+    </div></br>
+=======
         <label for="createevent_name">Nom de l'événement :  </label>
         <input type="text" id="createevent_name" value="Barbeuc" >
     </div>
@@ -46,12 +106,22 @@
         <label for="createevent_cityname">Ville :</label>
         <input type="text" id="createevent_cityname" value="Amiens">
     </div>
+>>>>>>> e9b2234b0b7f320145abdf3610abfe0ed387f533
 
     <div class="form_row">
         <label for="createevent_description">Description :</label>
         <textarea id="createevent_description" rows="4" placeholder="Entrez une description"/>
-    </div>
+    </div></br>
 
+<<<<<<< HEAD
+    <div class="Bouton">
+        <input type="submit" value="Créer" class="BoutonCreate bouton" />
+        <input type="reset" value="Réinitialiser" class="BoutonReset bouton" />
+    </div> 
+
+</form>
+<p><br/><p/>
+=======
     <div class="form_row">
         <input class="createevent_button" type="reset" value="Réinitialiser"/>
     </div>
@@ -60,3 +130,4 @@
         <input class="createevent_button" id="createevent_button_confirm" type="submit" value="Créer"/>
     </div>
 </form>
+>>>>>>> e9b2234b0b7f320145abdf3610abfe0ed387f533

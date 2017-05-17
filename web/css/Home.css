@@ -16,6 +16,7 @@ p.presentation
 	border-radius: 5px;
 	padding : 1em;
 	margin : 1em;
+	background-color: white;
 }
 
 #event
@@ -32,8 +33,5 @@ p.presentation
 
 #HomeContainer
 {
-	/*background-image: url("../evenement.jpg");*/
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-attachment: fixed;
+	
 }

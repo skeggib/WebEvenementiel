@@ -1,0 +1,33 @@
+p.coordonnees
+{
+	font-family: courier;
+	font-size: 1em;
+	text-align: center;
+	border: 3px solid black;
+	box-shadow: 6px 6px 15px black;
+	border-radius: 5px;
+	padding : 1em;
+	margin : 1em;
+	background-color: white;
+}
+
+a.Plan
+{
+	font-family: courier;
+	font-size: 1.5em;
+	margin-left: 3em;
+}
+
+.plan
+{
+	text-align: center;
+	margin: auto;
+	
+}
+.imgplan
+{
+	border: 3px solid black;
+	box-shadow: 6px 6px 15px black;
+	border-radius: 5px;
+	width: 80%;
+}
