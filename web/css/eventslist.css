@@ -1,5 +1,6 @@
 #eventtable {
     border: none;
+    margin: auto;
 }
 
 #eventtable .event {
@@ -8,4 +9,19 @@
 
 #eventtable .event:hover {
     background-color: rgba(0, 0, 0, 0.3);
+}
+
+#boxevent
+{
+    font-family: courier;
+    font-size: 1em;
+    text-align: center;
+    border: 3px solid black;
+    box-shadow: 6px 6px 15px black;
+    border-radius: 5px;
+    padding : 1em;
+    margin : 1em;
+    background-color: white;
+
+    text-align: center;
 }
