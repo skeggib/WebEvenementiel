@@ -55,7 +55,6 @@ function createevent() {
 
             else {
 				navOpenMyEvents();
-				updateevenement(json.event.id);
 			}
         },
         function (jqXHR, exception) {

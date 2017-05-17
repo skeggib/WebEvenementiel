@@ -1,12 +1,11 @@
 function updatelistevents(){
     ajax_listevents(
         function(json) {
-			alert(JSON.stringify(json));
             if (json.success){
 				var i;
 				var events = json['eventsList'];
 				for( i=0;i<events.length;i++){
-					$('#eventtable').append('<tr><td>'+events[i]['name']+'</td></tr>');
+					$('#eventtable').append('<tr><td><a href="" onclick="evenementouvert('+events[i]['id']+')">'+events[i]['name']+'</a></td></tr>');
 				}
 			}				
         },
@@ -17,6 +16,14 @@ function updatelistevents(){
     );
 
 }
+
+function evenementouvert(id){
+	navOpenEvenement();
+	updateevenement(id);
+
+}
+
+
 
 
 

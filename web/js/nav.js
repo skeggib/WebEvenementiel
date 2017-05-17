@@ -58,6 +58,13 @@ function navOpenSignIn() {
     updateConnectedUser();
 }
 
+function navOpenEvenement() {
+    navRemoveActiveClass();
+    $('#contents').load('pages/event.html');
+    navPushState("Evenement", "event");
+    updateConnectedUser();
+}
+
 function navOpenSignUpSuccess() {
     navRemoveActiveClass();
     $('#contents').load('pages/signup_success.html');
@@ -101,6 +108,9 @@ function changePageFromURL() {
             break;
         case 'signin':
             navOpenSignIn($('#nav_signin'));
+            break;
+		case 'event':
+            navOpenEvenement($('#nav_event'));
             break;
         default:
             navOpenHome($('#nav_home'));

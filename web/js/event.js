@@ -1,6 +1,7 @@
 function updateevenement(id){
     ajax_getevent(id,
         function(json) {
+			alert("abc");
             if (json.success){
 				$('#event_name').text(json.event.name);
 				$('#event_startdate').text(json.event.beginDate);
@@ -22,7 +23,6 @@ function updateevenement(id){
     );
 
 }
-
 
 
 
