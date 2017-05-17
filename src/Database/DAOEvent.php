@@ -42,7 +42,7 @@ class DAOEvent implements IDAOEvent
         $begin = $row['date_debut_evenement'];
         $beginArray = explode(" ", $begin);
         $end = $row['date_fin_evenement'];
-        $endArray = explode(" ", $begin);
+        $endArray = explode(" ", $end);
 
         $address = $this->daoAddress->get($row['id_lieu']);
         if (!$address)
@@ -94,7 +94,7 @@ class DAOEvent implements IDAOEvent
             $begin = $row['date_debut_evenement'];
             $beginArray = explode(" ", $begin);
             $end = $row['date_fin_evenement'];
-            $endArray = explode(" ", $begin);
+            $endArray = explode(" ", $end);
 
             $event = new Event(
                 $row['id_evenement'],
