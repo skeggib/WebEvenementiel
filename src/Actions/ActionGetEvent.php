@@ -17,9 +17,11 @@ class ActionGetEvent extends Action
 	}
 
 	public function execute() {
-		$event = $this->dao->getEvent($this->id);
-		if ($event == false)
+		$event = $this->dao->get($this->id);
+
+		if (!$event)
 			return new Response(array(), true); // TODO:skeggib Error code
-		return new ResponseEvent($event);
+
+        return new ResponseEvent($event);
 	}
 }

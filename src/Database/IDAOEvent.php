@@ -14,7 +14,7 @@ interface IDAOEvent
      * @return      Event           if success
      * @return      bool    false   if failed
      */ 
-    public function getEvent($eventId);
+    public function get($eventId);
 
     /**
      * Get all events of an user

@@ -32,9 +32,46 @@ class DAOUser implements IDAOUser
             return false;
 
         $results = $this->database->query(
-            "SELECT * FROM utilisateur JOIN lieu " .
-            "ON utilisateur.id_lieu = lieu.id_lieu " .
+            "SELECT * FROM utilisateur " .
             "WHERE pseudo_utilisateur = '" . $_SESSION['login'] . "';"
+        );
+
+        if ($results->rowCount() < 1)
+            return false;
+
+        $row = $results->fetch();
+
+        $address = $this->daoAddress->get($row['id_lieu']);
+        if (!$address)
+            return false;
+
+        $user = new User(
+            $row['id_utilisateur'],
+            $row['pseudo_utilisateur'],
+            $row['email_utilisateur'],
+            $row['prenom_utilisateur'],
+            $row['nom_utilisateur'],
+            $row['actif_utilisateur'],
+            null,
+            $row['civilite_utilisateur'],
+            null, // TODO:skeggib
+            $row['mobile_utilisateur'],
+            $address
+        );
+
+        return $user;
+    }
+
+    public function get($id)
+    {
+        if (!isset($id))
+            return false;
+        if (!is_numeric($id))
+            return false;
+
+        $results = $this->database->query(
+            "SELECT * FROM utilisateur " .
+            "WHERE id_utilisateur = " . $id . ";"
         );
 
         if ($results->rowCount() < 1)
