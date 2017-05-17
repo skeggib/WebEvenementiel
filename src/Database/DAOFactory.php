@@ -41,7 +41,7 @@ class DAOFactory {
     {
         if(is_null($this->daoEvent))
         {
-            $this->daoEvent = new DAOEvent($this->database);
+            $this->daoEvent = new DAOEvent($this->database, $this->getUserDAO(), $this->getAddressDAO());
         }
 
         return $this->daoEvent;

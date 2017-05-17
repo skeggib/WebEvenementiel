@@ -98,7 +98,7 @@ class ActionCreateEvent extends Action
         if (is_null($this->cityName) || trim($this->cityName) == "")
             throw new InvalidParameterException("cityName");
 
-        if (is_null($this->description) || trim($this->description) == "")
+        if (is_null($this->description))
             throw new InvalidParameterException("description");
 
         // Connected user

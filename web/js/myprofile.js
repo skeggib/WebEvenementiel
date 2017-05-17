@@ -1,7 +1,6 @@
 function updateinformation(){
     ajax_getuser(
         function(json) {
-        	alert(JSON.stringify(json))
             if (json.success){
 				$('#myprofile_username').text(json.user.username);
 
