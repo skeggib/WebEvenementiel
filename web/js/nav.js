@@ -24,7 +24,7 @@ function navOpenMyEvents() {
     $('#contents').load('pages/myevents.html');
     navPushState("Mes évenements", "myevents");
     updateConnectedUser();
-	updatelistevents();
+	LoadEventsList();
 }
 
 function navOpenMyProfile() {

@@ -1,7 +1,6 @@
-function updateevenement(id){
+function updateevenement(id) {
     ajax_getevent(id,
         function(json) {
-			alert("abc");
             if (json.success){
 				$('#event_name').text(json.event.name);
 				$('#event_startdate').text(json.event.beginDate);
@@ -17,7 +16,6 @@ function updateevenement(id){
 			}				
         },
         function(jqXHR, exception) {
-            updateInfoConnect(false);
             alert("Erreur de communication avec le serveur : " + exception);
         }
     );

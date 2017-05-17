@@ -28,7 +28,7 @@ class ActionListEvents extends Action
 		$list = $this->daoEvent->getListEvents($user->getId());
 
 		if (!$list)
-			return new Response(aray(), true);
+			return new Response(array(), true);
 
         return new ResponseEventsList($list);
 	}

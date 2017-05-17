@@ -1,0 +1,11 @@
+#eventtable {
+    border: none;
+}
+
+#eventtable .event {
+    cursor: pointer;
+}
+
+#eventtable .event:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
