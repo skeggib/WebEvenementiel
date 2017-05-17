@@ -14,7 +14,7 @@ class ActionListEvents extends Action
 
 	public function __construct(IDAOEvent $daoEvent, IDAOUser $daoUser)
 	{
-		$this->daoUser = $daoEvent;
+		$this->daoEvent = $daoEvent;
 		$this->daoUser = $daoUser;
 	}
 
@@ -25,7 +25,7 @@ class ActionListEvents extends Action
 	    if (!$user)
 	        return new Response(array(), true, NOT_CONNECTED);
 
-		$list = $this->daoUser->getListEvents($user->getId());
+		$list = $this->daoEvent->getListEvents($user->getId());
 
 		if (!$list)
 			return new Response(aray(), true);

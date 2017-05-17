@@ -67,7 +67,7 @@ function askYN($Prompt = '', $Default = null) {
 
     }
 
-function readline($prompt = null){
+function myReadLine($prompt = null){
     if($prompt){
         echo $prompt;
     }
@@ -81,12 +81,12 @@ function readValue($text, $oldValue) {
 	{
 		do
 		{
-			$newValue = readline($text . " (not set): ");
+			$newValue = myReadLine($text . " (not set): ");
 		} while ($newValue === "");
 	}
 	else
 	{
-		$newValue = readline($text . " (current: '" . $oldValue . "') : ");
+		$newValue = myReadLine($text . " (current: '" . $oldValue . "') : ");
 		if ($newValue === "")
 			$newValue = $oldValue;
 	}
