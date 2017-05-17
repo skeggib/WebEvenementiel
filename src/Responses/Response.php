@@ -1,6 +1,6 @@
 <?php
 
-namespace WebEvents;
+namespace WebEvents\Responses;
 
 /**
  * Contains the result of an action (in an associative array) and formats it to JSON.
@@ -34,7 +34,7 @@ class Response
 
     /**
      * Formats the response to JSON.
-     * @return string The response formatted to JSON.
+     * @return string The formatted response.
      */
     public function getJSON()
     {

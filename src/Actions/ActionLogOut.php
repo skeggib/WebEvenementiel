@@ -2,7 +2,7 @@
 
 namespace WebEvents\Actions;
 
-use WebEvents\Response;
+use WebEvents\Responses\Response;
 
 class ActionLogOut extends Action
 {

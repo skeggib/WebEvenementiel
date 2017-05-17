@@ -27,7 +27,7 @@ class DAOFactory {
     {
 		if (is_null($this->daoUser))
 		{
-			$this->daoUser = new DAOUser($this->database);
+			$this->daoUser = new DAOUser($this->database, $this->getAddressDAO());
 		}
 
 		return $this->daoUser;

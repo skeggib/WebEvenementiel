@@ -8,8 +8,8 @@ use WebEvents\Models\Event;
 use WebEvents\Database\IDAOEvent;
 use WebEvents\Database\IDAOUser;
 use WebEvents\Database\IDAOAddress;
-use WebEvents\Response;
-use WebEvents\Responses\EventResponse;
+use WebEvents\Responses\Response;
+use WebEvents\Responses\ResponseEvent;
 use WebEvents\Validation\ValidatorDate;
 use WebEvents\Validation\ValidatorTime;
 
@@ -106,7 +106,7 @@ class ActionCreateEvent extends Action
 	    $connectedUser = $this->daoUser->getConnected();
 
 	    if (!$connectedUser)
-	        return new Response(array(), true);
+	        return new Response(array(), true, NOT_CONNECTED);
 
 	    // Address
 
@@ -119,7 +119,7 @@ class ActionCreateEvent extends Action
         ));
 
 	    if (!$address)
-	        return new Response(array(), true);
+	        throw new \Exception("Cannot add address");
 
 	    // Event
 
@@ -139,8 +139,8 @@ class ActionCreateEvent extends Action
 	    $event = $this->daoEvent->add($event);
 
 		if (!$event)
-			return new Response(array(), true); // TODO:skeggib Error code
+            throw new \Exception("Cannot add event");
 
-        return new EventResponse($event);
+        return new ResponseEvent($event);
 	}
 }

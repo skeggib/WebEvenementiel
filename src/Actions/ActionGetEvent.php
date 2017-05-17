@@ -3,8 +3,8 @@
 namespace WebEvents\Actions;
 
 use WebEvents\Database\IDAOEvent;
-use WebEvents\Response;
-use WebEvents\Responses\EventResponse;
+use WebEvents\Responses\Response;
+use WebEvents\Responses\ResponseEvent;
 
 class ActionGetEvent extends Action
 {
@@ -20,6 +20,6 @@ class ActionGetEvent extends Action
 		$event = $this->dao->getEvent($this->id);
 		if ($event == false)
 			return new Response(array(), true); // TODO:skeggib Error code
-		return new EventResponse($event);
+		return new ResponseEvent($event);
 	}
 }

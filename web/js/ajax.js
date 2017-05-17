@@ -63,13 +63,13 @@ function ajax_signup(
             login: login,
             email: email,
             password: password,
-            firstname: firstname,
-            lastname: lastname,
+            firstName: firstname,
+            lastName: lastname,
             civility: civility,
             birthday: birthday,
             cellphone: cellphone,
-            citycode: cityCode,
-            cityname: cityName
+            cityCode: cityCode,
+            cityName: cityName
 		},
 		successCallback,
 		errorCallback

@@ -9,8 +9,11 @@ function updateinformation(){
 				else{
 					$('#myprofile_civility').text('Mme.')
 				}
-				$('#myprofile_firstname').text(json.firstname);
-				$('#myprofile_lastname').text(json.lastname);
+				$('#myprofile_firstname').text(json.firstName);
+				$('#myprofile_lastname').text(json.lastName);
+                $('#myprofile_cp').text(json.address.cityCode);
+                $('#myprofile_town').text(json.address.cityName);
+                $('#myprofile_cellphone').text(json.cellphone);
 				$('#myprofile_email').text(json.email);
 				
 			}				

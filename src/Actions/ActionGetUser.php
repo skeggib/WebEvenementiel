@@ -2,7 +2,8 @@
 
 namespace WebEvents\Actions;
 
-use WebEvents\Response;
+use WebEvents\Responses\Response;
+use WebEvents\Responses\ResponseUser;
 use WebEvents\Database\IDAOUser;
 
 /**
@@ -23,17 +24,6 @@ class ActionGetUser extends Action
 		if (!$user)
             return new Response(array(), true);
 
-		$array = array(
-		    'id' => $user->getId(),
-		    'username' => $user->getUsername(),
-            'email' => $user->getEmail(),
-            'firstname' => $user->getFirstName(),
-            'lastname' => $user->getLastName(),
-            'active' => $user->getActive(),
-            'civility' => $user->getCivility(),
-            'cellphone' => $user->getCellphone()
-        );
-
-		return new Response($array, false);
+		return new ResponseUser($user);
 	}
 }

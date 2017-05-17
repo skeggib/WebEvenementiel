@@ -3,9 +3,9 @@
 namespace WebEvents\Responses;
 
 use WebEvents\Models\Event;
-use WebEvents\Response;
+use WebEvents\Responses\Response;
 
-class EventResponse extends Response
+class ResponseEvent extends Response
 {
     public function __construct(Event $event)
     {

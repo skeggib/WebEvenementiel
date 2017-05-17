@@ -3,7 +3,7 @@
 namespace WebEvents\Actions;
 
 use WebEvents\Database\IDAOEvent;
-use WebEvents\Response;
+use WebEvents\Responses\Response;
 use WebEvents\Responses\EventsListReponse;
 
 /**

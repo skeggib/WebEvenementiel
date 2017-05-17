@@ -51,32 +51,34 @@ class QueryParser
                     throw new InvalidParameterException("email", "The email is not set");
                 if (!isset($post['password']))
                     throw new InvalidParameterException("password", "The password is not set");
-                if (!isset($post['firstname']))
-                    throw new InvalidParameterException("firstname", "The first name is not set");
-                if (!isset($post['lastname']))
-                    throw new InvalidParameterException("lastname", "The last name is not set");
+                if (!isset($post['firstName']))
+                    throw new InvalidParameterException("firstName", "The first name is not set");
+                if (!isset($post['lastName']))
+                    throw new InvalidParameterException("lastName", "The last name is not set");
                 if (!isset($post['civility']))
                     throw new InvalidParameterException("civility", "The civility is not set");
                 if (!isset($post['birthday']))
                     throw new InvalidParameterException("birthday", "The birthday is not set");
                 if (!isset($post['cellphone']))
                     throw new InvalidParameterException("cellphone", "The cellphone is not set");
-                if (!isset($post['citycode']))
-                    throw new InvalidParameterException("citycode", "The city code is not set");
-                if (!isset($post['cityname']))
-                    throw new InvalidParameterException("cityname", "The city name is not set");
+                if (!isset($post['cityCode']))
+                    throw new InvalidParameterException("cityCode", "The city code is not set");
+                if (!isset($post['cityName']))
+                    throw new InvalidParameterException("cityName", "The city name is not set");
                 
-                $this->action = new ActionSignUp($daoFactory->getUserDAO(),
+                $this->action = new ActionSignUp(
+                    $daoFactory->getUserDAO(),
+                    $daoFactory->getAddressDAO(),
                     $post['login'],
                     $post['email'],
                     $post['password'],
-                    $post['firstname'],
-                    $post['lastname'],
+                    $post['firstName'],
+                    $post['lastName'],
                     $post['civility'],
                     $post['birthday'],
                     $post['cellphone'],
-                    $post['citycode'],
-                    $post['cityname']);
+                    $post['cityCode'],
+                    $post['cityName']);
                 break;
 
             case 'getuser':

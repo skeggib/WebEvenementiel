@@ -7,10 +7,12 @@ use WebEvents\Models\User;
 class DAOUser implements IDAOUser
 {
     private $database;
+    private $daoAddress;
 
-    public function __construct(IDatabase $database)
+    public function __construct(IDatabase $database, IDAOAddress $daoAddress)
     {
         $this->database = $database;
+        $this->daoAddress = $daoAddress;
     }
 
     public function check($login, $password)
@@ -40,6 +42,10 @@ class DAOUser implements IDAOUser
 
         $row = $results->fetch();
 
+        $address = $this->daoAddress->get($row['id_lieu']);
+        if (!$address)
+            return false;
+
         $user = new User(
             $row['id_utilisateur'],
             $row['pseudo_utilisateur'],
@@ -47,12 +53,11 @@ class DAOUser implements IDAOUser
             $row['prenom_utilisateur'],
             $row['nom_utilisateur'],
             $row['actif_utilisateur'],
-            null, // TODO:skeggib
+            null,
             $row['civilite_utilisateur'],
             null, // TODO:skeggib
             $row['mobile_utilisateur'],
-            $row['cp_lieu'],
-            $row['nom_ville_lieu']
+            $address
         );
 
         return $user;
@@ -85,10 +90,12 @@ class DAOUser implements IDAOUser
             "'" . $user->getLastName() . "', " .
             $user->getCivility() . ", " .
             "'" . $user->getCellphone() . "', " .
-            "1" . ", " .
+            $user->getAddress()->getId() . ", " .
             $activeStr . ");");
 
-        return true;
+        $user->setId($this->database->insertId());
+
+        return $user;
     }
 
     public function exists($login) {

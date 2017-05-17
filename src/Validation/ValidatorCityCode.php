@@ -11,12 +11,11 @@ class ValidatorCityCode extends Validator
     {
     }
 
-    public function validate($cp)
+    public function validate($data)
     {
-        if(preg_match("#^[0-9]{5}$#", $cp))
-        {
-            return true;
-        }
-        return false;
+        if(!preg_match("#^[0-9]{5}$#", $data))
+            return false;
+
+        return true;
     }
 }
