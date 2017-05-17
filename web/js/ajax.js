@@ -116,16 +116,6 @@ function ajax_createevent(
 		'createevent',
 		{
             name: name,
-<<<<<<< HEAD
-            startdate: startdate,
-			enddate: enddate,
-			starttime: starttime,
-			endtime: endtime,
-			streetnumber: streetnumber,
-			streetname: streetname,
-			citycode: cityCode,
-			cityname: cityName,
-=======
             beginDate: startdate,
 			endDate: enddate,
 			beginTime: starttime,
@@ -134,7 +124,6 @@ function ajax_createevent(
 			streetName: streetname,
 			cityCode: citycode,
 			cityName: cityname,
->>>>>>> 93a661740b1493cc6bb0887176e3575d5e62ef70
 			description: description
 		},
 		successCallback,
