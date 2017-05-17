@@ -14,20 +14,68 @@
 #contents > form textarea {
 	display: table-cell;
 	vertical-align: middle;
-	margin: 5px;
+	margin-right: 5px;
+	margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 #contents > form label {
 	text-align: right;
+	font-family: courier;
+	font-size: 1em;
 }
 
-#contents > form input {
-	border: solid 1px #666666;
-	padding: 4px 10px;
+#contents > form input:not(.bouton),
+#contents > form select,
+#contents > form textarea
+ {
+	display: block;
+    width: 90%;
+    height: 1em;
+    padding: 5px;
+    border-radius: 6px;
+    border: 1px solid black;
+}
+#contents > form textarea
+{
+	height: 4em;
+}
+#contents > form select
+{
+	height: 2em;
+	width: 98%;
 }
 
 #contents > form input.inputError {
 	border: solid 2px red;
 	padding: 3px 9px;
 	background-color: #FFAAAA;
+}
+
+.bouton
+{
+	width:110px;
+	cursor:pointer;
+	text-transform:capitalize;
+	border-radius:12px 0 12px 0;
+	background: #DCDCDC;
+	border:none;
+	color:black;
+	font:bold 12px Verdana;
+	text-align: center;
+	padding:6px 0 6px 0;
+	box-shadow:2px 2px 3px #999;
+}
+
+.Bouton
+{
+	text-align: center;
+}
+.BoutonCreate
+{
+	margin-right: 25px;
+}
+.BoutonReset
+{
+	margin-left: 25px;
 }
