@@ -1,4 +1,7 @@
-function updateevenement(id){
+/**
+ *  executes the AJAX request
+ */
+function updateevenement(id) {
     ajax_getevent(id,
         function(json) {
             if (json.success){
@@ -16,13 +19,11 @@ function updateevenement(id){
 			}				
         },
         function(jqXHR, exception) {
-            updateInfoConnect(false);
             alert("Erreur de communication avec le serveur : " + exception);
         }
     );
 
 }
-
 
 
 

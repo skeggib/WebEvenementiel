@@ -24,7 +24,7 @@ function navOpenMyEvents() {
     $('#contents').load('pages/myevents.html');
     navPushState("Mes évenements", "myevents");
     updateConnectedUser();
-	updatelistevents();
+	LoadEventsList();
 }
 
 function navOpenMyProfile() {
@@ -55,6 +55,13 @@ function navOpenSignIn() {
     navRemoveActiveClass();
     $('#contents').load('pages/signin.html');
     navPushState("Connexion", "signin");
+    updateConnectedUser();
+}
+
+function navOpenEvenement() {
+    navRemoveActiveClass();
+    $('#contents').load('pages/event.html');
+    navPushState("Evenement", "event");
     updateConnectedUser();
 }
 
@@ -101,6 +108,9 @@ function changePageFromURL() {
             break;
         case 'signin':
             navOpenSignIn($('#nav_signin'));
+            break;
+		case 'event':
+            navOpenEvenement($('#nav_event'));
             break;
         default:
             navOpenHome($('#nav_home'));

@@ -1,12 +1,43 @@
-function updatelistevents(){
+/**
+ *  executes the AJAX request to recover the information about the user's evenements and modify the listevent page
+ */
+function LoadEventsList(){
     ajax_listevents(
         function(json) {
-			alert(JSON.stringify(json));
             if (json.success){
-				var i;
-				var events = json['eventsList'];
-				for( i=0;i<events.length;i++){
-					$('#eventtable').append('<tr><td>'+events[i]['name']+'</td></tr>');
+
+                $('#eventtable').append(
+                	'<tr>' +
+					'<th>Nom</th>' +
+                    '<th>Date de début</th>' +
+                    '<th>Heure de début</th>' +
+                    '<th>Date de fin</th>' +
+                    '<th>Heure de fin</th>' +
+                    '<th>Adresse</th>' +
+					'</tr>');
+
+				var events = json.eventsList;
+				for(var i = 0; i < events.length; i++) {
+
+					var event = events[i];
+
+                    var fullAddress =
+                        event.address.streetNumber + " " +
+                        event.address.streetName + ", " +
+                        event.address.cityCode + " " +
+                        event.address.cityName;
+
+					$('#eventtable').append(
+						'<tr>' +
+						'<td class="event" onclick="OpenEvent(' + event.id + ')">' + event.name + '</td>' +
+						'<td>' + event.beginDate + '</td>' +
+                        '<td>' + event.beginTime + '</td>' +
+                        '<td>' + event.endDate + '</td>' +
+                        '<td>' + event.endTime + '</td>' +
+                        '<td><a href="https://www.google.fr/maps/place/' + encodeURIComponent(fullAddress) + '" target="_blank">' +
+							fullAddress +
+                        '</a></td>' +
+						'</tr>');
 				}
 			}				
         },
@@ -17,6 +48,16 @@ function updatelistevents(){
     );
 
 }
+
+/**
+ * Signin from the signin page, executes the AJAX request and calls the function navOpenEvenement and updateevenement
+ */
+function OpenEvent(id){
+	navOpenEvenement();
+	updateevenement(id);
+}
+
+
 
 
 
