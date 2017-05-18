@@ -1,3 +1,6 @@
+/**
+ *  Tests the parameters
+ */
 function showInvalidInputCreateEvent(parameterName) {
 	switch (parameterName) {
 		case 'name':
@@ -33,6 +36,9 @@ function showInvalidInputCreateEvent(parameterName) {
 	}
 }
 
+/**
+ * Recover the informations from the createevent page, executes the AJAX request and calls navOpenMyEvents
+ */
 function createevent() {
     ajax_createevent(
         $('#createevent_name').val(),		$('#createevent_startdate').val(),	$('#createevent_enddate').val(),

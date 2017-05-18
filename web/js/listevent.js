@@ -1,3 +1,6 @@
+/**
+ *  executes the AJAX request to recover the information about the user's evenements and modify the listevent page
+ */
 function LoadEventsList(){
     ajax_listevents(
         function(json) {
@@ -46,6 +49,9 @@ function LoadEventsList(){
 
 }
 
+/**
+ * Signin from the signin page, executes the AJAX request and calls the function navOpenEvenement and updateevenement
+ */
 function OpenEvent(id){
 	navOpenEvenement();
 	updateevenement(id);

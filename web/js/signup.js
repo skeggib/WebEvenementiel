@@ -1,3 +1,6 @@
+/**
+ *  Tests the parameters
+ */
 function showInvalidInputSignUp(parameterName) {
 	switch (parameterName) {
 		case 'login':
@@ -33,6 +36,9 @@ function showInvalidInputSignUp(parameterName) {
 	}
 }
 
+/**
+ * Signup from the signup page, executes the AJAX request and calls ajax_signin and navOpenSignUpSuccess 
+ */
 function signup() {
     ajax_signup(
         $('#signup_login').val(),		$('#signup_email').val(),		$('#signup_password').val(),
