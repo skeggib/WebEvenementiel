@@ -10,6 +10,12 @@ h1
 	font-size: 1em;
 }
 
+#MonCompteFieldset span
+{
+	font-size: 1em;
+	font-weight: bold;
+}
+
 #MonCompteFieldset
 {
 	border: 3px solid black;
