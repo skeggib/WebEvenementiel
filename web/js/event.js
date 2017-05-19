@@ -1,3 +1,6 @@
+/**
+ *  executes the AJAX request
+ */
 function updateevenement(id) {
     ajax_getevent(id,
         function(json) {

@@ -1,26 +1,25 @@
-<h1>L'événement</h1>
+<h1>Votre Evénement : <span id="event_name"></span></h1><!-- appelle à la base de données pour afficher le nom de l'événement -->
 <form method="" enctype="multipart/form-data" action="">
 
-    <fieldset>
-        <label for="username">Nom : </label><span id="event_name"></span>
+<!-- table permettant récapitulatif des données de l'événement -->
+    <table id="MonCompteFieldset">
+        <tr><td><label for="event_startdate">Date début Evenement :</label></td><td><span id="event_startdate"></span></td></tr>
 
-        <label for="cp">Date début Evenement </label><span id="event_startdate"></span>
+        <tr><td><label for="event_starttime">Heure de début : </label></td><td><span id="event_starttime"></span></td></tr>
 
-        <label for="event_starttime">Heure de début : </label><span id="event_starttime"></span>
+        <tr><td><label for="event_enddate">Date fin Evenement : </label></td><td><span id="event_enddate"></span></td></tr>
 
-        <label for="event_enddate">Date fin Evenement : </label><span id="event_enddate"></span>
+        <tr><td><label for="event_endtime">Heure de fin : </label></td><td><span id="event_endtime"></span></td></tr>
 
-        <label for="event_endtime">Heure de fin : </label><span id="event_endtime"></span>
-		
-		<label for="event_cityname">Lieu de l'Evenement: </label><span id="event_cityname"></span>
-		
-		<label for="event_roadnumber">Numero de la Rue : </label><span id="event_roadnumber"></span>
-		
-		<label for="event_roadname">Rue : </label><span id="event_roadname"></span>
-		
-		<label for="event_citycode">Code Postal : </label><span id="event_citycode"></span>
-		
-		<label for="event_description">Description : </label><span id="event_description"></span>
-    </fieldset>
+        <tr><td><label for="event_cityname">Lieu de l'Evenement: </label></td><td><span id="event_cityname"></span></td></tr>
+
+        <tr><td><label for="event_roadnumber">Numero de la Rue : </label></td><td><span id="event_roadnumber"></span></td></tr>
+
+        <tr><td><label for="event_roadname">Rue : </label></td><td><span id="event_roadname"></span></td></tr>
+
+        <tr><td><label for="event_citycode">Code Postal : </label></td><td><span id="event_citycode"></span></td></tr>
+
+        <tr><td><label for="event_description">Description : </label></td><td><span id="event_description"></span></td></tr>
+    </table></br>
 
 </form>
