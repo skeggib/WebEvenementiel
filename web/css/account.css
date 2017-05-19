@@ -1,22 +1,22 @@
-h1
+h1/*mets tous les titres h1 du site en police courier de taille 2em*/
 {
 	font-family: courier;
 	font-size: 2em;
 }
 
-#MonCompteFieldset label
+#MonCompteFieldset label/*modifie les labels des tables avec pour id:MonCompteFieldset*/
 {
 	font-family: courier;
 	font-size: 1em;
 }
 
-#MonCompteFieldset span
+#MonCompteFieldset span/*modifie les spans des tables avec pour id:MonCompteFieldset*/
 {
 	font-size: 1em;
 	font-weight: bold;
 }
 
-#MonCompteFieldset
+#MonCompteFieldset/*modifie la bordure des tables avec pour id:MonCompteFieldset*/
 {
 	border: 3px solid black;
 	box-shadow: 6px 6px 15px black;
@@ -26,12 +26,12 @@ h1
 	padding: 1em;
 }
 
-#MonCompteFieldset td
+#MonCompteFieldset td/*modifie les cases des tables avec pour id : MonCompteFieldset*/
 {
 	height: 3em;
 }
 
-.donnees
+.donnees/*modifie les objets avec pour class : donnees*/
 {
 	float: right;
 	font-size: 1.5em;

@@ -21,7 +21,6 @@ p.presentation
 
 #event
 {
-
 	margin: 1em;
 }
 
@@ -29,9 +28,5 @@ p.presentation
 {
 	margin: 0.5em;
 	float:right;
-}
-
-#HomeContainer
-{
-	
+	width: 20em;
 }
